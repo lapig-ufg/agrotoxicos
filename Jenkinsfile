@@ -3,11 +3,11 @@
     load "$JENKINS_HOME/.envvars"
     def exists=fileExists "src/server/package-lock.json"
     def exists2=fileExists "src/client/package-lock.json"
-    def application_name= "plataform-base"
+    def application_name= "agrotoxicos"
 
         stage('Checkout') {
             git branch: 'develop',
-            url: 'https://github.com/lapig-ufg/plataform-base.git'
+            url: 'https://github.com/lapig-ufg/agrotoxicos.git'
         }
         stage('Validate') {
             sh 'git pull origin develop'
@@ -113,14 +113,14 @@
 
         stage('Deploy container on DEV') {
                 
-                        configFileProvider([configFile(fileId: "$File_Json_Id", targetLocation: 'container.json')]) {
+                        configFileProvider([configFile(fileId: "$File_Json_Id_Agrotoxico", targetLocation: 'container_agrotoxico.json')]) {
 
                             def url = "http://$SERVER_HOMOL/containers/$application_name?force=true"
                             def response = sh(script: "curl -v -X DELETE $url", returnStdout: true).trim()
                             echo response
 
                             url = "http://$SERVER_HOMOL/containers/create?name=$application_name"
-                            response = sh(script: "curl -v -X POST -H 'Content-Type: application/json' -d @container.json -s $url", returnStdout: true).trim()
+                            response = sh(script: "curl -v -X POST -H 'Content-Type: application/json' -d @container_agrotoxico.json -s $url", returnStdout: true).trim()
                             echo response
                         }
     
