@@ -3,6 +3,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
+    "allowJs": true,
+    "checkJs": false,
     "types": []
   },
   "files": [

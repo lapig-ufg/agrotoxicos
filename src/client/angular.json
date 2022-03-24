@@ -44,13 +44,25 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/app/@core/styles/styles.scss"
+              "src/app/@core/styles/styles.scss",
+              "src/assets/hotsite/css/animate.css",
+              "src/assets/hotsite/css/bootstrap.min.css",
+              "src/assets/hotsite/css/etlinefont.css",
+              "src/assets/hotsite/css/font-awesome.css",
+              "src/assets/hotsite/css/magnific-popup.css",
+              "src/assets/hotsite/css/style.css"
             ],
             "scripts": [
-              "src/assets/hotsite/js/jquery-3.3.1.min.js",
-              "src/assets/hotsite/js/owl.carousel.js",
+              "src/assets/hotsite/js/jquery-1.11.1.min.js",
+              "src/assets/hotsite/js/owl-carousel/owl.carousel.js",
+              "src/assets/hotsite/js/jquery.flexslider-min.js",
               "src/assets/hotsite/js/jquery.magnific-popup.min.js",
-              "src/assets/hotsite/js/scripts.js",
+              "src/assets/hotsite/js/easing.js",
+              "src/assets/hotsite/js/jquery.easypiechart.js",
+              "src/assets/hotsite/js/jquery.appear.js",
+              "src/assets/hotsite/js/jquery.parallax-1.1.3.js",
+              "src/assets/hotsite/js/jquery.mixitup.min.js",
+              "src/assets/hotsite/js/custom.js",
               "src/assets/hotsite/js/bootstrap.min.js"
             ],
             "serviceWorker": true,
