@@ -736,8 +736,8 @@ section {
 }
 
 #main-menu ul li.active > a, #main-menu ul li.active.has-child > a {
-	color: #FFF;
-	box-shadow: inset 0 -2px 0 #FFF;
+/*	color: #FFF;
+	box-shadow: inset 0 -2px 0 #FFF; */
 }
 
 .clear-toggle {

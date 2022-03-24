@@ -134,7 +134,6 @@
 
      $("#single-work-slider").owlCarousel({
  
-		navigation : false, // Show next and prev buttons
 		slideSpeed : 400,
 		pagination : false,
 		singleItem:true,
@@ -204,7 +203,7 @@
 	itemsTablet: [768, 1],
 	itemsMobile: [479, 1],
 	autoHeight: true,
-	navigation: false,
+	navigation: true,
     });
 
 
@@ -217,7 +216,7 @@
 	
 	items : 3, 
 	 pagination : true,
-	 navigation : false,
+	 navigation : true,
 	 navigationText: [
 	"<i class='fa fa-angle-left'></i>",
 	"<i class='fa fa-angle-right'></i>"
@@ -242,12 +241,11 @@
 
      $(".tab-carousel").owlCarousel({
  
-		navigation : false, // Show next and prev buttons
+		navigation : true, // Show next and prev buttons
 		slideSpeed : 400,
 		pagination : false,
 		singleItem:true,
 		autoPlay: true,
-		navigation : true,
 		 navigationText: [
       "<i class='fa fa-angle-left'></i>",
       "<i class='fa fa-angle-right'></i>"

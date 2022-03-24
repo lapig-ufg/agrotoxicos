@@ -44,13 +44,7 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/app/@core/styles/styles.scss",
-              "src/assets/hotsite/css/animate.css",
-              "src/assets/hotsite/css/bootstrap.min.css",
-              "src/assets/hotsite/css/etlinefont.css",
-              "src/assets/hotsite/css/font-awesome.css",
-              "src/assets/hotsite/css/magnific-popup.css",
-              "src/assets/hotsite/css/style.css"
+              "src/app/@core/styles/styles.scss"
             ],
             "scripts": [
               "src/assets/hotsite/js/jquery-1.11.1.min.js",
