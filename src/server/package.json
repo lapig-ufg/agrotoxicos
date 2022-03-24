@@ -64,7 +64,7 @@
         "zlib": "^1.0.5"
     },
     "scripts": {
-        "start": "NODE_ENV=dev always app-cluster.js",
+        "start": "NODE_ENV=dev nodemon app-cluster.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": "",

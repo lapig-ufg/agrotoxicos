@@ -52,8 +52,8 @@ abstract class RulerControl {
         draw.on('drawstart', drawEvent => {
             // set sketch
             this.sketch = drawEvent.feature;
-
-            listener = this.sketch.getGeometry().on('change', evt => {
+            // @ts-ignore
+          listener = this.sketch.getGeometry().on('change', evt => {
                 const geom: Geometry = evt.target;
                 const output: string = this.format(geom);
 
@@ -95,10 +95,13 @@ abstract class RulerControl {
             // unset tooltip so that a new one can be created
             // @ts-ignore
             this.measureTooltipElement = null;
+          // @ts-ignore
             this.sketch.overlay = this.measureTooltip;
+          // @ts-ignore
             this.sketch.ruler = true;
 
             // unset sketch
+          // @ts-ignore
             this.sketch = null;
 
             unByKey(listener);
