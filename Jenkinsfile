@@ -3,7 +3,7 @@
     load "$JENKINS_HOME/.envvars"
     def exists=fileExists "src/server/package-lock.json"
     def exists2=fileExists "src/client/package-lock.json"
-    def application_name= "agrotoxicos"
+    def application_name= "APP_AGROTOXICO"
 
         stage('Checkout') {
             git branch: 'develop',
