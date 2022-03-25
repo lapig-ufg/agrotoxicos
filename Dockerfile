@@ -1,4 +1,4 @@
-FROM registry.lapig.iesa.ufg.br/lapig-images-prod/app-base:latest
+FROM registry.lapig.iesa.ufg.br/lapig-images-homol/app-base:latest
 
 LABEL maintainer="Renato Gomes <renatogomessilverio@gmail.com>"
 
