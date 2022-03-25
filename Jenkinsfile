@@ -113,7 +113,7 @@
 
         stage('Deploy container on DEV') {
                 
-                        configFileProvider([configFile(fileId: "$File_Json_Id_Agrotoxico", targetLocation: 'container_agrotoxico.json')]) {
+                        configFileProvider([configFile(fileId: "$File_Json_Id_AGROTOXICO_HOMOL", targetLocation: 'container_agrotoxico.json')]) {
 
                             def url = "http://$SERVER_HOMOL/containers/$application_name?force=true"
                             def response = sh(script: "curl -v -X DELETE $url", returnStdout: true).trim()
