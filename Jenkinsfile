@@ -18,11 +18,11 @@
 		def scannerHome = tool 'sonarqube-scanner';
                     withSonarQubeEnv("sonarqube") {
                     sh "${tool("sonarqube-scanner")}/bin/sonar-scanner \
-                    -Dsonar.projectKey=$SonarKeyAgrotoxicos\
+                    -Dsonar.projectKey=agrotoxicos\
                     -Dsonar.sources=. \
                     -Dsonar.css.node=. \
                     -Dsonar.host.url=$SonarUrl \
-                    -Dsonar.login=$SonarLoginAgrotoxicos"
+                    -Dsonar.login=$SonarKeyProject"
                     }
         }
         stage('Build') {
