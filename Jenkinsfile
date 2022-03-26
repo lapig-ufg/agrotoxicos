@@ -3,14 +3,14 @@
     load "$JENKINS_HOME/.envvars"
     def exists=fileExists "src/server/package-lock.json"
     def exists2=fileExists "src/client/package-lock.json"
-    def application_name= "plataform-base"
+    def application_name= "app_agrotoxico"
 
         stage('Checkout') {
-            git branch: 'develop',
-            url: 'https://github.com/lapig-ufg/plataform-base.git'
+            git branch: 'main',
+            url: 'https://github.com/lapig-ufg/agrotoxicos.git'
         }
         stage('Validate') {
-            sh 'git pull origin develop'
+            sh 'git pull origin main'
 
         }
         stage('SonarQube analysis') {
@@ -18,7 +18,7 @@
 		def scannerHome = tool 'sonarqube-scanner';
                     withSonarQubeEnv("sonarqube") {
                     sh "${tool("sonarqube-scanner")}/bin/sonar-scanner \
-                    -Dsonar.projectKey=plataforma-base \
+                    -Dsonar.projectKey=agrotoxicos\
                     -Dsonar.sources=. \
                     -Dsonar.css.node=. \
                     -Dsonar.host.url=$SonarUrl \
@@ -86,7 +86,7 @@
                 }
         }
         stage('Building Image') {
-            dockerImage = docker.build registryhomol + "/$application_name:$BUILD_NUMBER"
+            dockerImage = docker.build egistryprod + "/$application_name:$BUILD_NUMBER"
         }
         stage('Push Image to Registry') {
             
@@ -98,36 +98,33 @@
                 
             }
         stage('Removing image Locally') {
-            sh "docker rmi $registryhomol/$application_name:$BUILD_NUMBER"
-            sh "docker rmi $registryhomol/$application_name:latest"
+            sh "docker rmi $egistryprod/$application_name:$BUILD_NUMBER"
+            sh "docker rmi $egistryprod/$application_name:latest"
         }
 
-        stage('Pull imagem on DEV') {
+        stage ('Pull imagem on Dev') {
+        sshagent(credentials : ['KEY_FULL']) {
+            sh "$SERVER_PROD_SSH 'docker pull $egistryprod/$application_name:latest'"
+                }
             
-                    def urlImage = "http://$SERVER_HOMOL/images/create?fromImage=$registryhomol/$application_name:latest";
-                    def response = httpRequest url:"${urlImage}", httpMode:'POST', acceptType: 'APPLICATION_JSON', validResponseCodes:"200"
-                    println("Status: " + response.status)
-                    def pretty_json = writeJSON( returnText: true, json: response.content)
-                    println pretty_json
-            } 
-
+        }
         stage('Deploy container on DEV') {
                 
-                        configFileProvider([configFile(fileId: "$File_Json_Id", targetLocation: 'container.json')]) {
+                        configFileProvider([configFile(fileId: "$File_Json_Id_AGROTOXICO_PROD", targetLocation: 'ontainer-agrotoxico-deploy-prod.json')]) {
 
-                            def url = "http://$SERVER_HOMOL/containers/$application_name?force=true"
+                            def url = "http://$SERVER_PROD/containers/$application_name?force=true"
                             def response = sh(script: "curl -v -X DELETE $url", returnStdout: true).trim()
                             echo response
 
-                            url = "http://$SERVER_HOMOL/containers/create?name=$application_name"
-                            response = sh(script: "curl -v -X POST -H 'Content-Type: application/json' -d @container.json -s $url", returnStdout: true).trim()
+                            url = "http://$SERVER_PROD/containers/create?name=$application_name"
+                            response = sh(script: "curl -v -X POST -H 'Content-Type: application/json' -d @ontainer-agrotoxico-deploy-prod.json  -s $url", returnStdout: true).trim()
                             echo response
                         }
     
             }            
         stage('Start container on DEV') {
 
-                        final String url = "http://$SERVER_HOMOL/containers/$application_name/start"
+                        final String url = "http://$SERVER_PROD/containers/$application_name/start"
                         final String response = sh(script: "curl -v -X POST -s $url", returnStdout: true).trim()
                         echo response                    
                     
