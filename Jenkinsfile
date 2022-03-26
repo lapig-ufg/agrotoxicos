@@ -102,25 +102,22 @@
             sh "docker rmi $registryhomol/$application_name:latest"
         }
 
-        stage('Pull imagem on DEV') {
+        stage ('Pull imagem on Dev') {
+        sshagent(credentials : ['KEY_FULL']) {
+            sh "$SERVER_HOMOL_SSH 'docker pull $registryhomol/$application_name:latest'"
+                }
             
-                    def urlImage = "http://$SERVER_HOMOL/images/create?fromImage=$registryhomol/$application_name:latest";
-                    def response = httpRequest url:"${urlImage}", httpMode:'POST', acceptType: 'APPLICATION_JSON', validResponseCodes:"200"
-                    println("Status: " + response.status)
-                    def pretty_json = writeJSON( returnText: true, json: response.content)
-                    println pretty_json
-            } 
-
+        }
         stage('Deploy container on DEV') {
                 
-                        configFileProvider([configFile(fileId: "$File_Json_Id_AGROTOXICO_HOMOL", targetLocation: 'container_agrotoxico.json')]) {
+                        configFileProvider([configFile(fileId: "$File_Json_Id_AGROTOXICO_HOMOL", targetLocation: 'container-agrotoxico-deploy-homol.json')]) {
 
                             def url = "http://$SERVER_HOMOL/containers/$application_name?force=true"
                             def response = sh(script: "curl -v -X DELETE $url", returnStdout: true).trim()
                             echo response
 
                             url = "http://$SERVER_HOMOL/containers/create?name=$application_name"
-                            response = sh(script: "curl -v -X POST -H 'Content-Type: application/json' -d @container_agrotoxico.json -s $url", returnStdout: true).trim()
+                            response = sh(script: "curl -v -X POST -H 'Content-Type: application/json' -d @container-agrotoxico-deploy-homol.json  -s $url", returnStdout: true).trim()
                             echo response
                         }
     
