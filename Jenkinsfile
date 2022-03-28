@@ -6,11 +6,11 @@
     def application_name= "app_agrotoxico"
 
         stage('Checkout') {
-            git branch: 'develop',
+            git branch: 'main',
             url: 'https://github.com/lapig-ufg/agrotoxicos.git'
         }
         stage('Validate') {
-            sh 'git pull origin develop'
+            sh 'git pull origin main'
 
         }
         stage('SonarQube analysis') {
@@ -86,7 +86,7 @@
                 }
         }
         stage('Building Image') {
-            dockerImage = docker.build registryhomol + "/$application_name:$BUILD_NUMBER"
+            dockerImage = docker.build registryprod + "/$application_name:$BUILD_NUMBER"
         }
         stage('Push Image to Registry') {
             
@@ -98,33 +98,33 @@
                 
             }
         stage('Removing image Locally') {
-            sh "docker rmi $registryhomol/$application_name:$BUILD_NUMBER"
-            sh "docker rmi $registryhomol/$application_name:latest"
+            sh "docker rmi $registryprod/$application_name:$BUILD_NUMBER"
+            sh "docker rmi $registryprod/$application_name:latest"
         }
 
-        stage ('Pull imagem on Dev') {
+        stage ('Pull imagem on PROD') {
         sshagent(credentials : ['KEY_FULL']) {
-            sh "$SERVER_HOMOL_SSH 'docker pull $registryhomol/$application_name:latest'"
+            sh "$SERVER_PROD_SSH 'docker pull $registryprod/$application_name:latest'"
                 }
             
         }
-        stage('Deploy container on DEV') {
+        stage('Deploy container on PROD') {
                 
-                        configFileProvider([configFile(fileId: "$File_Json_Id_AGROTOXICO_HOMOL", targetLocation: 'container-agrotoxico-deploy-homol.json')]) {
+                        configFileProvider([configFile(fileId: "$File_Json_Id_AGROTOXICO_PROD", targetLocation: 'container-agrotoxico-deploy-prod.json')]) {
 
-                            def url = "http://$SERVER_HOMOL/containers/$application_name?force=true"
+                            def url = "http://$SERVER_PROD/containers/$application_name?force=true"
                             def response = sh(script: "curl -v -X DELETE $url", returnStdout: true).trim()
                             echo response
 
-                            url = "http://$SERVER_HOMOL/containers/create?name=$application_name"
-                            response = sh(script: "curl -v -X POST -H 'Content-Type: application/json' -d @container-agrotoxico-deploy-homol.json  -s $url", returnStdout: true).trim()
+                            url = "http://$SERVER_PROD/containers/create?name=$application_name"
+                            response = sh(script: "curl -v -X POST -H 'Content-Type: application/json' -d @container-agrotoxico-deploy-prod.json  -s $url", returnStdout: true).trim()
                             echo response
                         }
     
             }            
-        stage('Start container on DEV') {
+        stage('Start container on PROD') {
 
-                        final String url = "http://$SERVER_HOMOL/containers/$application_name/start"
+                        final String url = "http://$SERVER_PROD/containers/$application_name/start"
                         final String response = sh(script: "curl -v -X POST -s $url", returnStdout: true).trim()
                         echo response                    
                     
