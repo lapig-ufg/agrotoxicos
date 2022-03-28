@@ -86,7 +86,7 @@
                 }
         }
         stage('Building Image') {
-            dockerImage = docker.build registryhomol + "/$application_name:$BUILD_NUMBER"
+            dockerImage = docker.build registryhomol + "/$application_name:$BUILD_NUMBER" --no-cache
         }
         stage('Push Image to Registry') {
             
