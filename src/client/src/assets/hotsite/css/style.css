@@ -2927,6 +2927,16 @@ footer {
  .thumnail-img {
 	width:50%;
 }
+.slider-overlay {
+	/* background:url("../images/pattern.png") repeat rgba(0, 0, 0, .4); */
+	background:rgba(0, 0, 0, .0);
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	z-index: 100;
+	width: 100%;
+}
 
 }
 
@@ -2940,6 +2950,7 @@ footer {
 
 
  @media (max-width:480px) {
+
 
 .big {
     font-size: 35px;
