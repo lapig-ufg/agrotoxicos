@@ -1,8 +1,8 @@
-FROM registry.lapig.iesa.ufg.br/lapig-images-homol/app_agrotoxico:base
+FROM registry.lapig.iesa.ufg.br/lapig-images-prod/app_agrotoxico:base
 
 # Clone app and npm install on server
 ENV URL_TO_APPLICATION_GITHUB="https://github.com/lapig-ufg/agrotoxicos.git"
-ENV BRANCH="develop"
+ENV BRANCH="main"
 
 LABEL maintainer="Renato Gomes <renatogomessilverio@gmail.com>"
 
