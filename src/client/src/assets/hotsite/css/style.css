@@ -1,6 +1,6 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic);
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900);
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic);
 
 html, body {
 	height: 100%;
@@ -23,21 +23,21 @@ html, body {
     font-size: 0;
     transition: .25s ease;
   }
-  
+
   .read-more-state:checked ~ .read-more-wrap .read-more-target {
     opacity: 1;
     font-size: inherit;
     max-height: 999em;
   }
-  
+
   .read-more-state ~ .read-more-trigger:before {
     content: 'Leia mais';
   }
-  
+
   .read-more-state:checked ~ .read-more-trigger:before {
     content: 'Ocultar';
   }
-  
+
   .read-more-trigger {
     cursor: pointer;
     z-index:900;
@@ -424,7 +424,7 @@ section {
 }
 
 .margin-bottom-10 {
-	
+
 	margin-bottom: 10px !important;
 }
 
@@ -2907,7 +2907,7 @@ footer {
 }
 
  @media (min-width: 992px) and (max-width: 1024px) {
-	 
+
 .navbar-right {
 	float:none !important;
 }
@@ -2915,7 +2915,7 @@ footer {
 }
 
  @media (min-width: 768px) and (max-width: 992px) {
-	 
+
  .thumnail-img {
 	width:50%;
 }
@@ -2923,7 +2923,7 @@ footer {
 }
 
  @media (max-width: 768px) {
-	 
+
  .thumnail-img {
 	width:50%;
 }
@@ -2931,7 +2931,7 @@ footer {
 }
 
  @media (max-width: 550px) {
-	 
+
 .thumnail-img {
 	width:100%;
 }
@@ -2940,7 +2940,7 @@ footer {
 
 
  @media (max-width:480px) {
-	 
+
 .big {
     font-size: 35px;
     line-height: 52px;
@@ -2953,7 +2953,7 @@ footer {
 }
 
  @media (min-width: 992px) {
-	 
+
  #main-menu.collapse {
  display: block !important;
 }
@@ -2965,7 +2965,7 @@ footer {
 #main-menu {
 	background:#202020;
 }
-	 
+
  .navbar-right {
  float:none !important;
  margin-right:0px !important;
