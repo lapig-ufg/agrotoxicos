@@ -1,8 +1,6 @@
     node {
         
     load "$JENKINS_HOME/.envvars"
-    def exists=fileExists "src/server/package-lock.json"
-    def exists2=fileExists "src/client/package-lock.json"
     def application_name= "app_agrotoxico"
 
         stage('Checkout') {
@@ -39,7 +37,7 @@
                         
             
                         //VERIFY IF BUILD IS COMPLETE AND NOTIFY IN DISCORD ABOUT OF THE RESULT
-                        def status = sh(returnStatus: true, script: "cd src/client && ng build --aot=true --buildOptimizer=true --stats-json --source-map=false --no-progress")
+                        def status = sh(returnStatus: true, script: "cd src/client && ng build --aot=true --no-progress")
                         if (status != 0) {
                             echo "FAILED BUILD!"
                             currentBuild.result = 'FAILED'
