@@ -34,9 +34,9 @@
                         //BUILD APPLICATION 
                         echo "Build main site distribution"
                         sh "npm set progress=false"
-                     	sh "cd src/server && npm install"
+                        sh "cd src/server && npm install"
                         sh "cd src/client && npm install" 
-                        }
+                        
             
                         //VERIFY IF BUILD IS COMPLETE AND NOTIFY IN DISCORD ABOUT OF THE RESULT
                         def status = sh(returnStatus: true, script: "cd src/client && ng build --aot=true --buildOptimizer=true --stats-json --source-map=false --no-progress")
@@ -187,3 +187,4 @@
         }
         
         }
+    
