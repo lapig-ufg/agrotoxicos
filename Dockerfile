@@ -8,7 +8,7 @@ LABEL maintainer="Renato Gomes <renatogomessilverio@gmail.com>"
 
 RUN cd /APP && git clone -b ${BRANCH} ${URL_TO_APPLICATION_GITHUB}
 
-ADD ./src/server/node_modules /APP/agrotoxicos/src/server/node_modules  
+#ADD ./src/server/node_modules /APP/agrotoxicos/src/server/node_modules  
 #ADD ./src/client/dist/client /APP/agrotoxicos/src/client/dist/client
 
 CMD [ "/bin/bash", "-c", "/APP/src/server/prod-start.sh; tail -f /dev/null"]
