@@ -310,6 +310,17 @@
           }
         }
       },
+      "agrotoxicos": {
+        "labelGroup": "Agrotoxics",
+        "layers": {
+          "desmatamento_layer":{
+            "labelLayer": "Deforestation"
+          },
+          "ingrediente_ativo_layer":{
+            "labelLayer": "Active ingredient"
+          }
+        }
+      },
       "campo_general": {
         "labelGroup": "Field Visits",
         "layers": {

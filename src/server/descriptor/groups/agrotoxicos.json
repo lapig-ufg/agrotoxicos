@@ -1,0 +1,63 @@
+[
+    {
+        "idGroup": "agrotoxicos",
+        "labelGroup": "translate",
+        "groupExpanded": false,
+        "layers": [
+            {
+                "idLayer": "desmatamento_layer",
+                "labelLayer": "translate",
+                "visible": false,
+                "selectedType": "bi_am_desmatamento",
+                "types": [
+                    "bi_am_desmatamento",
+                    "bi_ce_desmatamento"
+                ]
+            },
+            {
+                "idLayer": "ingrediente_ativo_layer",
+                "labelLayer": "translate",
+                "visible": false,
+                "selectedType": "pa_br_24d_aumento",
+                "types": [
+                    "pa_br_24d_aumento",
+                    "pa_br_24d_uso",
+                    "pa_br_acefato_aumento",
+                    "pa_br_acefato_uso",
+                    "pa_br_agrotoxicos_diferenca",
+                    "pa_br_agrotoxicos_estabelecimentos",
+                    "pa_br_agrotoxicos_estabelecimentos_aumento",
+                    "pa_br_agrotoxicos_uso",
+                    "pa_br_arroz_evolucao_250_1990",
+                    "pa_br_arroz_evolucao_250_2000",
+                    "pa_br_arroz_evolucao_250_2010",
+                    "pa_br_arroz_evolucao_250_2019",
+                    "pa_br_atrazina_aumento_250_2019_ibama",
+                    "pa_br_atrazina_uso_250_2019_ibama",
+                    "pa_br_bovinos_evolucao_250_1990_ibge",
+                    "pa_br_bovinos_evolucao_250_2000_ibge",
+                    "pa_br_bovinos_evolucao_250_2010_ibge",
+                    "pa_br_bovinos_evolucao_250_2019_ibge",
+                    "pa_br_cana_evolucao_250_1990_ibge",
+                    "pa_br_cana_evolucao_250_2000_ibge",
+                    "pa_br_cana_evolucao_250_2010_ibge",
+                    "pa_br_cana_evolucao_250_2019_ibge",
+                    "pa_br_conflito_campo_250_2010_2019_pastoral_da_terra",
+                    "pa_br_feijao_evolucao_250_1990_ibge",
+                    "pa_br_feijao_evolucao_250_2000_ibge",
+                    "pa_br_feijao_evolucao_250_2010_ibge",
+                    "pa_br_feijao_evolucao_250_2019_ibge",
+                    "pa_br_gestantes_intoxicadas",
+                    "pa_br_glifosato_aumento",
+                    "pa_br_glifosato_uso",
+                    "pa_br_intoxicacao_agrotoxico",
+                    "pa_br_soja_evolucao_250_1990_ibge",
+                    "pa_br_soja_evolucao_250_2000_ibge",
+                    "pa_br_soja_evolucao_250_2010_ibge",
+                    "pa_br_soja_evolucao_250_2019_ibge",
+                    "pa_br_trabalho_escravo"
+                ]
+            }
+        ]
+    }
+]

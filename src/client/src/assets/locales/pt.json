@@ -311,6 +311,17 @@
           }
         }
       },
+      "agrotoxicos": {
+        "labelGroup": "Agrotoxicos",
+        "layers": {
+          "desmatamento_layer":{
+            "labelLayer": "Desmatamentos"
+          },
+          "ingrediente_ativo_layer":{
+            "labelLayer": "Ingrediente Ativo"
+          }
+        }
+      },
       "campo_general": {
         "labelGroup": "Visitas de Campo",
         "layers": {
