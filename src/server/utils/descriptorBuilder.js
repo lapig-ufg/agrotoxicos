@@ -88,6 +88,7 @@ module.exports = function (app) {
             'areas_especiais',
             'areas_declaradas',
             'agropecuaria',
+            'agrotoxicos',
             'campo',
             'inspecao_visual',
             'infraestrutura',
