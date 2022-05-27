@@ -83,27 +83,8 @@
                     "lavoura_perene_mapbiomas",
                     "lavoura_temporaria_mapbiomas"
                 ]
-            },
-            {
-                "idLayer": "desmatamento_layer",
-                "labelLayer": "translate",
-                "visible": false,
-                "selectedType": "bi_am_desmatamento",
-                "types": [
-                    "bi_am_desmatamento",
-                    "bi_ce_desmatamento"
-                ]
-            },
-            {
-                "idLayer": "conflito_layer",
-                "labelLayer": "translate",
-                "visible": false,
-                "selectedType": "pa_br_conflito_campo_250_2010_2019_pastoral_da_terra",
-                "types": [
-                    "pa_br_conflito_campo_250_2010_2019_pastoral_da_terra",
-                    "pa_br_trabalho_escravo"
-                ]
-            }
+            }          
+            
         ]
     }
 ]

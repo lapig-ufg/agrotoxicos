@@ -239,9 +239,6 @@
           "feijao_layer": {
             "labelLayer": "Bean Evolution"
           },
-          "desmatamento_layer": {
-            "labelLayer": "Logging"
-          },
           "conflito_layer": {
             "labelLayer": "Conflicts"
           },
@@ -334,15 +331,41 @@
           }
         }
       },
-      "agrotoxicos": {
+      "desmatamento": {
+        "labelGroup": "Deforestation",
+        "layers": {
+          "desmatamento_layer": {
+            "labelLayer": "Deforestation"
+          }
+        }
+      },
+      "intoxicacao": {
+        "labelGroup": "Intoxication",
+        "layers": {
+          "intoxicacao_layer":{
+            "labelLayer": "Intoxication"
+          }
+        }
+      },
+      "uso_agrotoxicos": {
         "labelGroup": "Agrotoxics",
         "layers": {
           "agrotoxicos_layer":{
             "labelLayer": "Agrotoxics"
-          },
-          "intoxicacao_layer":{
-            "labelLayer": "Intoxication"
-          },
+          }
+        }
+      },
+      "social": {
+        "labelGroup": "Social",
+        "layers": {
+          "conflito_layer": {
+            "labelLayer": "Conflicts"
+          }
+        }
+      },
+      "produtos_agrotoxicos": {
+        "labelGroup": "Agrotoxics Products",
+        "layers": {
           "atrazina_layer":{
             "labelLayer": "Atrazine"
           },

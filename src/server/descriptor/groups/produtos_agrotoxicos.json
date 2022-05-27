@@ -1,31 +1,10 @@
 [
     {
-        "idGroup": "agrotoxicos",
+        "idGroup": "produtos_agrotoxicos",
         "labelGroup": "translate",
-        "groupExpanded": true,
+        "groupExpanded": false,
         "layers": [
-            {
-                "idLayer": "agrotoxicos_layer",
-                "labelLayer": "translate",
-                "visible": true,
-                "selectedType": "pa_br_agrotoxicos_uso",
-                "types": [
-                    "pa_br_agrotoxicos_uso",
-                    "pa_br_agrotoxicos_diferenca",
-                    "pa_br_agrotoxicos_estabelecimentos",
-                    "pa_br_agrotoxicos_estabelecimentos_aumento"
-                ]
-            },
-            {
-                "idLayer": "intoxicacao_layer",
-                "labelLayer": "translate",
-                "visible": false,
-                "selectedType": "pa_br_intoxicacao_agrotoxico",
-                "types": [
-                    "pa_br_intoxicacao_agrotoxico",
-                    "pa_br_gestantes_intoxicadas"
-                ]
-            },
+           
             {
                 "idLayer": "atrazina_layer",
                 "labelLayer": "translate",

@@ -1,19 +1,19 @@
 [
     {
-        "idGroup": "campo_general",
+        "idGroup": "desmatamento",
         "labelGroup": "translate",
         "groupExpanded": false,
         "layers": [
             {
-                "idLayer": "pontos_campo",
+                "idLayer": "desmatamento_layer",
                 "labelLayer": "translate",
                 "visible": false,
-                "selectedType": "pontos_campo_parada",
+                "selectedType": "bi_am_desmatamento",
                 "types": [
-                    "pontos_campo_parada",
-                    "pontos_campo_sem_parada"
+                    "bi_am_desmatamento",
+                    "bi_ce_desmatamento"
                 ]
             }
         ]
-    }
+     }
 ]

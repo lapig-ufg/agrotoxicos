@@ -1,0 +1,19 @@
+[
+    {
+        "idGroup": "intoxicacao",
+        "labelGroup": "translate",
+        "groupExpanded": true,
+        "layers": [
+            {
+                "idLayer": "intoxicacao_layer",
+                "labelLayer": "translate",
+                "visible": false,
+                "selectedType": "pa_br_intoxicacao_agrotoxico",
+                "types": [
+                    "pa_br_intoxicacao_agrotoxico",
+                    "pa_br_gestantes_intoxicadas"
+                ]
+            }
+        ]
+     }
+]

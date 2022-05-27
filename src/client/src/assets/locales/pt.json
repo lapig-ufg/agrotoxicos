@@ -240,9 +240,6 @@
           "feijao_layer": {
             "labelLayer": "Evolução do Feijão"
           },
-          "desmatamento_layer": {
-            "labelLayer": "Desmatamento"
-          },
           "conflito_layer": {
             "labelLayer": "Conflitos"
           },
@@ -251,6 +248,14 @@
           },
           "lavoura_mapbiomas": {
             "labelLayer": "Lavouras"
+          }
+        }
+      },
+      "social": {
+        "labelGroup": "Social",
+        "layers": {
+          "conflito_layer": {
+            "labelLayer": "Conflitos"
           }
         }
       },
@@ -335,15 +340,25 @@
           }
         }
       },
-      "agrotoxicos": {
+      "intoxicacao": {
+        "labelGroup": "Intoxicação",
+        "layers": {
+          "intoxicacao_layer":{
+            "labelLayer": "Intoxicacao"
+          }
+        }
+      },
+      "uso_agrotoxicos": {
         "labelGroup": "Agrotóxicos",
         "layers": {
           "agrotoxicos_layer":{
             "labelLayer": "Agrotóxicos"
-          },
-          "intoxicacao_layer":{
-            "labelLayer": "Intoxicacao"
-          },
+          }      
+        }
+      },
+      "produtos_agrotoxicos": {
+        "labelGroup": "Produtos Agrotóxicos",
+        "layers": {
           "atrazina_layer":{
             "labelLayer": "Atrazina"
           },
@@ -355,6 +370,14 @@
           },
           "glifosato_layer":{
             "labelLayer": "Glifosato"
+          }
+        }
+      },
+      "desmatamento": {
+        "labelGroup": "Desmatamento",
+        "layers": {
+          "desmatamento_layer": {
+            "labelLayer": "Desmatamento"
           }
         }
       },

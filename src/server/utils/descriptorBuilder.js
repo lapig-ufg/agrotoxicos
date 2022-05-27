@@ -84,8 +84,12 @@ module.exports = function (app) {
     Internal.getGroupsOrder = function () {
 
         return [
-            'agrotoxicos',
+            'uso_agrotoxicos',
+            'produtos_agrotoxicos',
+            'intoxicacao',
             'agropecuaria',
+            'desmatamento',
+            'social',
             'areas_especiais',
             'areas_declaradas',
             'infraestrutura',
