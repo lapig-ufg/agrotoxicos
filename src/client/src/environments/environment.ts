@@ -21,5 +21,5 @@ export const environment = {
   OWS_O4: "https://o5.lapig.iesa.ufg.br/ows",
   
 
-  APP_URL: 'https://atlas-homolog.lapig.iesa.ufg.br'
+  APP_URL: 'https://agrotoxicosdev.lapig.iesa.ufg.br'
 };
