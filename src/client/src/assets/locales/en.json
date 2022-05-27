@@ -221,14 +221,35 @@
           "agricultura": {
             "labelLayer": "Agriculture"
           },
-          "pecuaria_censitaria": {
+          "bovinos_layer": {
+            "labelLayer": "Bovine Evolution"
+          },
+          "pecuaria_censitaria2": {
             "labelLayer": "Census Livestock - IBGE"
+          },
+          "arroz_layer": {
+            "labelLayer": "Rice Evolution"
+          },
+          "cana_layer": {
+            "labelLayer": "Sugarcane Evolution"
+          },
+          "soja_layer": {
+            "labelLayer": "Soybean Evolution"
+          },
+          "feijao_layer": {
+            "labelLayer": "Bean Evolution"
+          },
+          "desmatamento_layer": {
+            "labelLayer": "Logging"
+          },
+          "conflito_layer": {
+            "labelLayer": "Conflicts"
           },
           "floresta_plantada": {
             "labelLayer": "Planted Forest - Mapbiomas"
           },
           "lavoura_mapbiomas": {
-            "labelLayer": "Crops - Mapbiomas"
+            "labelLayer": "Crops"
           }
         }
       },
@@ -268,6 +289,9 @@
         "layers": {
           "propriedades_rurais": {
             "labelLayer": "Rural Environmental Register (CAR)"
+          },
+          "floresta_plantada": {
+            "labelLayer": "Planted Forest"
           },
           "planejamento_hidrico": {
             "labelLayer": "Water Planning"
@@ -313,11 +337,23 @@
       "agrotoxicos": {
         "labelGroup": "Agrotoxics",
         "layers": {
-          "desmatamento_layer":{
-            "labelLayer": "Deforestation"
+          "agrotoxicos_layer":{
+            "labelLayer": "Agrotoxics"
           },
-          "ingrediente_ativo_layer":{
-            "labelLayer": "Active ingredient"
+          "intoxicacao_layer":{
+            "labelLayer": "Intoxication"
+          },
+          "atrazina_layer":{
+            "labelLayer": "Atrazine"
+          },
+          "acefato_layer":{
+            "labelLayer": "Acephate"
+          },
+          "24d_layer":{
+            "labelLayer": "2,4D - Active ingredient"
+          },
+          "glifosato_layer":{
+            "labelLayer": "Glyphosate"
           }
         }
       },
@@ -723,5 +759,11 @@
     "fotos_camera": "Camara Photos",
     "fotos_drone": "Drone Photos",
     "videos_drone": "Drone Videos"
+  },
+  "wellcome": {
+    "title": "Welcome",
+    "p1": "Welcome to the Restoration Data Integration Module of the Cerrado biome. Our objective is to present the status of restoration actions in the Cerrado, providing consultation, visualization and analysis at the municipal, state and watershed levels, in the form of maps and graphs, as well as the export of information in the form of tables.",
+    "p2": "The objective of the platform is to present, in an interactive way, the correlation between the different cartograms of the Atlas, allowing the user, whenever possible, to superimpose layers. With these overlaps, the interactions between different indicators associated with socio-environmental problems, such as the increase in deforestation, conflicts and poisoning by agrochemicals used in agriculture in the countryside, the advancement of some crops - especially soy - to the detriment of production of some foods that traditionally make up the Brazilian diet, for example.",
+    "p3": "For further information about the data and contribution to the inclusion of new areas regarding the Platform, please contact us by email: <a target='_blank' href='emailnecessario@gmail.com' alt='emailnecessario@gmail.com '>emailnecessario@gmail.com</a>"
   }
 }

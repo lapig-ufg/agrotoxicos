@@ -1,5 +1,25 @@
 <section id="main" class="container">
 
+  <p-dialog
+    header="{{'wellcome.title' | translate}}"
+    [maximizable]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [appendTo]="'body'"
+    [modal]="true"
+    [style]="{width: isMobile ? '98vw' : '45vw'}"
+    [(visible)]="showMessage"
+  >
+    <div class="message-content">
+      <p [innerHTML]="'wellcome.p1' | translate"></p>
+      <p [innerHTML]="'wellcome.p2' | translate"></p>
+      <p [innerHTML]="'wellcome.p3' | translate"></p>
+      <p>
+      
+   <!-- <img src="../../../assets/logos/marcas.png"> -->
+    </div>
+  </p-dialog>
+
   <app-left-side-bar
     #leftSideBar
     [descriptor]="descriptor"

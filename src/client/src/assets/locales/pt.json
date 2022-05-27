@@ -222,8 +222,29 @@
           "agricultura": {
             "labelLayer": "Agricultura"
           },
-          "pecuaria_censitaria": {
+          "bovinos_layer": {
+            "labelLayer": "Evolução Bovina"
+          },
+          "pecuaria_censitaria2": {
             "labelLayer": "Pecuária Censitária - IBGE"
+          },
+          "arroz_layer": {
+            "labelLayer": "Evolução do Arroz"
+          },
+          "cana_layer": {
+            "labelLayer": "Evolução da Cana"
+          },
+          "soja_layer": {
+            "labelLayer": "Evolução da Soja"
+          },
+          "feijao_layer": {
+            "labelLayer": "Evolução do Feijão"
+          },
+          "desmatamento_layer": {
+            "labelLayer": "Desmatamento"
+          },
+          "conflito_layer": {
+            "labelLayer": "Conflitos"
           },
           "floresta_plantada": {
             "labelLayer": "Floresta Plantada - Mapbiomas"
@@ -273,6 +294,9 @@
           "planejamento_hidrico": {
             "labelLayer": "Planejamento Hídrico"
           },
+          "floresta_plantada": {
+            "labelLayer": "Floresta Plantada"
+          },
           "reserva_legal_br_layer": {
             "labelLayer": "Reserva Legal"
           }
@@ -312,13 +336,25 @@
         }
       },
       "agrotoxicos": {
-        "labelGroup": "Agrotoxicos",
+        "labelGroup": "Agrotóxicos",
         "layers": {
-          "desmatamento_layer":{
-            "labelLayer": "Desmatamentos"
+          "agrotoxicos_layer":{
+            "labelLayer": "Agrotóxicos"
           },
-          "ingrediente_ativo_layer":{
-            "labelLayer": "Ingrediente Ativo"
+          "intoxicacao_layer":{
+            "labelLayer": "Intoxicacao"
+          },
+          "atrazina_layer":{
+            "labelLayer": "Atrazina"
+          },
+          "acefato_layer":{
+            "labelLayer": "Acefato"
+          },
+          "24d_layer":{
+            "labelLayer": "2,4D - Ingrediente Ativo"
+          },
+          "glifosato_layer":{
+            "labelLayer": "Glifosato"
           }
         }
       },
@@ -724,5 +760,11 @@
     "fotos_camera": "Fotos de Câmara",
     "fotos_drone": "Fotos de Drone",
     "videos_drone": "Vídeos de Drone"
-  }
+  },
+  "wellcome": {
+    "title": "Boas-vindas",
+    "p1": "Boas-vindas a plataforma de Agrotóxicos",
+    "p2": "O objetivo da plataforma é apresentar, de maneira interativa a correlação entre os diferentes cartogramas do Atlas, permitindo ao usuário,sempre que possível, sobrepor camadas. Com estas sobreposições, ficam ainda mais claras as interações entre diversos indicadores associados a problemas socioambientais, como o aumento do desmatamento, os conflitos e intoxicações por agrotóxicos de uso agrícola no campo, o avanço de algumas culturas - em especial da soja - em detrimento da produção de alguns alimentos que tradicionalmente compõem a dieta brasileira, por exemplo.",
+    "p3": "Mais informações sobre os dados e contribuição para inclusão de novas áreas para a Plataforma, entre em contato pelo correio eletrônico: <a target='_blank' href='emailnecessario@gmail.com' alt='emailnecessario@gmail.com '>emailnecessario@gmail.com</a>"
+    }
 }

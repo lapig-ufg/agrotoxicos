@@ -5,7 +5,7 @@
         "groupExpanded": false,
         "layers": [
             {
-                "idLayer": "pecuaria_censitaria",
+                "idLayer": "bovinos_layer",
                 "labelLayer": "translate",
                 "visible": false,
                 "selectedType": "pa_br_bovinos_evolucao_250_2019_ibge",
@@ -17,7 +17,7 @@
                 ]
             },
             {
-                "idLayer": "pecuaria_censitaria",
+                "idLayer": "pecuaria_censitaria2",
                 "labelLayer": "translate",
                 "visible": false,
                 "selectedType": "lotacao_bovina_regions",
