@@ -2,7 +2,7 @@
     {
         "idGroup": "intoxicacao",
         "labelGroup": "translate",
-        "groupExpanded": true,
+        "groupExpanded": false,
         "layers": [
             {
                 "idLayer": "intoxicacao_layer",
