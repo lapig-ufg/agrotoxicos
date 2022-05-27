@@ -84,13 +84,10 @@ module.exports = function (app) {
     Internal.getGroupsOrder = function () {
 
         return [
-            'pasture',
+            'agrotoxicos',
+            'agropecuaria',
             'areas_especiais',
             'areas_declaradas',
-            'agropecuaria',
-            'agrotoxicos',
-            'campo',
-            'inspecao_visual',
             'infraestrutura',
             'imagens'
         ]
