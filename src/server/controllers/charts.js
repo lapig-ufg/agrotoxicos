@@ -270,20 +270,20 @@ module.exports = function (app) {
 
         const chartResult = [
             {
-                "id": "pastureQualityPerYear",
+                "id": "produtosAgrotoxicosPerYear",
                 "idsOfQueriesExecuted": [
-                    { idOfQuery: 'pasture_quality', labelOfQuery: Internal.languageOb["area2_card"]["pastureQualityPerYear"].labelOfQuery['pasture_quality'] },
+                    { idOfQuery: 'produtos_agrotoxicos', labelOfQuery: Internal.languageOb["area2_card"]["produtosAgrotoxicosPerYear"].labelOfQuery['produtos_agrotoxicos'] },
                 ],
-                "title": Internal.languageOb["area2_card"]["pastureQualityPerYear"].title,
+                "title": Internal.languageOb["area2_card"]["produtosAgrotoxicosPerYear"].title,
                 "getText": function (queriesResult, query) {
                     // replacements['areaMun'] = Number(chart['indicators'][0]["area_mun"])
                     // replacements['anthropicArea'] = chart['indicators'].reduce((a, { value }) => a + value, 0);
                     // replacements['percentArea'] = (replacements['anthropicArea'] / replacements['areaMun']) * 100.0;
 
-                    replacements['areaPasture'] = Internal.numberFormat(Number(queriesResult[query[0].idOfQuery].reduce((n, { value }) => n + parseFloat(value), 0)))
-                    replacements['yearTranslate'] = parseInt(varYear)
+                    // replacements['areaPasture'] = Internal.numberFormat(Number(queriesResult[query[0].idOfQuery].reduce((n, { value }) => n + parseFloat(value), 0)))
+                    // replacements['yearTranslate'] = parseInt(varYear)
 
-                    const text = Internal.replacementStrings(Internal.languageOb["area2_card"]["pastureQualityPerYear"].text, replacements)
+                    const text = Internal.replacementStrings(Internal.languageOb["area2_card"]["produtosAgrotoxicosPerYear"].text, replacements)
                     return text
                 },
                 "type": 'pie',
@@ -325,7 +325,26 @@ module.exports = function (app) {
         ]
 
         let chartFinal = []
+        let chartTemp = [{year: 2010}, {year: 2019}]
         for (let chart of chartResult) {
+            if(chart.id.includes("produtosAgrotoxicosPerYear")){
+                let qr = request.queryResult['produtos_agrotoxicos']
+                console.log(qr)
+                Object.entries(qr[0]).forEach(([key, value]) => {
+                    console.log(`${key}: ${value}`)
+                    let prod = key.split("_");
+                    chartTemp.forEach(val => {
+                        if(val.year == prod[1]){
+                            val[prod[0]] = parseFloat(value)
+                        }
+                    }) 
+
+                });
+            }
+        }
+
+        console.log(chartTemp)
+        for (let chart of chartTemp) {
 
             chart['data'] = Internal.buildGraphResult(request.queryResult, chart)
             chart['show'] = false
@@ -344,7 +363,7 @@ module.exports = function (app) {
 
 
 
-        response.send(chartFinal)
+        response.send(chartTemp)
         response.end();
     };
 

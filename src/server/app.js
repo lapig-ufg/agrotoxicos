@@ -72,6 +72,7 @@ app.database.client.init(function () {
 
 
     app.database.client.init_general(function () { });
+    app.database.client.init_agrotoxicos(function () { });
 
 
     const httpServer = http.listen(app.config.port, function () {

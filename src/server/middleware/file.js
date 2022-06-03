@@ -5,7 +5,7 @@ module.exports = function (app) {
     const config = app.config;
 
     if (!fs.existsSync(config.uploadDir)) {
-        fs.mkdirSync(config.uploadDir);
+        fs.mkdirSync(config.uploadDir, {recursive: true});
     }
 
     const upload = multer({

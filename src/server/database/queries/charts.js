@@ -135,42 +135,34 @@ module.exports = function (app) {
         var regionFilter = Internal.getRegionFilter(params['typeRegion'], params['valueRegion']);
         var yearFilter = params['year'] ? Internal.getYearFilter(params['year']) : Internal.getYearFilter(2020);
 
+        console.log("select sum(glifo_2010) as glifosato_2010," +
+        " sum(glifo_2019) as glifosato_2019," +
+        " sum(atraz_2010) as atrazina_2010," +
+         " sum(atraz_2019) as atrazina_2019, " + 
+         "sum(acefa_2010) as acefato_2010," +
+         " sum(acefa_2019) as acefato_2019, " +
+         "sum(manco_2010) as mancozebe_2010," +
+         " sum(manco_2019) as mancozebe_2019, " +
+         ' sum("2_4d_2010") as "24_d_2010",' +
+         ' sum("2_4d_2019") as "24_d_2019"' +
+        " from pa_br_produtos_agrotoxicos WHERE " + regionFilter)
         return [
-            // {
-            //     source: 'lapig',
-            //     id: 'uso_solo_terraclass',
-            //     sql: "SELECT a.classe as label, b.color, sum(a.area_ha) as value, (SELECT CAST(SUM(pol_ha) as double precision) FROM regions " + regionFilter + ") as area_mun FROM uso_solo_terraclass as A INNER JOIN graphic_colors as B on a.classe = b.name AND b.table_rel = 'uso_solo_terraclass' " + regionFilter + " GROUP BY 1,2 ORDER BY 3 DESC",
-            //     mantain: true
-            // },
-            // {
-            //     source: 'lapig',
-            //     id: 'uso_solo_probio',
-            //     sql: "SELECT a.classe as label, b.color, sum(a.area_ha) as value, (SELECT CAST(SUM(pol_ha) as double precision) FROM regions " + regionFilter + ") as area_mun FROM uso_solo_probio as A INNER JOIN graphic_colors as B on a.classe = b.name AND b.table_rel = 'uso_solo_probio' " + regionFilter + " GROUP BY 1,2 ORDER BY 3 DESC",
-            //     mantain: true
-            // },
-            // {
-            //     id: 'uso_solo_mapbiomas',
-            //     sql: "SELECT b.name as label, b.color, sum(a.area_ha) as value, (SELECT SUM(pol_ha) FROM regions " + tableRegionsFilter + ") as area_mun, year FROM uso_solo_mapbiomas as A INNER JOIN graphic_colors as B on a.classe = b.class_number AND b.table_rel = 'uso_solo_mapbiomas' " + regionsFilter + " " + year + " GROUP BY 1,2,5 ORDER BY 3 DESC",
-            //     mantain: true
-            // }
             {
-                source: 'lapig',
-                id: 'pasture_quality',
-                sql: "SELECT b.name as label, b.color, sum(a.area_ha) as value, "
-                    + "(SELECT CAST(SUM(pol_ha) as double precision) FROM regions WHERE " + regionFilter + ") as area_mun "
-                    + "FROM pasture_quality_col6 as A "
-                    + "INNER JOIN graphic_colors as B on cast(a.classe as varchar) = b.class_number AND b.table_rel = 'pasture_quality' "
-                    + "WHERE " + regionFilter
-                    + " AND " + yearFilter
-                    + " GROUP BY 1,2 ORDER BY 3 DESC",
+                source: 'agrotoxicos',
+                id: 'produtos_agrotoxicos',
+               sql:   "select sum(glifo_2010) as glifosato_2010," +
+                    " sum(glifo_2019) as glifosato_2019," +
+                    " sum(atraz_2010) as atrazina_2010," +
+                     " sum(atraz_2019) as atrazina_2019, " + 
+                     " sum(acefa_2010) as acefato_2010," +
+                     " sum(acefa_2019) as acefato_2019, " +
+                     "sum(manco_2010) as mancozebe_2010," +
+                     " sum(manco_2019) as mancozebe_2019, " +
+                     ' sum("2_4d_2010") as "24_d_2010",' +
+                     ' sum("2_4d_2019") as "24_d_2019"' +
+                    " from pa_br_produtos_agrotoxicos WHERE " + regionFilter,
                 mantain: true
-            },
-            // {
-            //     source: 'lapig',
-            //     id: 'biomassa',
-            //     sql: "SELECT a.classe as label, b.color, sum(a.area_ha) as value, (SELECT CAST(SUM(pol_ha) as double precision) FROM regions " + regionFilter + ") as area_mun FROM uso_solo_terraclass as A INNER JOIN graphic_colors as B on a.classe = b.name AND b.table_rel = 'uso_solo_terraclass' " + regionFilter + " GROUP BY 1,2 ORDER BY 3 DESC",
-            //     mantain: true
-            // },
+            }
 
         ];
     }

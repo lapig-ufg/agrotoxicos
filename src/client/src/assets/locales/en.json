@@ -1,5 +1,5 @@
 {
-  "title": "Pesticides Platform",
+  "title": "Agrotoxics Platform",
   "controls": {
     "swipe": "Swipe",
     "search": "Filters of Map",
@@ -452,52 +452,22 @@
         }
       },
       "pastureQuality": {
-        "title": "Pasture Quality",
-        "text": "According to LAPIG, over the years, the #typeRegionTranslate# #textRegionTranslate# divided its pasture area among the following pasture degradation classes",
+        "title": "Agrotoxics Products",
+        "text": "The accumulated pesticide products in grams/hectares are distributed among the following Active Ingredients: ",
         "labelOfQuery": {
-          "pasture_quality": {
-            "Severa": "Severe",
-            "Intermediário": "Intermediary",
-            "Ausente": "Absent"
+          "produtos_agrotoxicos": {
+            "acefato": "Acephate",
+            "mancozebe": "Mancozeb",
+            "atrazina": "Atrazine",
+            "glifosato": "Glyphosate",
+            "24_d": "2,4d"
           }
         }
       }
     },
     "area2_card": {
-      "uso_solo_terraclass": {
-        "text": "According to the Terraclass Cerrado project, the #textRegionTranslate# #typeRegionTranslate# has a total area of #areaMun# ha, distribuited between the followind land uses:",
-        "Mosaíco de Ocupações": "Occupations Mosaic",
-        "Agricultura Perene": "Perennial Agriculture",
-        "Natural Não Vegetado": "Non-Vegetated Natural",
-        "Água": "Water",
-        "Silvicultura": "Silviculture",
-        "Solo Exposto": "Exposed Soil",
-        "Não Observado": "Not Observed",
-        "Pastagem": "Pasture",
-        "Agricultura Anual": "Annual Agriculture",
-        "Outros": "Others",
-        "Urbano": "Urban",
-        "Mineração": "Mining",
-        "Natural": "Natural"
-      },
-      "uso_solo_probio": {
-        "text": "According to the PROBIO Cerrado project, the #textRegionTranslate# #typeRegionTranslate# has a total area of #areaMun# ha, distribuited between the followind land uses:",
-        "Reflorestamento": "Reforestation",
-        "Savana": "Savanna",
-        "Água": "Water",
-        "Savana Estépica": "Steppe Savanna",
-        "Floresta Estacional Semi-decidual": "Seasonal Semideciduous Forest",
-        "Floresta Ombrófila Densa": "Dense Ombrophilous Forest",
-        "Floresta Estacional Decidual": "Deciduous Seasonal Forest",
-        "Floresta Ombrófila Aberta": "Open Ombrophilous Forest",
-        "Influência Urbana": "Urban Influence",
-        "Pecuária": "Livestock",
-        "Vegetação Secundária": "Secondary Vegetation",
-        "Formações Pioneiras": "Pioneer Formations",
-        "Agricultura": "Agriculture"
-      },
-      "pastureQualityPerYear": {
-        "title": "Pasture Quality",
+      "produtosAgrotoxicosPerYear": {
+        "title": "Agrotoxics Products",
         "text": "According to LAPIG, in the year of #yearTranslate#, the #typeRegionTranslate# #textRegionTranslate# possess a total of #areaPasture# ha of Pasture Area, distribuited among the following Pasture Degradation Classes:",
         "labelOfQuery": {
           "pasture_quality": {

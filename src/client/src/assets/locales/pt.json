@@ -465,46 +465,16 @@
       }
     },
     "area2_card": {
-      "uso_solo_terraclass": {
-        "text": "De acordo com o projeto Terraclass Cerrado, o #typeRegionTranslate# #textRegionTranslate# possui uma área total de #areaMun# ha, distribuída entre os seguintes usos do solo:",
-        "Mosaíco de Ocupações": "Mosaico de Ocupações",
-        "Agricultura Perene": "Agricultura Perene",
-        "Natural Não Vegetado": "Natural Não-Vegetado",
-        "Água": "Água",
-        "Silvicultura": "Silvicultura",
-        "Solo Exposto": "Solo Exposto",
-        "Não Observado": "Não Observado",
-        "Pastagem": "Pastagem",
-        "Agricultura Anual": "Agricultura Anual",
-        "Outros": "Outros",
-        "Urbano": "Urbano",
-        "Mineração": "Mineração",
-        "Natural": "Natural"
-      },
-      "uso_solo_probio": {
-        "text": "De acordo com o projeto PROBIO Cerrado, o #typeRegionTranslate# #textRegionTranslate# possui uma área total de #areaMun# ha, distribuída entre os seguintes usos do solo:",
-        "Reflorestamento": "Reflorestamento",
-        "Savana": "Savana",
-        "Água": "Água",
-        "Savana Estépica": "Savana Estépica",
-        "Floresta Estacional Semi-decidual": "Floresta Estacional Semi-decidual",
-        "Floresta Ombrófila Densa": "Floresta Ombrófila Densa",
-        "Floresta Estacional Decidual": "Floresta Estacional Decidual",
-        "Floresta Ombrófila Aberta": "Floresta Ombrófila Aberta",
-        "Influência Urbana": "Influência Urbana",
-        "Pecuária": "Pecuária",
-        "Vegetação Secundária": "Vegetação Secundária",
-        "Formações Pioneiras": "Formações Pioneiras",
-        "Agricultura": "Agricultura"
-      },
-      "pastureQualityPerYear": {
-        "title": "Qualidade de Pastagem",
-        "text": "De acordo com o LAPIG, no ano de #yearTranslate#, o #typeRegionTranslate# #textRegionTranslate# possui uma área total de Pastagem mapeada em #areaPasture# ha, distribuída entre as seguintes classes de degradação de Pastagem:",
+      "produtosAgrotoxicosPerYear": {
+        "title": "Produtos de Agrotóxicos",
+        "text": "Os produtos de agrotóxicos acumulados em gramas/hectares estão distribuídos entre os seguintes Ingredientes Ativos:",
         "labelOfQuery": {
-          "pasture_quality": {
-            "Severa": "Severa",
-            "Intermediário": "Intermediário",
-            "Ausente": "Ausente"
+          "produtos_agrotoxicos": {
+            "acefato": "Acefato",
+            "mancozebe": "Mancozebe",
+            "atrazina": "Atrazina",
+            "glifosato": "Glifosato",
+            "24_d": "2,4d"
           }
         }
       }
