@@ -20,9 +20,14 @@ declare var $: JQueryStatic;
 
 export class IndexComponent implements OnInit {
 
+  public lang: string;
+
+
   constructor(private localizationService: LocalizationService) {}
 
   ngOnInit() {
+
+    this.lang = this.localizationService.currentLang();
 
     /*------------------------------*/
     /*	Page loader
@@ -355,15 +360,13 @@ export class IndexComponent implements OnInit {
 
   }
 
-  // handleLang(lang){
-  //   localStorage.setItem('lang', lang);
-  //   this.localizationService.useLanguage(lang).then(result => {
-  //     this.lang = lang;
-  //     this.menu.forEach(item => {
-  //       item.title = this.localizationService.translate('hotsite.base.header.menu.' + item.key);
-  //     })
-  //   });
-  // }
+
+  handleLang(lang){
+    localStorage.setItem('lang', lang);
+    this.localizationService.useLanguage(lang).then(result => {
+      this.lang = lang;
+    });
+  }
 
 
 }

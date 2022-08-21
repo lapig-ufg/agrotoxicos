@@ -18,7 +18,7 @@ html, body {
     max-height: 0;
     font-size: 0;
     transition: .25s ease;
-	
+
   }
 
   .read-more-state:checked ~ .read-more-wrap .read-more-target {
@@ -960,7 +960,7 @@ section {
 .flexslider .slides img {
 	width: 100%;
  display: block;
- 	height:920px; 
+ 	height:920px;
 }
 
 .flex-pauseplay span {

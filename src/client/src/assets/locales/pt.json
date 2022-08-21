@@ -1,8 +1,7 @@
 {
-  "title": "Plataforma Agrotóxicos",
   "controls": {
     "swipe": "Swipe",
-    "search": "Filtros do Mapa",
+    "search": "Camadas do Mapa",
     "clear": "Remover Geometrias",
     "reset_zoom": "Voltar ao Zoom Inicial",
     "draw": "Desenhar Área",
@@ -57,14 +56,14 @@
     "find_point": "Localizar ponto"
   },
   "menu": {
-    "layers": "Camadas",
-    "layers_tooltip": "Camadas do Mapa",
+    "layers": "Temas",
+    "layers_tooltip": "Temas do Mapa",
     "statistics": "Estatísticas",
     "statistics_tooltip": "Estatísticas",
     "area": "Área",
     "area_tooltip": "Área de Interesse",
-    "filters": "Filtros",
-    "filters_tooltip": "Filtros",
+    "filters": "Camadas",
+    "filters_tooltip": "Camadas",
     "options": "Opções",
     "options_tooltip": "Opções"
   },
@@ -353,7 +352,7 @@
         "layers": {
           "agrotoxicos_layer":{
             "labelLayer": "Agrotóxicos"
-          }      
+          }
         }
       },
       "produtos_agrotoxicos": {
@@ -532,6 +531,7 @@
   "hotsite": {
     "base": {
       "header": {
+        "title": "Web Atlas dos Agrotóxicos",
         "menu": {
           "home": "Home",
           "about": "Sobre",
@@ -547,12 +547,65 @@
     },
     "home": {
       "banner": {
-        "text": "O Atlas das Pastagens, público e gratuito, foi desenvolvido pelo Laboratório de Processamento de Imagens e Geoprocessamento da Universidade Federal de Goiás (Lapig/UFG), para tornar acessível os resultados e produtos, gerados no âmbito da iniciativa MapBiomas, referentes às pastagens brasileiras.",
-        "btn": "Acesse a Plataforma"
+        "text": "Esta é uma plataforma online e gratuita com objetivo de divulgar informações oficiais sobre o impacto do uso de agrotóxicos no brasil por meio da integração de mapas temáticos sobre o uso de agrotóxicos no brasil. Aqui estão disponíveis conjuntos cartográficos com a visão concreta e espacial do uso de agrotóxicos no brasil, seus impactos, suas raízes e seus temas correlatos.",
+        "btn": "Acesse a Plataforma",
+        "subtitle1": "Apoio: WWF",
+        "subtitle2": "Concepção e Coordenação Geral: LARISSA BOMBARDI",
+        "subtitle3": "Coordenação Cartográfica e Técnica: PABLO NEPOMUCENO",
+        "subtitle4": "Desenvolvimento Digital e Design: LAPIG"
       },
       "abstract": {
-        "title": "Atlas das pastagens",
-        "text": "A plataforma disponibiliza, atualmente, seis bases de dados: (1) mapeamento das áreas ocupadas por pastagens no Brasil; (2) mapeamento da qualidade dessas áreas, estimativas do estoque de carbono nas pastagens do bioma Cerrado; (3) informações do rebanho bovino brasileiro analisadas a partir dos dados da pesquisa pecuária municipal (IBGE); (4) séries temporais de classificação de uso e cobertura da terra por inspeção visual de dados dos satélites Landsat; (5) avaliação da condição das pastagens em campanhas de campo realizadas por equipes do laboratório."
+        "title": "Sobre",
+        "text1": "O “WebAtlas dos Agrotóxicos” é fruto de um trabalho de atualização e amplização do Atlas “Geografia do Uso de Agrotóxicos no Brasil e Conexões com a União Europeia”, ",
+        "publicado": "publicado",
+        "text1continuation": "pela professora Larissa Bombardi em 2017",
+        "text2": "A atualização foi feita pela própria Profa Larissa Bombardi, com a colaboração de Pablo Luiz Maia Nepomuceno e equipe, com apoio do WWF-Brasil.",
+        "text3": "O WebAtlas dos Agrotóxicos é uma versão virtual e interativa do Atlas “Geografia do Uso de Agrotóxicos no Brasil e Conexões com a União Europeia”. Ele foi concebido e desenvolvido sob a supervisão da Professora Larissa Bombardi e de Pablo Luiz Maia Nepomuceno e equipe, em parceria com o LAPIG e com o apoio da WWF-Brasil.",
+        "text4": "O WebAtlas dos Agrotóxicos conta com dados expandidos, considerando novos elementos como, por exemplo, o desmatamento e o avanço de determinadas culturas, cobrindo o horizonte temporal de 2010 a 2019.",
+        "text5": "O objetivo do WebAtlas dos Agrotóxicos é apresentar, de maneira interativa, a correlação entre os diferentes cartogramas do Atlas, permitindo ao usuário, sempre que possível, sobrepor camadas. ",
+        "text6": "Com estas sobreposições, ficam ainda mais claras as interações entre diversos indicadores associados a problemas socioambientais como, por exemplo: o desmatamento, os conflitos no campo, o aumento dos casos de intoxicações por agrotóxicos de uso agrícola, as intoxicações por meio de pulverização aérea, a diminuição da área destinada à produção de gêneros voltados à alimentação da população brasileira, dentre outros elementos fundamentais para a compreensão do tema do uso de agrotóxicos de uma forma ampliada.",
+        "readmore1":"O WebAtlas dos Agrotóxicos tem como horizonte subsidiar a população com informações gráficas, cartográficas e infográficas sobre a condição do uso e do impacto dos agrotóxicos na saúde humana e na saúde ambiental. Visa, ainda, fornecer informações seguras e oficiais para que setores da sociedade civil organizada e, também o poder público, tenham elementos para a elaboração de políticas públicas e projetos voltados à segurança e soberania alimentar, à melhoria da saúde humana e da saúde ambiental. Objetiva, também, fornecer elementos concretos para a oposição e desenvolvimento de marcos regulatórios municipais, estaduais, federais e internacionais, no que diz respeito ao uso de agrotóxicos, às suas formas de aplicação, aos seus resíduos, e, no limite, às formas de superação e de limitação de seu uso. No WebAtlas dos Agrotóxicos o usuário poderá escolher a base cartográfica em que verá representado o fenômeno escolhido, por exemplo: intoxicações por agrotóxicos nas regiões brasileiras ou em municípios específicos, ou ainda, por biomas ou por eco regiões. O histórico do WebAtlas remete ao Atlas",
+        "readmore2HREF": "“Geografia do Uso de Agrotóxicos no Brasil e Conexões com a União Europeia”",
+        "readmore3": "de autoria da Profa Dra Larissa Bombardi e publicado pela Faculdade de Filosofia, Letras e Ciências Humanas. Esta obra, pela primeira vez, trouxe ao público de forma cartografada a realidade do uso e do impacto dos agrotóxicos no Brasil."
+      },
+      "options": {
+        "method": {
+          "title": "Métodos",
+          "text1": "Os mapas apresentados na plataforma foram elaborados utilizando recursos técnicos de geocodificação (georreferenciamento de planilhas tabulares com vínculo espacial), classificação, análise espacial e edição gráfica e cartográfica, disponíveis nos Sistemas de Informações Geográficas ArcGis/Esri e QGIS/Open source. O território brasileiro está representado na projeção policônica com coordenadas geográficas referenciadas no datum horizontal do Sistema de Referência Geocêntrica para as Américas do ano 2000 – SIRGAS 2000.",
+          "title2": "FONTES E CARACTERÍSTICAS DOS DADOS",
+          "text2": "As principais fontes de dados utilizadas consistem em planilhas digitais tabulares disponíveis nos portais oficiais dos órgãos públicos, dentre os quais se destacam: • os dados de fiscalização e monitoramento da produção, importação, exportação e vendas de agrotóxicos no Brasil, elaborados e publicados pelo Instituto Brasileiro de Meio Ambiente – IBAMA",
+          "text3": "O IBAMA elabora e publica anualmente informações relacionadas à produção, importação, exportação e vendas de agrotóxicos, componentes e afins no Brasil. Os dados consistem num conjunto de planilhas tabulares digitais que sintetizam as informações presentes nos relatórios semestrais que as empresas detentoras de registro de comercialização de agrotóxicos no Brasil apresentam semestralmente ao Ibama, conforme exigido pelo artigo 41 do Decreto Federal nº 4.074, de 4/1/2002 da Constituição Federal. Tal Artigo determina que as empresas com produtos agrotóxicos, componentes e afins registrados no Brasil apresentem semestralmente aos órgãos federais e estaduais, relatórios sobre as quantidades produzidas, importadas, exportadas e comercializadas. Os relatórios permitem o acompanhamento dessas atividades por Ingrediente Ativo, que consiste no agente químico, físico ou biológico utilizado como princípio ativo do produto final comercializado e a sua respectiva classe de uso (p.ex. herbicidas, inseticidas, fungicidas), entre outras informações, e são oferecidos nas escalas (unidades de análise) nacional, macrorregional e estadual (Unidades da Federação – UF)."
+        },
+        "data": {
+          "title1": "Produção Agrícola",
+          "title2": "Desmatamento",
+          "title3": "Intoxicações por Agrotóxicos de Uso Agrícola",
+          "text1": "• Os dados provenientes dos Censos Agropecuários, realizados pelo Instituto Brasileiro de Geografia e Estatística – IBGE e publicados no Sistema IBGE de Recuperação Automática de dados – SIDRA. O Censo Agropecuário do IBGE consiste em uma base de dados proveniente do levantamento de informações qualitativas e quantitativas acerca de todos os estabelecimentos agropecuários presentes no território nacional e suas respectivas características. Os seus resultados são divulgados no formato de planilhas que contêm dados qualitativos e quantitativos agrupados em diferentes escalas ou unidades de análise, tais como: nacional (Brasil), macrorregional (Grandes Regiões), estadual (Unidades da Federação), mesorregional (Mesorregiões), microrregional (Microrregiões) e municipal (Municípios).",
+          "text2": "• Os dados de monitoramento anual de safras de grãos publicados pela Companhia Nacional de Abastecimento – CONAB. Os dados de safras de grãos (produção e área plantada/área colhida) provenientes da CONAB são atualizados anualmente e publicados em planilhas apenas nas escalas nacional, macrorregional e estadual.",
+          "text3": "• Os dados de monitoramento do desmatamento na Amazônia Legal brasileira, publicados pelo Sistema de Monitoramento do Desmatamento na Amazônia Legal – PRODES do Instituto Nacional de Pesquisas Espaciais – INPE.",
+          "text4": "• Os dados provenientes do PRODES consistem nos principais dados oficiais de monitoramento do desmatamento da Amazônia Legal brasileira, ele é elaborado pelo Instituto Nacional de Pesquisas Espaciais – INPE e conta com a colaboração de outros Institutos, entre eles o IBAMA. O projeto se utiliza de técnicas de sensoriamento remoto sobre imagens captadas por sensores a bordo de diferentes satélites, principalmente os das séries Landsat e CBERS, com a finalidade de monitorar as ações de desmatamento por corte raso na Amazônia. Os dados são publicados anualmente no mês de dezembro, sendo os principais dados utilizados para o cálculo das taxas anuais de desmatamento na Amazônia brasileira e são oferecidos ao público em planilhas que podem ser obtidas nas escalas nacional, estadual e municipal.",
+          "text5": "• Dados de registro de atendimentos, internações e morbidades ocorrentes em unidades de saúde do país, para os casos de intoxicação por agrotóxicos de uso agrícola, publicados no banco de dados aberto “DATASUS”, desenvolvido e mantido pelo departamento de informática do Sistema Único de Saúde do Brasil - SUS. O DATASUS consiste num sistema de registro, armazenamento e publicação de dados de saúde pública criado e mantido pelo departamento de informática do Sistema Único de Saúde do Brasil – SUS. Ele integra numa única base de dados todos os registros de atendimento, internações, e adoecimentos que ocorrem nos diferentes tipos de unidades de atendimento à saúde do território nacional, por isso consiste numa das maiores bases de dados públicos em saúde do mundo, sendo o acesso totalmente gratuito e aberto. Os dados consolidados são disponibilizados anualmente e possuem vínculo espacial em diferentes escalas ou unidades de análise, desde a nacional até a microrregional, municipal e local."
+        },
+        "analyse": {
+          "title1": "MAPEAMENTO DO AUMENTO USO DE AGROTÓXICOS NO BRASIL ENTRE 2010 E 2019.",
+          "title2": "O DESMATAMENTO NA AMAZÔNIA* (DE ACORDO COM IBGE E PRODES ) CHEGOU, EM ALGUNS MUNICÍPIOS, A UM DESMATAMENTO SUPERIOR A 45% DA ÁREA DO PRÓPRIO MUNICÍPIO.",
+          "title3": "O DESMATAMENTO E CONVERSÃO NO CERRADO (DE ACORDO COM IBGE E PRODES) AVANÇOU EM QUASE TODOS OS ESTADOS QUE COMPÕEM ESTE BIOMA, SENDO QUE NO TOCANTINS FORAM DESMATADOS MAIS DE 19 MIL KM² E NA BAHIA MAIS DE 11 MIL KM².",
+          "title4": "MAPEAMENTO DO AUMENTO DAS INTOXICAÇÕES POR AGROTÓXICOS NO BRASIL.",
+          "title5": "DENTRE OS GRUPOS MAIS VULNERÁVEIS, ENTRE 2010 E 2019, O NÚMERO REGISTROS DE GESTANTES CONTAMINADAS POR AGROTÓXICOS FOI DE 293, E OS BEBÊS (0 A 12 MESES) INTOXICADOS POR AGROTÓXICOS FOI DE 543.",
+          "title6": "O INGREDIENTE ATIVO ATRAZINA (PROIBIDO NA UNIÃO EUROPÉIA EM FUNÇÃO DA SUA TOXICIDADE) TEVE O USO AUMENTADO SIGNIFICATIVAMENTE NO BRASIL.",
+          "title7": "A AMAZÔNIA BRASILEIRA LIDEROU O AUMENTO DO USO DE GLIFOSATO.",
+          "title8": "OS ESTADOS EM QUE MAIS AUMENTOU O NÚMERO DE PROPRIEDADES RURAIS QUE FAZEM USO DE AGROTÓXICOS NOS ÚLTIMOS DEZ ANOS SÃO OS ESTADOS QUE COMPÕEM O CHAMADO “ARCO DO DESMATAMENTO” DA AMAZÔNIA LEGAL BRASILEIRA: MARANHÃO, TOCANTINS, MATO GROSSO, RONDÔNIA E ACRE.",
+          "text1": "Com exceção do Rio de Janeiro, em todos os estados do Brasil houve aumento no volume de agrotóxicos consumidos. A região de destaque para este aumento foi a Amazônia, nos estados do Tocantins e do Pará esse aumento foi superior a 260%.",
+          "text2": "Os estados com destaque foram Amazonas e Pará.",
+          "text3": "Entre 2010 e 2019 o número de intoxicações por agrotóxicos registradas no Brasil mais do que duplicou. Saltou de 2300 casos para mais de 5100 casos. - A região de maior destaque foi a Amazônia, sendo que em todos os estados da região Norte houve aumento significativo no número de intoxicações",
+          "text4": "A região onde esse crescimento foi mais expressivo foi na Amazônia Legal (no estado do Tocantins, por exemplo, o uso de Atrazina aumentou 1127%).",
+          "text5": "Nos estados do Mato Grosso, Tocantins e Roraima esse aumento foi superior a 300%."
+        },
+        "about": "Sobre",
+        "methodology": "Geoprocessamento",
+        "analysis": "Destaques 2010-2019",
+        "dataSubtitle": "Dados",
+        "footerData": "Plataforma de Agrotóxicos. Todos os direitos reservados"
       },
       "emphasis": {
         "title": "Dados em destaque",
@@ -756,8 +809,7 @@
   },
   "wellcome": {
     "title": "Boas-vindas",
-    "p1": "Boas-vindas a plataforma de Agrotóxicos",
-    "p2": "O objetivo da plataforma é apresentar, de maneira interativa a correlação entre os diferentes cartogramas do Atlas, permitindo ao usuário,sempre que possível, sobrepor camadas. Com estas sobreposições, ficam ainda mais claras as interações entre diversos indicadores associados a problemas socioambientais, como o aumento do desmatamento, os conflitos e intoxicações por agrotóxicos de uso agrícola no campo, o avanço de algumas culturas - em especial da soja - em detrimento da produção de alguns alimentos que tradicionalmente compõem a dieta brasileira, por exemplo.",
-    "p3": "Mais informações sobre os dados e contribuição para inclusão de novas áreas para a Plataforma, entre em contato pelo correio eletrônico: <a target='_blank' href='emailnecessario@gmail.com' alt='emailnecessario@gmail.com '>emailnecessario@gmail.com</a>"
+    "p1": "Olá! Fique à vontade.",
+    "p2": "O objetivo da plataforma é apresentar, de maneira interativa a correlação entre os diferentes cartogramas do Atlas, permitindo ao usuário,sempre que possível, sobrepor camadas. Com estas sobreposições, ficam ainda mais claras as interações entre diversos indicadores associados a problemas socioambientais, como o aumento do desmatamento, os conflitos e intoxicações por agrotóxicos de uso agrícola no campo, o avanço de algumas culturas - em especial da soja - em detrimento da produção de alguns alimentos que tradicionalmente compõem a dieta brasileira, por exemplo."
     }
 }
