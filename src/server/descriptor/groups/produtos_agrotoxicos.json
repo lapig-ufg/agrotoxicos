@@ -9,8 +9,10 @@
                 "idLayer": "atrazina_layer",
                 "labelLayer": "translate",
                 "visible": false,
-                "selectedType": "pa_br_atrazina_uso_250_2019_ibama",
+                "selectedType": "pa_br_ingredientes_ativos_regioes_atra_gr_ha",
                 "types": [
+                    "pa_br_ingredientes_ativos_regioes_atra_gr_ha",
+                    "pa_br_ingredientes_ativos_regioes_atraz_evo",
                     "pa_br_atrazina_uso_250_2019_ibama",
                     "pa_br_atrazina_aumento_250_2019_ibama"
                 ]
@@ -19,8 +21,10 @@
                 "idLayer": "acefato_layer",
                 "labelLayer": "translate",
                 "visible": false,
-                "selectedType": "pa_br_acefato_uso",
+                "selectedType": "pa_br_ingredientes_ativos_regioes_ace_gr_ha",
                 "types": [
+                    "pa_br_ingredientes_ativos_regioes_ace_gr_ha",
+                    "pa_br_ingredientes_ativos_regioes_acef_evo",
                     "pa_br_acefato_uso",
                     "pa_br_acefato_aumento"
                 ]
@@ -29,8 +33,10 @@
                 "idLayer": "24d_layer",
                 "labelLayer": "translate",
                 "visible": false,
-                "selectedType": "pa_br_24d_uso",
+                "selectedType": "pa_br_ingredientes_ativos_regioes_24d_gr_ha",
                 "types": [
+                    "pa_br_ingredientes_ativos_regioes_24d_gr_ha",
+                    "pa_br_ingredientes_ativos_regioes_24d_evo",
                     "pa_br_24d_uso",
                     "pa_br_24d_aumento"
                 ]
@@ -39,10 +45,36 @@
                 "idLayer": "glifosato_layer",
                 "labelLayer": "translate",
                 "visible": false,
-                "selectedType":  "pa_br_glifosato_uso",
+                "selectedType":  "pa_br_ingredientes_ativos_regioes_gli_gr_ha",
                 "types": [
+                    "pa_br_ingredientes_ativos_regioes_gli_gr_ha",
+                    "pa_br_ingredientes_ativos_regioes_gli_evo",
                     "pa_br_glifosato_uso",
                     "pa_br_glifosato_aumento"
+                ]
+            },
+            {
+                "idLayer": "paraquate_layer",
+                "labelLayer": "translate",
+                "visible": false,
+                "selectedType":  "pa_br_ingredientes_ativos_regioes_g_ha",
+                "types": [
+                    "pa_br_ingredientes_ativos_regioes_g_ha",
+                    "pa_br_ingredientes_ativos_regioes_evo_10_19",
+                    "pa_br_ingredientes_ativos_uf_g_ha_2019",
+                    "pa_br_ingredientes_ativos_uf_ecvo_10_19"
+                ]
+            },
+            {
+                "idLayer": "mancozeb_layer",
+                "labelLayer": "translate",
+                "visible": false,
+                "selectedType":  "pa_br_ingredientes_ativos_regioes_man_gr_ha",
+                "types": [
+                    "pa_br_ingredientes_ativos_regioes_man_gr_ha",
+                    "pa_br_ingredientes_ativos_regioes_manco_evo",
+                    "pa_br_ingredientes_ativos_uf_man_gr_ha",
+                    "pa_br_ingredientes_ativos_uf_manco_evo"
                 ]
             }
         ]

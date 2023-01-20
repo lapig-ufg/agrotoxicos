@@ -83,7 +83,18 @@
                     "lavoura_perene_mapbiomas",
                     "lavoura_temporaria_mapbiomas"
                 ]
-            }          
+            },
+            {
+                "idLayer": "agricultura_organica",
+                "labelLayer": "translate",
+                "visible": false,
+                "selectedType": "pa_br_agricultura_organica_regioes_prop_veg",
+                "types": [
+                    "pa_br_agricultura_organica_regioes_prop_veg",
+                    "pa_br_agropecuaria_organica",
+                    "pa_br_agricultura_organica_regioes_evolucao"
+                ]
+            }           
             
         ]
     }

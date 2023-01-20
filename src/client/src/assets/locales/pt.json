@@ -247,6 +247,9 @@
           },
           "lavoura_mapbiomas": {
             "labelLayer": "Lavouras"
+          },
+          "agricultura_organica": {
+            "labelLayer": "Agricultura Orgânica"
           }
         }
       },
@@ -255,6 +258,9 @@
         "layers": {
           "conflito_layer": {
             "labelLayer": "Conflitos"
+          },
+          "suicidio_layer": {
+            "labelLayer": "Suicídios"
           }
         }
       },
@@ -342,8 +348,17 @@
       "intoxicacao": {
         "labelGroup": "Intoxicação",
         "layers": {
-          "intoxicacao_layer":{
-            "labelLayer": "Intoxicacao"
+          "intoxicacao_regioes_layer":{
+            "labelLayer": "Por Regiões"
+          },
+          "intoxicacao_grupos_layer":{
+            "labelLayer": "Por Grupos"
+          },
+          "intoxicacao_idade_layer":{
+            "labelLayer": "Por Faixa Etária"
+          },
+          "intoxicacao_mortes_layer":{
+            "labelLayer": "Mortes"
           }
         }
       },
@@ -369,6 +384,12 @@
           },
           "glifosato_layer":{
             "labelLayer": "Glifosato"
+          },
+          "paraquate_layer":{
+            "labelLayer": "Paraquate"
+          },
+          "mancozeb_layer":{
+            "labelLayer": "Mancozeb"
           }
         }
       },
@@ -429,11 +450,11 @@
     },
     "resumo_card": {
       "area_region": "Área da Região",
-      "area_pastagem": "Área de Pastagem (ha)",
+      "first_title": "KG/HA de Agrotóxicos em 2010",
       "classe_pasture_quality": "Classe",
       "area_classe_pasture_quality": "Área desta Classe de Degradação",
       "complement_text": "do(a)",
-      "pasture_quality_title": "Qualidade de Pastagem",
+      "second_title": "KG/HA de Agrotóxicos em 2019",
       "complement_text_pasture_quality": "da área de Pastagem do(a)",
       "obs_text": "*A diferença entre a área de pastagem aqui apresentada e a área mapeada, é explicada pelo ajuste de área a partir da análise de acurácia, detalhada em Parente et al. 2019 (<a target='_blank' class='link-details' href='https://doi.org/10.1016/j.rse.2019.111301'> https://doi.org/10.1016/j.rse.2019.111301</a>)",
       "pasture_quality": {
@@ -443,22 +464,16 @@
       }
     },
     "area1_card": {
-      "pastureAndLotacaoBovina": {
-        "title": "Pastagem",
-        "text": "De acordo com o LAPIG, a área de Pastagem (em hectares) e o Rebanho Bovino (em UA) no #typeRegionTranslate# #textRegionTranslate# foi de:",
+      "produtosAgrotoxicosPerYear": {
+        "title": "Produtos de Agrotóxicos",
+        "text": "Os produtos de agrotóxicos acumulados em gramas/hectares estão distribuídos entre os seguintes Ingredientes Ativos:",
         "labelOfQuery": {
-          "pasture": "Pastagem",
-          "lotacao_bovina_regions": "Rebanho Bovino"
-        }
-      },
-      "pastureQuality": {
-        "title": "Qualidade de Pastagem",
-        "text": "De acordo com o LAPIG, ao longo dos anos, o #typeRegionTranslate# #textRegionTranslate# possui sua área de Pastagem (ha) distribuída entre as seguintes classes de degradação de Pastagem",
-        "labelOfQuery": {
-          "pasture_quality": {
-            "Severa": "Severa",
-            "Intermediário": "Intermediário",
-            "Ausente": "Ausente"
+          "produtos_agrotoxicos": {
+            "acefato": "Acefato",
+            "mancozebe": "Mancozebe",
+            "atrazina": "Atrazina",
+            "glifosato": "Glifosato",
+            "24_d": "2,4d"
           }
         }
       }

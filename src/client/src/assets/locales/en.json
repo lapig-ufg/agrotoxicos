@@ -246,6 +246,9 @@
           },
           "lavoura_mapbiomas": {
             "labelLayer": "Crops"
+          },
+          "agricultura_organica": {
+            "labelLayer": "Organic agriculture"
           }
         }
       },
@@ -341,8 +344,17 @@
       "intoxicacao": {
         "labelGroup": "Intoxication",
         "layers": {
-          "intoxicacao_layer":{
-            "labelLayer": "Intoxication"
+          "intoxicacao_regioes_layer":{
+            "labelLayer": "Per Regions"
+          },
+          "intoxicacao_grupos_layer":{
+            "labelLayer": "Per Groups"
+          },
+          "intoxicacao_idade_layer":{
+            "labelLayer": "Per Age Group"
+          },
+          "intoxicacao_mortes_layer":{
+            "labelLayer": "Deaths"
           }
         }
       },
@@ -359,6 +371,9 @@
         "layers": {
           "conflito_layer": {
             "labelLayer": "Conflicts"
+          },
+          "suicidio_layer": {
+            "labelLayer": "Suicides"
           }
         }
       },
@@ -376,6 +391,12 @@
           },
           "glifosato_layer":{
             "labelLayer": "Glyphosate"
+          },
+          "paraquate_layer":{
+            "labelLayer": "Paraquate"
+          },
+          "mancozeb_layer":{
+            "labelLayer": "Mancozeb"
           }
         }
       },
@@ -442,23 +463,15 @@
       }
     },
     "area1_card": {
-      "pastureAndLotacaoBovina": {
-        "title": "Pasture",
-        "text": "According to LAPIG, the Pasture area (in hectares) and the Bovine Stocking (in UA) in the #typeRegionTranslate# #textRegionTranslate# was:",
-        "labelOfQuery": {
-          "pasture": "Pasture",
-          "lotacao_bovina_regions": "Bovine Stocking"
-        }
-      },
-      "pastureQuality": {
+      "produtosAgrotoxicosPerYear": {
         "title": "Agrotoxics Products",
-        "text": "The accumulated pesticide products in grams/hectares are distributed among the following Active Ingredients: ",
+        "text": "The accumulated pesticide products in grams/hectares are distributed among the following Active Ingredients:",
         "labelOfQuery": {
           "produtos_agrotoxicos": {
             "acefato": "Acephate",
             "mancozebe": "Mancozeb",
             "atrazina": "Atrazine",
-            "glifosato": "Glyphosate",
+            "glifosato": "Gliphosate",
             "24_d": "2,4d"
           }
         }

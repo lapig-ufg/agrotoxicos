@@ -8,10 +8,27 @@
                 "idLayer": "conflito_layer",
                 "labelLayer": "translate",
                 "visible": false,
-                "selectedType": "pa_br_conflito_campo_250_2010_2019_pastoral_da_terra",
+                "selectedType": "pa_br_conflitos_regioes_per",
                 "types": [
-                    "pa_br_conflito_campo_250_2010_2019_pastoral_da_terra",
+                    "pa_br_conflitos_regioes_per",
+                    "pa_br_conflitos_regioes_dif_10_19",
+                    "pa_br_conflitos_regioes_p_fam_in",
+                    "pa_br_conflitos_regioes_tt_fam_1019",
+                    "pa_br_conflitos_regioes_p_vio_ind",
+                    "pa_br_conflitos_uf_per_fam_tt",
+                    "pa_br_conflitos_uf_p_fam_in",
+                    "pa_br_conflitos_uf_p_vio_in",
                     "pa_br_trabalho_escravo"
+                ]
+            },
+            {
+                "idLayer": "suicidio_layer",
+                "labelLayer": "translate",
+                "visible": false,
+                "selectedType": "pa_br_suicidios_uf",
+                "types": [
+                    "pa_br_suicidios_uf",
+                    "pa_br_suicidios_municipios"
                 ]
             }
         ]

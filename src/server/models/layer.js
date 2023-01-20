@@ -19,7 +19,6 @@ module.exports = class Layer {
         this.idGroup = idGroup ? idGroup : null;
         this.idLayer = params.idLayer;
 
-
         if (params.hasOwnProperty('types')) {
             this.layerTypes = this.getLayerTypesArray(params.types, allLayersT)
         }

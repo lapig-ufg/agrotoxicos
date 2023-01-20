@@ -27,7 +27,6 @@ module.exports = function (app) {
                         // console.log(json)
                         json.forEach(function (item, index) {
 
-                            // console.log(element, item)
                             var group = new Group(language, item, layertypes).getGroupInstance();
                             groups.push(group)
 
@@ -88,7 +87,7 @@ module.exports = function (app) {
             'produtos_agrotoxicos',
             'intoxicacao',
             'agropecuaria',
-            'desmatamento',
+            // 'desmatamento',
             'social',
             'areas_especiais',
             'areas_declaradas',
