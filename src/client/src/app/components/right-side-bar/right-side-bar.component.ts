@@ -12,12 +12,16 @@ import { LocalizationService } from "../../@core/internationalization/localizati
 import { ChartService } from '../services/charts.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomerService } from '../services/customer.service';
-import { Customer } from 'src/app/@core/interfaces/customer';
 import { Descriptor, Layer, Legend, Menu } from "../../@core/interfaces";
 import Map from 'ol/Map';
 
 import { UIChart } from 'primeng/chart';
 import { GoogleAnalyticsService } from "../services/google-analytics.service";
+import { SortEvent } from 'primeng/api';
+
+import jsPDF from 'jspdf'
+import autoTable from 'jspdf-autotable'
+import { ExportToCsv } from 'export-to-csv';
 
 @Component({
   selector: 'app-right-side-bar',
@@ -69,9 +73,6 @@ export class RightSideBarComponent implements OnInit {
   public expandGroups: any;
   public cardsToDisplay: any;
 
-
-
-
   @Output() onChangeMap = new EventEmitter<any>();
   @Output() onChangeLimits = new EventEmitter<any>();
 
@@ -92,7 +93,6 @@ export class RightSideBarComponent implements OnInit {
 
   constructor(
     private el: ElementRef,
-    private customerService: CustomerService,
     private localizationService: LocalizationService,
     private chartService: ChartService,
     private googleAnalyticsService: GoogleAnalyticsService,
@@ -261,7 +261,7 @@ export class RightSideBarComponent implements OnInit {
     }
     this.updateResumo();
     this.updateArea1Charts();
-    this.updateArea2Charts();
+    // this.updateArea2Charts();
     // this.updateArea3Charts();
     this.updateAreaTable();
 
@@ -372,7 +372,7 @@ export class RightSideBarComponent implements OnInit {
         let columnsTitle = tab.columnsTitle.split('?');
 
         for (let i = 0; i < rows_labels.length; i++) {
-          tab.exportCols.push({ field: rows_labels[i], header: columnsTitle[i] })
+          tab.exportCols.push({ field: rows_labels[i], header: columnsTitle[i], dataKey: rows_labels[i] })
         }
 
       }
@@ -398,6 +398,87 @@ export class RightSideBarComponent implements OnInit {
     }
 
   }
+
+  customSort(event: SortEvent) {
+
+    event.data?.sort((value1:any, value2:any) => {
+      let result;
+
+      if(event.field === 'index') {
+
+        let data1 = parseInt(value1[event.field? event.field:""].replace("º", ""));
+        let data2 = parseInt(value2[event.field? event.field:""].replace("º", ""));
+
+        result = (data1 < data2) ? -1 : (data1 > data2) ? 1 : 0;
+
+        return Number(event.order) * result;
+
+      } else if(event.field === 'value') {
+
+        let data1 = Number(value1["value"]);
+        let data2 = Number(value2["value"]);
+
+        result = (data1 < data2) ? -1 : (data1 > data2) ? 1 : 0;
+
+        return Number(event.order) * result;
+
+      } else {
+        let data1 = value1[event.field? event.field:""];
+        let data2 = value2[event.field? event.field:""]
+
+        result = data1.localeCompare(data2);
+
+        return Number(event.order) * result;
+      }
+    })
+  }
+
+  exportCSV(table) {
+
+    const options = {
+      fieldSeparator: ';',
+      quoteStrings: '"',
+      decimalSeparator: 'locale',
+      showLabels: true,
+      showTitle: false,
+      filename: table.id,
+      title: table.text,
+      useTextFile: false,
+      useBom: true,
+      useKeysAsHeaders: true,
+      // headers:  //<-- Won't work with useKeysAsHeaders present!
+    };
+
+    let sortOrder = {}
+    let i = 1;
+    for (let el of table.exportCols) {
+      sortOrder[el.dataKey] = i
+      i++;
+    }
+    sortOrder['originalValue'] = i;
+    if (table.rows_labels.toLowerCase().includes("city")) {
+      sortOrder['cityCode'] = ++i;
+    }
+
+    const res = table.data.map(o => Object.assign({}, ...Object.keys(o).sort((a, b) => sortOrder[a] - sortOrder[b]).map(x => { return { [x]: o[x] } })))
+    const csvExporter = new ExportToCsv(options);
+    csvExporter.generateCsv(res);
+
+  }
+
+
+  exportPdf(table) {
+    const doc = new jsPDF();
+
+    autoTable(doc, {
+      columnStyles: { 3: { halign: 'center' } },
+      columns: table.exportCols,
+      body: table.data
+    });
+
+    doc.save(table.title + '.pdf');
+  }
+  
 
 
 

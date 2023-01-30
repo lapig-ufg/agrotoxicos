@@ -73,17 +73,6 @@ module.exports = function (app) {
     Query.area1 = function (params) {
 
         var regionFilter = Internal.getRegionFilter(params['typeRegion'], params['valueRegion']);
-        console.log("select sum(glifo_2010) as glifosato-2010," +
-        " sum(glifo_2019) as glifosato-2019," +
-        " sum(atraz_2010) as atrazina-2010," +
-         " sum(atraz_2019) as atrazina-2019, " + 
-         " sum(acefa_2010) as acefato-2010," +
-         " sum(acefa_2019) as acefato-2019, " +
-         "sum(manco_2010) as mancozebe-2010," +
-         " sum(manco_2019) as mancozebe-2019, " +
-         ' sum("2_4d_2010") as "24_d-2010",' +
-         ' sum("2_4d_2019") as "24_d-2019"' +
-        " from pa_br_ingredientes_ativos_uf WHERE " + regionFilter)
         return [
             {
                 source: 'agrotoxicos',
@@ -109,19 +98,8 @@ module.exports = function (app) {
     Query.area2 = function (params) {
 
         var regionFilter = Internal.getRegionFilter(params['typeRegion'], params['valueRegion']);
-        var yearFilter = params['year'] ? Internal.getYearFilter(params['year']) : Internal.getYearFilter(2020);
+        // var yearFilter = params['year'] ? Internal.getYearFilter(params['year']) : Internal.getYearFilter(2020);
 
-        console.log("select sum(glifo_2010) as glifosato_2010," +
-        " sum(glifo_2019) as glifosato_2019," +
-        " sum(atraz_2010) as atrazina_2010," +
-         " sum(atraz_2019) as atrazina_2019, " + 
-         "sum(acefa_2010) as acefato_2010," +
-         " sum(acefa_2019) as acefato_2019, " +
-         "sum(manco_2010) as mancozebe_2010," +
-         " sum(manco_2019) as mancozebe_2019, " +
-         ' sum("2_4d_2010") as "24_d_2010",' +
-         ' sum("2_4d_2019") as "24_d_2019"' +
-        " from pa_br_ingredientes_ativos_uf WHERE " + regionFilter)
         return [
             {
                 source: 'agrotoxicos',
@@ -164,39 +142,41 @@ module.exports = function (app) {
 
     Query.areatable = function (params) {
         var regionFilter = Internal.getRegionFilter(params['typeRegion'], params['valueRegion']);
-        var yearFilter = params['year'] ? Internal.getYearFilter(params['year']) : Internal.getYearFilter(2020);
+        // var yearFilter = params['year'] ? Internal.getYearFilter(params['year']) : Internal.getYearFilter(2020);
 
         return [
             {
-                source: 'lapig',
-                id: 'municipios',
-                sql: "SELECT p.municipio as city, UPPER(p.uf) as uf, SUM(p.st_area_ha) as value FROM pasture_col6 p "
+                source: 'agrotoxicos',
+                id: 'intoxicacao',
+                sql: "SELECT p.nm_mun as city, UPPER(p.sigla_uf) as uf, (p.acumulado_intoxicacao) as value FROM pa_br_intoxicacao_municipios p "
                     + " WHERE " + regionFilter
-                    + " AND " + yearFilter
-                    + " GROUP BY 1, 2 ORDER BY 3 DESC;",
+                    + "ORDER BY 3 DESC;",
+                    // + " AND " + yearFilter
+                    // + " GROUP BY 1, 2 ORDER BY 3 DESC;",
                 // + " LIMIT " + Number(amount) + ";",
                 mantain: true
             },
             {
-                source: 'lapig',
-                id: 'estados',
-                sql: " SELECT UPPER(p.uf) AS uf, SUM(p.st_area_ha) as value  FROM pasture_col6 p "
+                source: 'agrotoxicos',
+                id: 'mortes_intoxicacao',
+                sql: " SELECT p.nome as city, UPPER(p.uf) as uf, (p.soma_obito) as value  FROM pa_br_intoxicacao_mortes_municipios p "
                     + "WHERE " + regionFilter
-                    + " AND " + yearFilter
-                    + " GROUP BY 1  ORDER BY 2 DESC;",
-                // + " LIMIT " + Number(amount) + ";",
-                mantain: true
-            },
-            {
-                source: 'lapig',
-                id: 'biomas',
-                sql: " SELECT p.bioma AS biome,  SUM(p.st_area_ha) as value  FROM pasture_col6 p "
-                    + "WHERE " + regionFilter
-                    + " AND " + yearFilter
-                    + " GROUP BY 1 ORDER BY 2 DESC;",
+                    + "ORDER BY 3 DESC;",
+                    // + " AND " + yearFilter
+                    // + " GROUP BY 1  ORDER BY 2 DESC;",
                 // + " LIMIT " + Number(amount) + ";",
                 mantain: true
             }
+            // {
+            //     source: 'lapig',
+            //     id: 'biomas',
+            //     sql: " SELECT p.bioma AS biome,  SUM(p.st_area_ha) as value  FROM pasture_col6 p "
+            //         + "WHERE " + regionFilter
+            //         + " AND " + yearFilter
+            //         + " GROUP BY 1 ORDER BY 2 DESC;",
+            //     // + " LIMIT " + Number(amount) + ";",
+            //     mantain: true
+            // }
         ]
     }
 

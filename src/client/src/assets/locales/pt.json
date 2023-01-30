@@ -366,7 +366,7 @@
         "labelGroup": "Agrotóxicos",
         "layers": {
           "agrotoxicos_layer":{
-            "labelLayer": "Agrotóxicos"
+            "labelLayer": "Uso de Agrotóxicos"
           }
         }
       },
@@ -439,7 +439,7 @@
       "area1Title": "Séries Temporais",
       "area2Title": "Análise de Proporção",
       "area3Title": "Gráfico Barra",
-      "areaTableTitle": "Rankings de Área de Pastagem"
+      "areaTableTitle": "Rankings de Intoxicados por Agrotóxicos"
     },
     "region_types": {
       "city": "Município",
@@ -503,21 +503,21 @@
       }
     },
     "area_table_card": {
-      "pastureRankingsCities": {
-        "title": "Municípios",
-        "text": "Rankings dos Municípios de acordo com a área de Pastagem (em ha)",
+      "intoxicacaoRankingsCities": {
+        "title": "Intoxicados",
+        "text": "Rankings dos Municípios com quantidade de Pessoas Intoxicadas",
         "labelOfQuery": {
-          "municipios": "Municípios"
+          "intoxicacao": "Municípios"
         },
-        "columnsTitle": "#?Município?UF?Área (ha)"
+        "columnsTitle": "#?Município?UF?Qntd"
       },
-      "pastureRankingsStates": {
-        "title": "Estados",
-        "text": "Rankings dos Estados de acordo com a área de Pastagem (em ha)",
+      "intoxicacaoMortesRankingsCities": {
+        "title": "Mortes",
+        "text": "Rankings dos Municípios com a quantidade de Pessoas Mortas Intoxicadas",
         "labelOfQuery": {
-          "estados": "Estados"
+          "mortes_intoxicacao": "Estados"
         },
-        "columnsTitle": "#?UF?Área (ha)"
+        "columnsTitle": "#?Município?UF?Qntd"
       },
       "pastureRankingsBiomes": {
         "title": "Biomas",

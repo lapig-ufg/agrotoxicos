@@ -12,8 +12,7 @@
                 "types": [
                     "pa_br_intoxicacao_regioes",
                     "pa_br_intoxicacao_uf",
-                    "pa_br_intoxicacao_municipios",
-                    "pa_br_gestantes_intoxicadas"
+                    "pa_br_intoxicacao_municipios"
                 ]
             },
             {

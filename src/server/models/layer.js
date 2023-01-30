@@ -71,7 +71,6 @@ module.exports = class Layer {
         let layertypesV = []
         layertypes.forEach(function (userSelectedLayerTypeValue, index) {
             for (var k in alllayertypes) {
-
                 let ob = alllayertypes[k].find(obj => {
                     return obj.valueType.toUpperCase() === userSelectedLayerTypeValue.toUpperCase()
                 })

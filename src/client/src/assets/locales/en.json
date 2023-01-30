@@ -362,7 +362,7 @@
         "labelGroup": "Agrotoxics",
         "layers": {
           "agrotoxicos_layer":{
-            "labelLayer": "Agrotoxics"
+            "labelLayer": "Agrotoxics Use"
           }
         }
       },
@@ -438,7 +438,7 @@
       "area1Title": "Timeseries",
       "area2Title": "Proportional Analysis",
       "area3Title": "Bar Charts",
-      "areaTableTitle": "Pasture Area Rankings"
+      "areaTableTitle": "Pesticide Intoxicated Rankings"
     },
     "region_types": {
       "city": "City",
@@ -500,29 +500,29 @@
       }
     },
     "area_table_card": {
-      "pastureRankingsCities": {
-        "title": "Municipalities",
-        "text": "Municipalities Ranking according to their Pasture Area (in ha)",
+      "intoxicacaoRankingsCities": {
+        "title": "Intoxicated",
+        "text": "Rankings of Municipalities with number of People Intoxicated",
         "labelOfQuery": {
-          "municipios": "Municipalities"
+          "intoxicacao": "Cities"
         },
-        "columnsTitle": "#?Municipality?UF?Area (ha)"
+        "columnsTitle": "#?City?UF?Qty"
       },
-      "pastureRankingsStates": {
-        "title": "States",
-        "text": "States Ranking according to their Pasture Area (in ha)",
+      "intoxicacaoMortesRankingsCities": {
+        "title": "Deaths",
+        "text": "Rankings of Municipalities with the number of Intoxicated Dead People",
         "labelOfQuery": {
-          "estados": "States"
+          "mortes_intoxicacao": "States"
         },
-        "columnsTitle": "#?UF?Area (ha)"
+        "columnsTitle": "#?City?UF?Qty"
       },
       "pastureRankingsBiomes": {
-        "title": "Biomes",
-        "text": "Biomes Ranking according to their Pasture Area (em ha)",
+        "title": "Biomas",
+        "text": "Ranking de Biomas de acordo com a área de Pastagem (em ha)",
         "labelOfQuery": {
-          "biomas": "Biomes"
+          "biomas": "Biomas"
         },
-        "columnsTitle": "#?Biome?Area (ha)"
+        "columnsTitle": "#?Bioma?Área (ha)"
       }
     },
     "area_table_card_auxiliar": {

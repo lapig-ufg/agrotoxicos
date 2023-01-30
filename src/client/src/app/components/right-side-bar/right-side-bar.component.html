@@ -81,7 +81,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="cardsToDisplay.area2">
+    <!-- <div *ngIf="cardsToDisplay.area2">
       <div [class]="expandGroups.area2 ? 'group-card group-card-active' :'group-card'">
         <div (click)="expandGroups.area2 = !expandGroups.area2" class="abstract">
           <span>
@@ -115,8 +115,8 @@
           </div>
         </div>
       </div>
-    </div>
-    <div *ngIf="cardsToDisplay.area3">
+    </div> -->
+    <!-- <div *ngIf="cardsToDisplay.area3">
       <div [class]="expandGroups.area3 ? 'group-card group-card-active' :'group-card'">
         <div (click)="expandGroups.area3 = !expandGroups.area3" class="abstract">
           <span>
@@ -150,7 +150,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div *ngIf="cardsToDisplay.rankingTable">
       <div [class]="expandGroups.rankingTable ? 'group-card group-card-active' :'group-card'">
         <div (click)="expandGroups.rankingTable = !expandGroups.rankingTable" class="abstract">
@@ -168,27 +168,26 @@
                   [selected]="i == 0" [disabled]="!table.show" [headerStyle]="{'font-size': 'small'}">
                   <div *ngIf="table.show">
                     <p-table #dt [columns]="table.exportCols" styleClass="p-datatable-sm" [value]="table.data"
+                      (sortFunction)="customSort($event)" [customSort]="true" 
                       [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
                       [autoLayout]="true"
                       currentPageReportTemplate="{{'right_sidebar.area_table_card_auxiliar.showing' | translate}} {first} {{'right_sidebar.area_table_card_auxiliar.to' | translate}} {last} {{'right_sidebar.area_table_card_auxiliar.of' | translate}} {totalRecords} {{'right_sidebar.area_table_card_auxiliar.entries' | translate}}"
                       [rowsPerPageOptions]="[10,25,50]">
-                      <!-- <ng-template pTemplate="caption">
-                        <div class="p-d-flex">
-                          <button type="button" pButton pRipple icon="pi-file-o" (click)="dt.exportCSV()" class="p-mr-2"
-                            pTooltip="CSV" tooltipPosition="bottom"></button>
-                          <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()"
-                          class="p-button-success p-mr-2" pTooltip="XLS" tooltipPosition="bottom"></button>
-                        <button type="button" pButton pRipple icon="pi pi-file-pdf" (click)="exportPdf()"
-                          class="p-button-warning p-mr-2" pTooltip="PDF" tooltipPosition="bottom"></button>
-                          <button type="button" pButton pRipple icon="pi pi-filter"
-                            (click)="dt.exportCSV({selectionOnly:true})" class="p-button-info p-ml-auto"
-                            pTooltip="Selection Only" tooltipPosition="bottom"></button>
+                      <ng-template pTemplate="caption">
+                        <div class="p-d-flex btn-exports">
+                          <button type="button" pButton pRipple icon="pi pi-file-o" (click)="exportCSV(table)"
+                            class="p-button-success" pTooltip="CSV" tooltipPosition="bottom"></button>
+                          <button type="button" pButton pRipple icon="pi pi-file-pdf" (click)="exportPdf(table)"
+                            class="p-button-warning" pTooltip="PDF" tooltipPosition="bottom"></button>
                         </div>
-                      </ng-template> -->
+                      </ng-template>
                       <ng-template pTemplate="header" let-columns>
                         <tr>
-                          <th *ngFor="let col of columns">
-                            {{col.header}}
+                          <th *ngFor="let col of columns" [pSortableColumn]="col.dataKey">
+                            <div class="sorted-columns">
+                              <p>{{col.header}}</p>
+                              <p-sortIcon [field]="col.dataKey"></p-sortIcon>
+                            </div>
                           </th>
                         </tr>
                       </ng-template>
