@@ -4,11 +4,15 @@
 # Log file
 *.log
 
+src/server/app.out
+src/server/boot.png
+
 # BlueJ files
 *.ctxt
 
 *.Jenkinsfile
 *.Dockerfile
+
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
