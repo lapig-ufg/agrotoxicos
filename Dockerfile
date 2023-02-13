@@ -6,8 +6,8 @@ ENV BRANCH="develop"
 
 LABEL maintainer="Renato Gomes <renatogomessilverio@gmail.com>"
 
-RUN cd /APP && git clone -b ${BRANCH} ${URL_TO_APPLICATION_GITHUB} && \
-    cd /APP/agrotoxicos/src/server && npm install
+RUN if [ -d "/APP/agrotoxicos" ]; then rm -Rf /APP/agrotoxicos; fi  && \
+    cd /APP && git clone -b ${BRANCH} ${URL_TO_APPLICATION_GITHUB}
     
 ADD ./src/client/dist/client /APP/agrotoxicos/src/client/dist/client
 
