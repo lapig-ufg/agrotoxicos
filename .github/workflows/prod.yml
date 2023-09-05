@@ -110,13 +110,13 @@ jobs:
           delete_status=$(ssh ${{secrets.SERVER_PROD_SSH}} "curl -v -X DELETE -w "%{http_code}"  http://${{secrets.SERVER_PROD}}/containers/$application_name?force=true  2>/dev/null")  
           create_status=$(ssh ${{secrets.SERVER_PROD_SSH}} "curl -v -X POST -H 'Content-Type: application/json' -d @${{secrets.CONFIG_FILES}}$application_name.json -s -o /dev/null -w "%{http_code}"  http://${{secrets.SERVER_PROD}}/containers/create?name=$application_name  2>/dev/null")  
 
-          echo "CREATE_STATUS=\"$create_status\"" >> "$GITHUB_OUTPUT"
-          echo "DELETE_STATUS=\"$delete_status\"" >> "$GITHUB_OUTPUT"
+          echo "CREATE_STATUS=STATUS_$create_status" >> "$GITHUB_OUTPUT"
+          echo "DELETE_STATUS=STATUS_$delete_status" >> "$GITHUB_OUTPUT"
       - name: Start Container
         id: start_container
         run: |
           start_status=$(ssh ${{secrets.SERVER_PROD_SSH}} "curl -v -X POST -s -o /dev/null -w "%{http_code}"   http://${{secrets.SERVER_PROD}}/containers/$application_name/start  2>/dev/null") 
-          echo "START_STATUS=\"$start_status\"" >> "$GITHUB_OUTPUT"
+          echo "START_STATUS=STATUS_$start_status" >> "$GITHUB_OUTPUT"
   
 
   post-deploy:
