@@ -21,9 +21,9 @@ jobs:
       LAPIG_PROJECT_NAME: ${{ steps.creat_env.outputs.LAPIG_PROJECT_NAME }}
       LAPIG_COMMIT_DATE: ${{ steps.creat_env.outputs.LAPIG_COMMIT_DATE }}
 
-      CREATE_STATUS: ${{steps.deploy_container.outputs.CREATE_STATUS}}"
-      DELETE_STATUS: ${{steps.deploy_container.outputs.DELETE_STATUS}}"
-      START_STATUS: ${{steps.start_container.outputs.START_STATUS}}"
+      CREATE_STATUS: ${{steps.deploy_container.outputs.CREATE_STATUS}}
+      DELETE_STATUS: ${{steps.deploy_container.outputs.DELETE_STATUS}}
+      START_STATUS: ${{steps.start_container.outputs.START_STATUS}}
 
 
     steps:
