@@ -36,7 +36,7 @@ jobs:
           repo_name=${repo_full_name##*/}
           echo "Nome do repositório: $repo_name"
 
-          echo "application_name=app_araticum" >> $GITHUB_ENV
+          echo "application_name=app_agrotoxico" >> $GITHUB_ENV
 
           echo "LAST_COMMIT_HASH=$(git log --pretty=format:%h -n 1)" >> $GITHUB_ENV
           
