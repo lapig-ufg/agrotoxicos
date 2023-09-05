@@ -5,7 +5,19 @@
         "groupExpanded": false,
         "layers": [
             {
-                "idLayer": "pecuaria_censitaria",
+                "idLayer": "bovinos_layer",
+                "labelLayer": "translate",
+                "visible": false,
+                "selectedType": "pa_br_bovinos_evolucao_250_2019_ibge",
+                "types": [
+                    "pa_br_bovinos_evolucao_250_1990_ibge",
+                    "pa_br_bovinos_evolucao_250_2000_ibge",
+                    "pa_br_bovinos_evolucao_250_2010_ibge",
+                    "pa_br_bovinos_evolucao_250_2019_ibge"
+                ]
+            },
+            {
+                "idLayer": "pecuaria_censitaria2",
                 "labelLayer": "translate",
                 "visible": false,
                 "selectedType": "lotacao_bovina_regions",
@@ -15,12 +27,51 @@
                 ]
             },
             {
-                "idLayer": "floresta_plantada",
+                "idLayer": "arroz_layer",
                 "labelLayer": "translate",
                 "visible": false,
-                "selectedType": "floresta_plantada_mapbiomas",
+                "selectedType": "pa_br_arroz_evolucao_250_2019",
                 "types": [
-                    "floresta_plantada_mapbiomas"
+                    "pa_br_arroz_evolucao_250_1990",
+                    "pa_br_arroz_evolucao_250_2000",
+                    "pa_br_arroz_evolucao_250_2010",
+                    "pa_br_arroz_evolucao_250_2019"
+                ]
+            },
+            {
+                "idLayer": "cana_layer",
+                "labelLayer": "translate",
+                "visible": false,
+                "selectedType": "pa_br_cana_evolucao_250_2019_ibge",
+                "types": [
+                    "pa_br_cana_evolucao_250_1990_ibge",
+                    "pa_br_cana_evolucao_250_2000_ibge",
+                    "pa_br_cana_evolucao_250_2010_ibge",
+                    "pa_br_cana_evolucao_250_2019_ibge"
+                ]
+            },
+            {
+                "idLayer": "soja_layer",
+                "labelLayer": "translate",
+                "visible": false,
+                "selectedType": "pa_br_soja_evolucao_250_2019_ibge",
+                "types": [
+                    "pa_br_soja_evolucao_250_1990_ibge",
+                    "pa_br_soja_evolucao_250_2000_ibge",
+                    "pa_br_soja_evolucao_250_2010_ibge",
+                    "pa_br_soja_evolucao_250_2019_ibge"
+                ]
+            },
+            {
+                "idLayer": "feijao_layer",
+                "labelLayer": "translate",
+                "visible": false,
+                "selectedType": "pa_br_feijao_evolucao_250_2019_ibge",
+                "types": [
+                    "pa_br_feijao_evolucao_250_1990_ibge",
+                    "pa_br_feijao_evolucao_250_2000_ibge",
+                    "pa_br_feijao_evolucao_250_2010_ibge",
+                    "pa_br_feijao_evolucao_250_2019_ibge"
                 ]
             },
             {
@@ -32,7 +83,19 @@
                     "lavoura_perene_mapbiomas",
                     "lavoura_temporaria_mapbiomas"
                 ]
-            }
+            },
+            {
+                "idLayer": "agricultura_organica",
+                "labelLayer": "translate",
+                "visible": false,
+                "selectedType": "pa_br_agricultura_organica_regioes_prop_veg",
+                "types": [
+                    "pa_br_agricultura_organica_regioes_prop_veg",
+                    "pa_br_agropecuaria_organica",
+                    "pa_br_agricultura_organica_regioes_evolucao"
+                ]
+            }           
+            
         ]
     }
 ]

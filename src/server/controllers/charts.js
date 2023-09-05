@@ -112,6 +112,61 @@ module.exports = function (app) {
         return dataInfo;
     }
 
+    Internal.buildAgrotoxicosTimeseries = function(data, labelsOfQuery){
+
+        let dataset = [];
+
+        data.forEach(d => {
+
+            Object.keys(d).forEach(key => {
+                // console.log(key) // returns the keys in an object
+                // console.log(d[key])  // returns the appropriate value 
+    
+                if(key != 'year'){
+                    dataset.push({
+                        label: labelsOfQuery.labelOfQuery[key],
+                        value: d[key],
+                        color: (key.toLowerCase() == 'glifosato' ? '#8f8321' : (key.toLowerCase() == 'atrazina' ? 'blue' :
+                        (key.toLowerCase() == 'acefato' ? 'red' : (key.toLowerCase() == 'mancozebe' ? 'green' : '#4e3830'))))
+                    })
+                }
+             })
+        })
+
+        const groupedTech = dataset.reduce((acc, value) => {
+            // Group initialization
+            if (!acc[value.label]) {
+              acc[value.label] = []
+            }
+            // Grouping
+            acc[value.label].push(value)
+            return acc
+          }, {})
+          
+          const res = Object.entries(groupedTech).map(([label, options]) => ({
+            label,
+            options
+          }))
+
+        // console.log("AA - ",dataset)
+        let dataInfo = {
+            labels: data.map(d => d.year),
+            datasets: res.map(d => {
+
+                let obj = {
+                    label: d.label,
+                    data: [...d.options.map(a => a.value)],
+                    fill: false,
+                    borderColor: [...new Set(d.options.map(a => a.color))],
+                    tension: .4
+                }
+                return obj
+            })
+        }
+
+        return dataInfo;
+    }
+
     Internal.buildTableData = function (allQueriesResult, chartDescription) {
 
         let dataInfo = []
@@ -123,7 +178,7 @@ module.exports = function (app) {
                 let index = 1;
                 for (let i = 0; i < queryInd.length; i++) {
                     queryInd[i].index = index++ + 'º'
-                    queryInd[i].value = String(Internal.numberFormat(parseFloat(queryInd[i].value)) + " ha")
+                    queryInd[i].value = parseInt(queryInd[i].value)
                 }
 
                 dataInfo = [...queryInd]
@@ -154,16 +209,14 @@ module.exports = function (app) {
             region: {
                 area: request.queryResult['region'][0].area_region,
             },
-            pasture: {
-                area: request.queryResult['pasture'][0].value,
-                percentOfRegionArea: Internal.numberFormat((request.queryResult['pasture'][0].value / request.queryResult['region'][0].area_region) * 100) + "%"
+            first: {
+                area: request.queryResult['agrotoxicos_10'][0].value,
+                percentOfRegionArea: Internal.numberFormat((request.queryResult['agrotoxicos_10'][0].value / request.queryResult['region'][0].area_region) * 100) + "%"
             },
-            pasture_quality: request.queryResult['pasture_quality'].map(ob => {
-                ob.percentAreaPasture = Internal.numberFormat((ob.value / request.queryResult['pasture'][0].value) * 100) + "%"
-                ob.percentOfRegionArea = Internal.numberFormat((ob.value / request.queryResult['region'][0].area_region) * 100) + "%"
-                ob.classe = Internal.languageOb.resumo_card.pasture_quality[ob.classe]
-                return ob;
-            })
+            second: {
+                area: request.queryResult['agrotoxicos_19'][0].value,
+                percentOfRegionArea: Internal.numberFormat((request.queryResult['agrotoxicos_19'][0].value / request.queryResult['region'][0].area_region) * 100) + "%"
+            }
         }
 
         response.send(result)
@@ -172,8 +225,13 @@ module.exports = function (app) {
     };
 
     Controller.handleArea1Data = function (request, response) {
-        const { lang, typeRegion, valueRegion, textRegion } = request.query;
+        const { lang, typeRegion, valueRegion, textRegion, year } = request.query;
         const language = lang;
+
+        let varYear = year
+        if (!varYear) {
+            varYear = 2020
+        }
 
         Internal.languageOb = UtilsLang().getLang(language).right_sidebar;
 
@@ -184,55 +242,48 @@ module.exports = function (app) {
 
         const chartResult = [
             {
-                "id": "pastureAndLotacaoBovina",
+                "id": "produtosAgrotoxicosPerYear",
                 "idsOfQueriesExecuted": [
-                    { idOfQuery: 'pasture', labelOfQuery: Internal.languageOb["area1_card"]["pastureAndLotacaoBovina"].labelOfQuery['pasture'] },
-                    { idOfQuery: 'lotacao_bovina_regions', labelOfQuery: Internal.languageOb["area1_card"]["pastureAndLotacaoBovina"].labelOfQuery['lotacao_bovina_regions'] },
+                    { idOfQuery: 'produtos_agrotoxicos', labelOfQuery: Internal.languageOb["area1_card"]["produtosAgrotoxicosPerYear"].labelOfQuery['produtos_agrotoxicos'] },
                 ],
-                "title": Internal.languageOb["area1_card"]["pastureAndLotacaoBovina"].title,
-                "getText": function (chart) {
-                    // replacements['areaMun'] = Number(chart['indicators'][0]["area_mun"])
-                    // replacements['anthropicArea'] = chart['indicators'].reduce((a, { value }) => a + value, 0);
-                    // replacements['percentArea'] = (replacements['anthropicArea'] / replacements['areaMun']) * 100.0;
-
-                    const text = Internal.replacementStrings(Internal.languageOb["area1_card"]["pastureAndLotacaoBovina"].text, replacements)
-                    return text
-                },
-                "type": 'line',
-                "options": {
-                    legend: {
-                        display: false
-                    }
-                }
-            },
-            {
-                "id": "pastureQuality",
-                "idsOfQueriesExecuted": [
-                    { idOfQuery: 'pasture_quality', labelOfQuery: Internal.languageOb["area1_card"]["pastureQuality"].labelOfQuery['pasture_quality'] },
-                    // { idOfQuery: 'lotacao_bovina_regions', labelOfQuery: Internal.languageOb["area1_card"]["pastureAndLotacaoBovina"].labelOfQuery['lotacao_bovina_regions'] },
-                ],
-                "title": Internal.languageOb["area1_card"]["pastureQuality"].title,
+                "title": Internal.languageOb["area1_card"]["produtosAgrotoxicosPerYear"].title,
                 "getText": function (queriesResult, query) {
-                    // replacements['areaMun'] = Internal.numberFormat(Number([...new Set(queriesResult[query[0].idOfQuery].map(ob => ob.area_mun))][0]))
-                    // replacements['anthropicArea'] = chart['indicators'].reduce((a, { value }) => a + value, 0);
-                    // replacements['percentArea'] = (replacements['anthropicArea'] / replacements['areaMun']) * 100.0;
-
-                    const text = Internal.replacementStrings(Internal.languageOb["area1_card"]["pastureQuality"].text, replacements)
+                    const text = Internal.replacementStrings(Internal.languageOb["area1_card"]["produtosAgrotoxicosPerYear"].text, replacements)
                     return text
                 },
                 "type": 'line',
                 "options": {
-                    legend: {
-                        display: false
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#495057'
+                            }
+                        }
                     }
                 }
-            },
+            }
         ]
 
         let chartFinal = []
+        let chartTemp = [{year: 2010}, {year: 2019}]
+        for (let chart of chartResult) {
+            if(chart.id.includes("produtosAgrotoxicosPerYear")){
+                let qr = request.queryResult['produtos_agrotoxicos']
+                Object.entries(qr[0]).forEach(([key, value]) => {
+                    // console.log(`${key}: ${value}`)
+                    let prod = key.split("__");
+                    chartTemp.forEach(val => {
+                        if(val.year == prod[1]){
+                            val[prod[0]] = parseFloat(value)
+                        }
+                    }) 
+                });
+            }
+        }
+
         for (let chart of chartResult) {
 
-            chart['data'] = Internal.buildGraphResult(request.queryResult, chart)
+            chart['data'] = Internal.buildAgrotoxicosTimeseries(chartTemp, chart.idsOfQueriesExecuted[0])
             chart['show'] = false
 
             if (chart['data']) {
@@ -270,20 +321,20 @@ module.exports = function (app) {
 
         const chartResult = [
             {
-                "id": "pastureQualityPerYear",
+                "id": "produtosAgrotoxicosPerYear",
                 "idsOfQueriesExecuted": [
-                    { idOfQuery: 'pasture_quality', labelOfQuery: Internal.languageOb["area2_card"]["pastureQualityPerYear"].labelOfQuery['pasture_quality'] },
+                    { idOfQuery: 'produtos_agrotoxicos', labelOfQuery: Internal.languageOb["area2_card"]["produtosAgrotoxicosPerYear"].labelOfQuery['produtos_agrotoxicos'] },
                 ],
-                "title": Internal.languageOb["area2_card"]["pastureQualityPerYear"].title,
+                "title": Internal.languageOb["area2_card"]["produtosAgrotoxicosPerYear"].title,
                 "getText": function (queriesResult, query) {
                     // replacements['areaMun'] = Number(chart['indicators'][0]["area_mun"])
                     // replacements['anthropicArea'] = chart['indicators'].reduce((a, { value }) => a + value, 0);
                     // replacements['percentArea'] = (replacements['anthropicArea'] / replacements['areaMun']) * 100.0;
 
-                    replacements['areaPasture'] = Internal.numberFormat(Number(queriesResult[query[0].idOfQuery].reduce((n, { value }) => n + parseFloat(value), 0)))
-                    replacements['yearTranslate'] = parseInt(varYear)
+                    // replacements['areaPasture'] = Internal.numberFormat(Number(queriesResult[query[0].idOfQuery].reduce((n, { value }) => n + parseFloat(value), 0)))
+                    // replacements['yearTranslate'] = parseInt(varYear)
 
-                    const text = Internal.replacementStrings(Internal.languageOb["area2_card"]["pastureQualityPerYear"].text, replacements)
+                    const text = Internal.replacementStrings(Internal.languageOb["area2_card"]["produtosAgrotoxicosPerYear"].text, replacements)
                     return text
                 },
                 "type": 'pie',
@@ -325,7 +376,24 @@ module.exports = function (app) {
         ]
 
         let chartFinal = []
+        let chartTemp = [{year: 2010}, {year: 2019}]
         for (let chart of chartResult) {
+            if(chart.id.includes("produtosAgrotoxicosPerYear")){
+                let qr = request.queryResult['produtos_agrotoxicos']
+                Object.entries(qr[0]).forEach(([key, value]) => {
+                    // console.log(`${key}: ${value}`)
+                    let prod = key.split("_");
+                    chartTemp.forEach(val => {
+                        if(val.year == prod[1]){
+                            val[prod[0]] = parseFloat(value)
+                        }
+                    }) 
+
+                });
+            }
+        }
+
+        for (let chart of chartTemp) {
 
             chart['data'] = Internal.buildGraphResult(request.queryResult, chart)
             chart['show'] = false
@@ -344,7 +412,7 @@ module.exports = function (app) {
 
 
 
-        response.send(chartFinal)
+        response.send(chartTemp)
         response.end();
     };
 
@@ -443,56 +511,56 @@ module.exports = function (app) {
 
         const tablesDescriptor = [
             {
-                "id": "pastureRankingsCities",
+                "id": "intoxicacaoRankingsCities",
                 "idsOfQueriesExecuted": [
-                    { idOfQuery: 'municipios', labelOfQuery: Internal.languageOb["area_table_card"]["pastureRankingsCities"].labelOfQuery['municipios'] },
+                    { idOfQuery: 'intoxicacao', labelOfQuery: Internal.languageOb["area_table_card"]["intoxicacaoRankingsCities"].labelOfQuery['intoxicacao'] },
                 ],
-                "title": Internal.languageOb["area_table_card"]["pastureRankingsCities"].title,
-                "columnsTitle": Internal.languageOb["area_table_card"]["pastureRankingsCities"].columnsTitle,
+                "title": Internal.languageOb["area_table_card"]["intoxicacaoRankingsCities"].title,
+                "columnsTitle": Internal.languageOb["area_table_card"]["intoxicacaoRankingsCities"].columnsTitle,
                 "getText": function (chart) {
                     // replacements['areaMun'] = Number(chart['indicators'][0]["area_mun"])
                     // replacements['anthropicArea'] = chart['indicators'].reduce((a, { value }) => a + value, 0);
                     // replacements['percentArea'] = (replacements['anthropicArea'] / replacements['areaMun']) * 100.0;
 
-                    const text = Internal.replacementStrings(Internal.languageOb["area_table_card"]["pastureRankingsCities"].text, replacements)
+                    const text = Internal.replacementStrings(Internal.languageOb["area_table_card"]["intoxicacaoRankingsCities"].text, replacements)
                     return text
                 },
                 "rows_labels": "index?city?uf?value",
             },
             {
-                "id": "pastureRankingsStates",
+                "id": "intoxicacaoMortesRankingsCities",
                 "idsOfQueriesExecuted": [
-                    { idOfQuery: 'estados', labelOfQuery: Internal.languageOb["area_table_card"]["pastureRankingsStates"].labelOfQuery['estados'] },
+                    { idOfQuery: 'mortes_intoxicacao', labelOfQuery: Internal.languageOb["area_table_card"]["intoxicacaoMortesRankingsCities"].labelOfQuery['mortes_intoxicacao'] },
                 ],
-                "title": Internal.languageOb["area_table_card"]["pastureRankingsStates"].title,
-                "columnsTitle": Internal.languageOb["area_table_card"]["pastureRankingsStates"].columnsTitle,
+                "title": Internal.languageOb["area_table_card"]["intoxicacaoMortesRankingsCities"].title,
+                "columnsTitle": Internal.languageOb["area_table_card"]["intoxicacaoMortesRankingsCities"].columnsTitle,
                 "getText": function (chart) {
                     // replacements['areaMun'] = Number(chart['indicators'][0]["area_mun"])
                     // replacements['anthropicArea'] = chart['indicators'].reduce((a, { value }) => a + value, 0);
                     // replacements['percentArea'] = (replacements['anthropicArea'] / replacements['areaMun']) * 100.0;
 
-                    const text = Internal.replacementStrings(Internal.languageOb["area_table_card"]["pastureRankingsStates"].text, replacements)
+                    const text = Internal.replacementStrings(Internal.languageOb["area_table_card"]["intoxicacaoMortesRankingsCities"].text, replacements)
                     return text
                 },
-                "rows_labels": "index?uf?value",
+                "rows_labels": "index?city?uf?value",
             },
-            {
-                "id": "pastureRankingsBiomes",
-                "idsOfQueriesExecuted": [
-                    { idOfQuery: 'biomas', labelOfQuery: Internal.languageOb["area_table_card"]["pastureRankingsBiomes"].labelOfQuery['biomas'] },
-                ],
-                "title": Internal.languageOb["area_table_card"]["pastureRankingsBiomes"].title,
-                "columnsTitle": Internal.languageOb["area_table_card"]["pastureRankingsBiomes"].columnsTitle,
-                "getText": function (chart) {
-                    // replacements['areaMun'] = Number(chart['indicators'][0]["area_mun"])
-                    // replacements['anthropicArea'] = chart['indicators'].reduce((a, { value }) => a + value, 0);
-                    // replacements['percentArea'] = (replacements['anthropicArea'] / replacements['areaMun']) * 100.0;
+            // {
+            //     "id": "pastureRankingsBiomes",
+            //     "idsOfQueriesExecuted": [
+            //         { idOfQuery: 'biomas', labelOfQuery: Internal.languageOb["area_table_card"]["pastureRankingsBiomes"].labelOfQuery['biomas'] },
+            //     ],
+            //     "title": Internal.languageOb["area_table_card"]["pastureRankingsBiomes"].title,
+            //     "columnsTitle": Internal.languageOb["area_table_card"]["pastureRankingsBiomes"].columnsTitle,
+            //     "getText": function (chart) {
+            //         // replacements['areaMun'] = Number(chart['indicators'][0]["area_mun"])
+            //         // replacements['anthropicArea'] = chart['indicators'].reduce((a, { value }) => a + value, 0);
+            //         // replacements['percentArea'] = (replacements['anthropicArea'] / replacements['areaMun']) * 100.0;
 
-                    const text = Internal.replacementStrings(Internal.languageOb["area_table_card"]["pastureRankingsBiomes"].text, replacements)
-                    return text
-                },
-                "rows_labels": "index?biome?value",
-            }
+            //         const text = Internal.replacementStrings(Internal.languageOb["area_table_card"]["pastureRankingsBiomes"].text, replacements)
+            //         return text
+            //     },
+            //     "rows_labels": "index?biome?value",
+            // }
         ]
 
 

@@ -27,7 +27,6 @@ module.exports = function (app) {
                         // console.log(json)
                         json.forEach(function (item, index) {
 
-                            // console.log(element, item)
                             var group = new Group(language, item, layertypes).getGroupInstance();
                             groups.push(group)
 
@@ -84,12 +83,14 @@ module.exports = function (app) {
     Internal.getGroupsOrder = function () {
 
         return [
-            'pasture',
+            'uso_agrotoxicos',
+            'produtos_agrotoxicos',
+            'intoxicacao',
+            'agropecuaria',
+            // 'desmatamento',
+            'social',
             'areas_especiais',
             'areas_declaradas',
-            'agropecuaria',
-            'campo',
-            'inspecao_visual',
             'infraestrutura',
             'imagens'
         ]

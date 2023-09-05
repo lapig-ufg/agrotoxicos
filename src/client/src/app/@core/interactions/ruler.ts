@@ -21,10 +21,13 @@ abstract class RulerControl {
     protected constructor(protected component: Ruler, private type: string) {
       this.decimalPipe = new DecimalPipe('pt-BR');
     }
-
+ // @ts-ignore
     getDraw(): Draw {
+       // @ts-ignore
         const draw = new Draw({
+           // @ts-ignore
             source: this.component.getSource(),
+             // @ts-ignore
             type: this.type,
             style: new Style({
               fill: new Fill({

@@ -36,10 +36,10 @@ module.exports = class Group {
         try {
 
             for (const [key, layer] of Object.entries(layers)) {
+                // console.log(key, layer)
                 let layerInstance = new Layer(language, layer, temp_id, layertypes);
                 arr.push(layerInstance.getLayerInstance());
             }
-
 
         } catch (error) {
             // console.log(error.response.body);

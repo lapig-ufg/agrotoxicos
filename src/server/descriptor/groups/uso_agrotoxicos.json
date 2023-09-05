@@ -1,0 +1,21 @@
+[
+    {
+        "idGroup": "uso_agrotoxicos",
+        "labelGroup": "translate",
+        "groupExpanded": true,
+        "layers": [
+            {
+                "idLayer": "agrotoxicos_layer",
+                "labelLayer": "translate",
+                "visible": true,
+                "selectedType": "pa_br_agrotoxicos_uso",
+                "types": [
+                    "pa_br_agrotoxicos_uso",
+                    "pa_br_agrotoxicos_diferenca",
+                    "pa_br_agrotoxicos_estabelecimentos",
+                    "pa_br_agrotoxicos_estabelecimentos_aumento"
+                ]
+            }   
+        ]
+    }
+]

@@ -10,6 +10,8 @@ module.exports = function(app) {
 
     Internal['pool-general'] = new Pool(config['pg_general'])
 
+    Internal['pool-agrotoxicos'] = new Pool(config['pg_agrotoxicos'])
+
     Internal.prepareQuery = function(sqlQuery, params) {
         Object.keys(params).forEach(function(name) {
             if(typeof params[name] === 'string'){
@@ -48,6 +50,20 @@ module.exports = function(app) {
         })
     };
 
+    Client.init_agrotoxicos = function(callback) {
+
+        Internal['pool-agrotoxicos'].connect((err, client, release) => {
+            if (err)
+                return console.error('Error acquiring client', err.stack)
+
+            Internal['client-agrotoxicos'] = client
+            Internal['release-agrotoxicos'] = release
+
+            callback()
+
+        })
+    };
+
     Client.query = function(queryObj, params, callback) {
         const start = Date.now()
 
@@ -71,8 +87,19 @@ module.exports = function(app) {
                 callback(result)
             })
 
-        } else if (!queryObj.hasOwnProperty('source') || queryObj.source == 'general') {
-            return Internal['client-general'].query(query, (err, result) => {
+        } else if(queryObj.source == 'agrotoxicos') {
+            return Internal['client-agrotoxicos'].query(query, (err, result) => {
+
+                if (err !== null)
+                    console.error(err)
+                else if (config['pg_agrotoxicos']['debug']) {
+                    const duration = Date.now() - start
+                    // console.log('Executed query', { query, duration, rows: result.rowCount })
+                }
+                callback(result)
+            })
+             }else if (!queryObj.hasOwnProperty('source') || queryObj.source == 'general') {
+                return Internal['client-general'].query(query, (err, result) => {
 
                 if (err !== null)
                     console.error(err)

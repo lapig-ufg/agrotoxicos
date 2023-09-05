@@ -1,0 +1,58 @@
+[
+    {
+        "idGroup": "intoxicacao",
+        "labelGroup": "translate",
+        "groupExpanded": false,
+        "layers": [
+            {
+                "idLayer": "intoxicacao_regioes_layer",
+                "labelLayer": "translate",
+                "visible": false,
+                "selectedType": "pa_br_intoxicacao_regioes",
+                "types": [
+                    "pa_br_intoxicacao_regioes",
+                    "pa_br_intoxicacao_uf",
+                    "pa_br_intoxicacao_municipios"
+                ]
+            },
+            {
+                "idLayer": "intoxicacao_grupos_layer",
+                "labelLayer": "translate",
+                "visible": false,
+                "selectedType": "pa_br_h_m_intoxicados_uf_homens",
+                "types": [
+                    "pa_br_h_m_intoxicados_uf_homens",
+                    "pa_br_h_m_intoxicados_uf_mulheres",
+                    "pa_br_gestantes_intoxicadas",
+                    "pa_br_indigenas_intoxicados_uf",
+                    "pa_br_indigenas_intoxicados_municipios",
+                    "pa_br_trabalhadores_intoxicados_uf"
+                ]
+            },
+            {
+                "idLayer": "intoxicacao_idade_layer",
+                "labelLayer": "translate",
+                "visible": false,
+                "selectedType": "pa_br_idade_intoxicados_municipios_0_12_meses",
+                "types": [
+                    "pa_br_idade_intoxicados_municipios_0_12_meses",
+                    "pa_br_idade_intoxicados_municipios_0_14_anos",
+                    "pa_br_idade_intoxicados_municipios_15_19_anos",
+                    "pa_br_idade_intoxicados_municipios_20_39_anos",
+                    "pa_br_idade_intoxicados_municipios_40_59_anos",
+                    "pa_br_idade_intoxicados_municipios_60_ou_mais_anos"
+                ]
+            },
+            {
+                "idLayer": "intoxicacao_mortes_layer",
+                "labelLayer": "translate",
+                "visible": false,
+                "selectedType": "pa_br_intoxicacao_mortes_uf",
+                "types": [
+                    "pa_br_intoxicacao_mortes_uf",
+                    "pa_br_intoxicacao_mortes_municipios"
+                ]
+            }
+        ]
+     }
+]

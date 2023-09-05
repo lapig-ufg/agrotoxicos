@@ -14,6 +14,8 @@ export class MainComponent implements OnInit, AfterContentChecked {
   public showLayers: boolean;
   public limit: any;
   public descriptor: Descriptor;
+  public showMessage: boolean;
+  public isMobile: boolean;
 
   constructor(
     private mapService: MapService,
@@ -25,7 +27,14 @@ export class MainComponent implements OnInit, AfterContentChecked {
   }
 
   ngOnInit(): void {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+      this.isMobile = true;
+    } else{
+      this.isMobile = false;
+    }
+    
     this.getDescriptor();
+    this.showMessage = true;
   }
   ngAfterContentChecked(): void {
     this.cdRef.detectChanges();
