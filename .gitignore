@@ -13,7 +13,6 @@ src/server/boot.png
 *.Jenkinsfile
 *.Dockerfile
 
-
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
