@@ -662,17 +662,22 @@ export class GeneralMapComponent implements OnInit, Ruler, AfterContentChecked {
           typeLayer.download['loading'] = false;
         })
         layer.selectedTypeObject = layer.types.find(type => type.valueType === layer.selectedType);
-        layer.selectedTypeObject!.visible = layer.visible;
-        for (let types of layer.types) {
-          this.layersTypes.push(types)
+        // console.log('layer', layer.selectedType, 'selectedTypeObject', layer.selectedTypeObject)
+        if(layer.selectedTypeObject){
+          layer.selectedTypeObject!.visible = layer.visible;
+          for (let types of layer.types) {
+            this.layersTypes.push(types)
+          }
+          this.layersNames.push(layer);
         }
-        this.layersNames.push(layer);
       }
     }
 
     for (let basemap of this._descriptor.basemaps) {
+
       basemap.selectedTypeObject = basemap.types.find(type => type.valueType === basemap.selectedType);
       basemap.selectedTypeObject!.visible = basemap.visible;
+
       for (let types of basemap.types) {
 
         const baseMapAvaliable = this.bmaps.find(b => {
@@ -1402,9 +1407,13 @@ export class GeneralMapComponent implements OnInit, Ruler, AfterContentChecked {
 
   addDrawInteraction(name: string): void {
     this.drawing = true;
+     // @ts-ignore
     if (name !== 'None') {
+       // @ts-ignore
       this.draw = new Draw({
+         // @ts-ignore
         source: this.source,
+        // @ts-ignore
         type: name
       });
       this.addInteraction(this.draw, name, true);

@@ -38,6 +38,17 @@ module.exports = function (app) {
             "idleTimeoutMillis": 0,
             "connectionTimeoutMillis": 0,
         },
+        "pg_agrotoxicos": {
+            "user": env.PG_USER,
+            "host": env.PG_HOST,
+            "database": 'agrotoxicos',
+            "password": env.PG_PASSWORD,
+            "port": env.PG_PORT,
+            "debug": env.PG_DEBUG,
+            "max": 20,
+            "idleTimeoutMillis": 0,
+            "connectionTimeoutMillis": 0,
+        },
         "port": env.PORT,
         "ows_host": env.OWS_HOST,
         "lapig-maps": env.LAPIG_MAPS

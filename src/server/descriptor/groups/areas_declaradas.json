@@ -23,6 +23,15 @@
                 ]
             },
             {
+                "idLayer": "floresta_plantada",
+                "labelLayer": "translate",
+                "visible": false,
+                "selectedType": "floresta_plantada_mapbiomas",
+                "types": [
+                    "floresta_plantada_mapbiomas"
+                ]
+            },
+            {
                 "idLayer": "planejamento_hidrico",
                 "labelLayer": "translate",
                 "visible": false,

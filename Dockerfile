@@ -6,8 +6,8 @@ ENV BRANCH="main"
 
 LABEL maintainer="Renato Gomes <renatogomessilverio@gmail.com>"
 
-RUN if [ -d "/APP/agrotoxicos" ]; then rm -Rf /APP/agrotoxicos; fi  && \
-    cd /APP && git clone -b ${BRANCH} ${URL_TO_APPLICATION_GITHUB}
+
+RUN cd /APP && git clone -b ${BRANCH} ${URL_TO_APPLICATION_GITHUB} && \
 
 ADD ./src/server/node_modules /APP/agrotoxicos/src/server/node_modules  
 ADD ./src/client/dist/client /APP/agrotoxicos/src/client/dist/client

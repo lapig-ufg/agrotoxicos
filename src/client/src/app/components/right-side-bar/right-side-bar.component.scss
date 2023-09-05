@@ -497,3 +497,29 @@
   left: 1.5em;
 }
 
+.btn-exports{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.p-datatable-table .pi-sort {
+  font-size: 60px !important;
+}
+
+.lapig-sortIcon {
+  font-size: 12px !important;
+}
+
+.sorted-columns{
+  display: flex;
+  ::ng-deep {
+    i {
+      font-size: 0.6rem!important;
+    }
+    p {
+      margin: unset;
+    }
+  }
+}
+

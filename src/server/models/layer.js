@@ -19,7 +19,6 @@ module.exports = class Layer {
         this.idGroup = idGroup ? idGroup : null;
         this.idLayer = params.idLayer;
 
-
         if (params.hasOwnProperty('types')) {
             this.layerTypes = this.getLayerTypesArray(params.types, allLayersT)
         }
@@ -72,7 +71,6 @@ module.exports = class Layer {
         let layertypesV = []
         layertypes.forEach(function (userSelectedLayerTypeValue, index) {
             for (var k in alllayertypes) {
-
                 let ob = alllayertypes[k].find(obj => {
                     return obj.valueType.toUpperCase() === userSelectedLayerTypeValue.toUpperCase()
                 })

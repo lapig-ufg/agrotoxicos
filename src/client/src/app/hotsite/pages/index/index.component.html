@@ -1,4 +1,3 @@
-
 <!--
 	Lamoda by TEMPLATE STOCK
 	templatestock.co @templatestock
@@ -11,206 +10,221 @@
 
 
 
-   <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
+<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
         <script src="js/html5shiv.js"></script>
         <script src="js/respond.min.js"></script>
         <![endif]-->
 
-	<body  data-spy="scroll" data-target="#main-menu">
+<body data-spy="scroll" data-target="#main-menu">
 
 
-  <!--Start Page loader -->
+  <!--Start Page loader
   <div id="pageloader">
         <div class="loader">
             <img src="../../../../assets/hotsite/images/progress.gif" alt='loader' />
         </div>
-   </div>
-   <!--End Page loader -->
+   </div> -->
+  <!--End Page loader -->
 
 
-   <!--Start Navigation-->
-		<header id="header">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-12">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="fa fa-bars"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
+  <!--Start Navigation-->
+  <header id="header">
 
-							<div class="logo-nav">
-								<a href="">
-									<img src="../../../../assets/logos/atlas_logo.png" alt="Company logo" />
-								</a>
-							</div>
+    <div class="container">
+      <div style="position:fixed;margin-left:90px;z-index: 99;">
+        <li (click)="handleLang('pt')" style="border:solid;border-width:2px;">
+          <div [class]="lang == 'pt' ? 'lng lng-active' : 'lng'">
+            <span class="lng_name">PT</span>
+          </div>
+          <span class="tooltip">Filtrar</span>
+        </li>
+        <li (click)="handleLang('en')" style="border:solid;border-width:2px;">
+          <div [class]="lang == 'en' ? 'lng lng-active' : 'lng'">
+            <span class="lng_name">EN</span>
+          </div>
+        </li>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="fa fa-bars"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
 
-							<div class="clear-toggle"></div>
-							<div id="main-menu" class="collapse scroll navbar-right">
-								<ul class="nav">
+          <div class="logo-nav">
+            <a href="">
+              <img src="../../../../assets/logos/atlas_logo.png" alt="Company logo" />
+            </a>
+          </div>
 
-									<li class="active"> <a href="#home">Home</a> </li>
+          <div class="clear-toggle"></div>
+          <div id="main-menu" class="collapse scroll navbar-right">
+            <ul class="nav">
 
-									<li> <a href="#about">Sobre</a> </li>
+              <li class="active"> <a href="#home">Home</a> </li>
 
-                                   <!--  <li> <a href="#history">Acervo</a> </li> -->
+              <li> <a href="#about">{{'hotsite.home.options.about' | translate}}</a> </li>
 
-                                    <li> <a href="#metodo">Metodologia</a> </li>
+              <!--  <li> <a href="#history">Acervo</a> </li> -->
 
-                                    <li> <a href="#contact">Como usar</a> </li>
+              <li> <a href="#metodo">{{'hotsite.home.options.methodology' | translate}}</a> </li>
 
-                                  <!--   <li> <a href="#team">Equipe</a> </li> -->
+              <!--  <li> <a href="#contact">Como usar</a> </li> -->
 
-								   <li> <a href="#metodo">Análises</a> </li>
+              <!--   <li> <a href="#team">Equipe</a> </li> -->
 
-									<!-- <li> <a href="#blog">Blog</a></li> -->
+              <li> <a href="#metodo">{{'hotsite.home.options.analysis' | translate}}</a> </li>
 
-                                   <!--  <li> <a href="#testimonials">Parceiros</a></li> -->
+              <!-- <li> <a href="#blog">Blog</a></li> -->
 
-									<li> <a href="#contact">Contato</a> </li>
+              <!--  <li> <a href="#testimonials">Parceiros</a></li> -->
 
-								</ul>
-							</div><!-- end main-menu -->
-						</div>
-					</div>
-				</div>
-			</header>
-    <!--End Navigation-->
-
-
-        <!-- Start Slider  -->
-        <section id="home" class="home">
-            <div class="slider-overlay"></div>
-            <div class="flexslider">
-                <ul class="slides scroll">
-                    <li class="first">
-                        <div class="slider-text-wrapper">
-                            <div class="container">
-                                <div class="big">{{'title' | translate}}</div>
-                                <div class="small">Esta Plataforma visa trazer à público informações oficiais sobre o impacto do uso de agrotóxicos no Brasil.</div>
-                                <a href="/map" class="middle btn btn-white myHover">ACESSAR PLATAFORMA</a>
-                            </div>
-                        </div>
-                        <img src="../../../../assets/hotsite/images/slider/1.jpg" alt="">
-                    </li>
-
-                    <li class="secondary">
-                        <div class="slider-text-wrapper">
-                            <div class="container">
-                                <div class="big">Plataforma agrotóxicos</div>
-                                <div class="small">Ela é uma plataforma online e gratuita, desenvolvida para que a população em geral, mas também, os gestores públicos, pesquisadores e membros da sociedade civil possam, por meio de seu conjunto cartográfico,
-                                    ter uma visão concreta e espacial do uso de agrotóxicos no Brasil, seus impactos, suas raízes e seus temas correlatos.</div>
-                                <a href="/map" class=" middle btn btn-white myHover">ACESSAR PLATAFORMA</a>
-                            </div>
-                         </div>
-                         <img src="../../../../assets/hotsite/images/slider/2.jpg" alt="">
-                    </li>
+              <!-- <li> <a href="#contact">Contato</a> </li> -->
 
 
-                    <li class="third">
-                        <div class="slider-text-wrapper">
-                            <div class="container">
-                                <div class="big">Plataforma agrotóxicos</div>
-                                <div class="small">
-                                    Esta é uma plataforma de integração de mapas temáticos elaborados sob o tema central do uso de agrotóxicos no Brasil e seus impactos.
-                                    Ela tem como eixo norteador a questão agrária, e, portanto, os temas a ela associados, tais como: o da produção agrícola e o da produção de alimentos, o
-                                     desmatamento, os conflitos no campo, dentre outros.</div>
-                                <a href="/map" class=" middle btn btn-white myHover">ACESSAR PLATAFORMA</a>
-                            </div>
-                         </div>
-                         <img src="../../../../assets/hotsite/images/slider/3.jpg" alt="">
-                    </li>
+
+            </ul>
+
+          </div><!-- end main-menu -->
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+  </header>
+  <!--End Navigation-->
+
+
+  <!-- Start Slider  -->
+  <section id="home" class="home">
+    <div class="slider-overlay"></div>
+
+    <div class="slider-text-wrapper">
+      <div class="container">
+        <div class="big" style="color:white !important;font-size:31px;">{{'hotsite.base.header.title' | translate}}
+        </div>
+        <div class="small" style="color:white !important;font-size:18px;">{{'hotsite.home.banner.text' | translate}}
+        </div>
+        <a href="/map" class="middle btn btn-white myHover">{{'hotsite.home.banner.btn' | translate}}</a>
+      </div>
+
+      <style>
+
+      </style>
+
+      <div class="subtitlebox">
+        <p class="subtitle"> {{'hotsite.home.banner.subtitle1' | translate}} </p>
+        <p class="subtitle"> {{'hotsite.home.banner.subtitle2' | translate}} </p>
+        <p class="subtitle"> {{'hotsite.home.banner.subtitle3' | translate}} </p>
+        <p class="subtitle"> {{'hotsite.home.banner.subtitle4' | translate}} </p>
+
+      </div>
+    </div>
+
+
+
+
+    <div class="flexslider">
+      <ul class="slides scroll">
+        <li class="first">
+          <img src="../../../../assets/hotsite/images/slider/1.jpg" alt="">
+        </li>
+        <li class="secondary">
+          <img src="../../../../assets/hotsite/images/slider/2.jpg" alt="">
+        </li>
+        <li class="third">
+          <img src="../../../../assets/hotsite/images/slider/3.jpg" alt="">
+        </li>
       </ul>
+    </div>
+
+
+  </section>
+  <!-- End Slider  -->
+
+  <!--Start Features-->
+  <section id="about" class="section">
+    <div class="container">
+
+
+      <!-- Features Icon-->
+      <div class="col-md-12" style="margin-bottom:-110px !important">
+        <div class="features-icon-box">
+
+          <div class="features-icon">
+            <i class="fa fa-leaf"></i>
+          </div>
+
+          <div class="features-info">
+            <h4>{{'hotsite.home.abstract.title' | translate}}</h4>
+            <p> {{'hotsite.home.abstract.text1' | translate}} <a href="https://www.livrosabertos.sibi.usp.br/portaldelivrosUSP/catalog/book/352" target="_blank">{{'hotsite.home.abstract.publicado' | translate}}</a> {{'hotsite.home.abstract.text1continuation' | translate}} </p>
+            <p> {{'hotsite.home.abstract.text2' | translate}} </p>
+            <p> {{'hotsite.home.abstract.text3' | translate}} </p>
+            <p> {{'hotsite.home.abstract.text4' | translate}} </p>
+            <p> {{'hotsite.home.abstract.text5' | translate}} </p>
+            <p> {{'hotsite.home.abstract.text6' | translate}} </p>
+
+            <input type="checkbox" class="read-more-state" id="post-2" />
+            <label for="post-2" class="read-more-trigger"></label>
+            <ul class="read-more-wrap ">
+
+              <li class="read-more-target">
+                <p> {{'hotsite.home.abstract.readmore1' | translate}}
+                  <a href="https://repositorio.usp.br/item/002959051" target="_blank">
+                    {{'hotsite.home.abstract.readmore2HREF' | translate}} </a>
+                  {{'hotsite.home.abstract.readmore3' | translate}}
+                </p>
+
+              </li>
+            </ul>
+
+
+
+          </div>
+        </div>
       </div>
 
 
-        </section>
-          <!-- End Slider  -->
-
-  <!--Start Features-->
-  <section  id="about" class="section">
-       <div class="container">
 
 
-              <!-- Features Icon-->
-              <div class="col-md-12" style="margin-bottom:-110px !important">
-                  <div class="features-icon-box">
-
-                      <div class="features-icon">
-                      <i class="fa fa-leaf"></i>
-                      </div>
-
-                      <div class="features-info">
-                         <h4>Sobre</h4>
-                         <p>   O “WebAtlas dos Agrotóxicos” é fruto de um trabalho de atualização do Atlas “Geografia do Uso de Agrotóxicos no Brasil e Conexões com a União Europeia”,
-                         publicado pela professora Larissa Bombardi em 2017. </p>
-                         <p>  A atualização foi feita pela própria Profa Larissa Bombardi, Pablo Luiz Maia Nepomuceno e equipe, e em parceria com o LAPIG e com o apoio do WWF-Brasil, a plataforma foi desenvolvida.
-                         O WebAtlas conta com dados expandidos, considerando novas fontes e elementos - como desmatamento e avanço de determinadas culturas - cobrindo o horizonte temporal de 2010 a 2019.  </p>
-                         <p> O objetivo da plataforma é apresentar, de maneira interativa a correlação entre os diferentes cartogramas do Atlas, permitindo ao usuário, sempre que possível, sobrepor camadas.
-                         Com estas sobreposições, ficam ainda mais claras as interações entre diversos indicadores associados a problemas socioambientais,
-                         como o aumento do desmatamento, os conflitos e intoxicações por agrotóxicos de uso agrícola no campo, o avanço de algumas culturas
-                         - em especial da soja - em detrimento da produção de alguns alimentos que tradicionalmente compõem a dieta brasileira, por exemplo.</p>
-
-                         <input type="checkbox" class="read-more-state" id="post-2" />
-                         <ul class="read-more-wrap">
-
-                          <li class="read-more-target"> <p> A plataforma tem como horizonte subsidiar a população com informações gráficas,
-                          cartográficas e infográficas sobre a condição do uso e do impacto dos agroquímicos na saúde humana e na saúde ambiental.
-                          Esses dados produzidos para subsidiar setores da sociedade civil organizada e, também,
-                          o poder público na proposição e elaboração de políticas públicas e projetos voltados à segurança e soberania alimentar, à melhoria da saúde humana e da saúde ambiental.
-                          Está, ainda, em seu horizonte fornecer elementos concretos para a proposição e desenvolvimento de marcos regulatórios municipais, estaduais, federais e, também,
-                          internacionais, no que diz respeito ao uso de agroquímicos, às suas formas de aplicação, aos seus resíduos, e, no limite, às formas de superação e de limitação de seu uso.
-                          Na Plataforma o usuário poderá escolher a base cartográfica em que verá representado o fenômeno escolhido, por exemplo: intoxicações por agrotóxicos nas regiões brasileiras,
-                          em municípios específicos, ou ainda, por biomas ou eco regiões.
-                          O histórico desta plataforma remete ao Atlas “Geografia do Uso de Agrotóxicos no Brasil e Conexões com a União Europeia”
-                          <a href="https://repositorio.usp.br/item/002959051">(https://repositorio.usp.br/item/002959051)</a> obra que, pela primeira vez, trouxe ao público de forma espacializada - e, cartografada -
-                          a realidade do uso e do impacto de tais substâncias, sobretudo na saúde humana, no país.
-                          A Plataforma - agora - traz ao público a possibilidade de acessar o conjunto de cartogramas de forma interativa.</p>
-
-                         </li>
-                     </ul>
-                     <label for="post-2" class="read-more-trigger"></label>
-
-
-                      </div>
-                  </div>
-              </div>
-
-
-
-
-       </div> <!-- /.container-->
+    </div> <!-- /.container-->
   </section>
   <!--End Features-->
 
 
   <!--Start Section-->
-  <section  id="metodo" class="section">
+  <section id="metodo" class="section">
     <div class="container">
-        <div class="row">
-              <div class="col-md-12">
-                  <div class="content-tab-1">
-                      <ul class="nav">
-                          <li class="active">
-                              <a aria-expanded="true" href="#tab-content-1" data-toggle="tab">
-                              <i class="fa fa-desktop"></i>
-                              <h4>METODOLOGIA</h4>
-                              </a>
-                              <div class="tab-arrow">
-                              </div>
-                          </li>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="content-tab-1">
+            <ul class="nav">
+              <li class="active">
+                <a aria-expanded="true" href="#tab-content-1" data-toggle="tab">
+                  <i class="fa fa-desktop"></i>
+                  <h4>{{'hotsite.home.options.methodology' | translate}}</h4>
+                </a>
+                <div class="tab-arrow">
+                </div>
+              </li>
 
-                            <li>
-                              <a aria-expanded="true" href="#tab-content-2" data-toggle="tab">
-                              <i class="fa fa-cubes"></i>
-                              <h4>DADOS</h4>
-                              </a>
-                              <div class="tab-arrow">
-                              </div>
-                          </li>
-                           <!--
+              <li>
+                <a aria-expanded="true" href="#tab-content-2" data-toggle="tab">
+                  <i class="fa fa-cubes"></i>
+                  <h4>{{'hotsite.home.options.dataSubtitle' | translate}}</h4>
+                </a>
+                <div class="tab-arrow">
+                </div>
+              </li>
+              <!--
                        <li>
                               <a aria-expanded="true" href="#tab-content-3" data-toggle="tab">
                               <i class="fa fa-institution"></i>
@@ -220,15 +234,15 @@
                               </div>
                           </li> -->
 
-                            <li>
-                              <a aria-expanded="true" href="#tab-content-4" data-toggle="tab">
-                              <i class="fa fa-cubes"></i>
-                              <h4>Análises</h4>
-                              </a>
-                              <div class="tab-arrow">
-                              </div>
-                          </li>
-                             <!--
+              <li>
+                <a aria-expanded="true" href="#tab-content-4" data-toggle="tab">
+                  <i class="fa fa-cubes"></i>
+                  <h4>{{'hotsite.home.options.analysis' | translate}}</h4>
+                </a>
+                <div class="tab-arrow">
+                </div>
+              </li>
+              <!--
                             <li>
                               <a aria-expanded="true" href="#tab-content-5" data-toggle="tab">
                               <i class="fa fa-pie-chart"></i>
@@ -238,431 +252,411 @@
                               </div>
                           </li> -->
 
-                      </ul>
+            </ul>
 
-                      <div class="tab-content-main">
-                              <div class="container">
-                                  <div class="tab-content">
-                                      <div class="tab-pane active in" id="tab-content-1">
+            <div class="tab-content-main">
+              <div class="container">
+                <div class="tab-content">
+                  <div class="tab-pane active in" id="tab-content-1">
 
-                                         <!-- Features Icon-->
-                                          <div class="col-md-12 margin-bottom-30">
-                                              <div class="tab1-features">
-                                                  <div class="icon"> <i class="fa fa-star-o"></i> </div>
-                                                  <div class="info">
-                                                      <h4>Métodos</h4>
-                                                      <p>Os mapas apresentados na plataforma foram elaborados utilizando recursos técnicos de geocodificação
-                                                          (georreferenciamento de planilhas tabulares com vínculo espacial), classificação, análise espacial e edição gráfica e cartográfica,
-                                                          disponíveis nos Sistemas de Informações Geográficas ArcGis/Esri e QGIS/Open source.
-                                                          O território brasileiro está representado na projeção policônica com coordenadas geográficas
-                                                          referenciadas no datum horizontal do Sistema de Referência Geocêntrica para as Américas do ano 2000 – SIRGAS 2000. </p>
-                                                  </div>
-                                              </div>
+                    <!-- Features Icon-->
+                    <div class="col-md-12 margin-bottom-30">
+                      <div class="tab1-features">
+                        <div class="icon"> <i class="fa fa-star-o"></i> </div>
+                        <div class="info">
+                          <h4>{{'hotsite.home.options.method.title' | translate}} </h4>
+                          <p> {{'hotsite.home.options.method.text1' | translate}} </p>
+                        </div>
+                      </div>
 
-                                              <div class="tab1-features">
-                                                  <div class="icon"> <i class="fa fa-codepen"></i> </div>
-                                                  <div class="info">
-                                                      <h4>Fontes e características dos dados</h4>
-                                                      <p>As principais fontes de dados utilizadas consistem em planilhas digitais tabulares disponíveis nos portais oficiais  dos órgãos públicos, dentre os quais se destacam:
-                                                        • os dados de fiscalização e monitoramento da produção, importação, exportação e vendas de agrotóxicos no Brasil, elaborados e publicados pelo Instituto Brasileiro de Meio Ambiente – IBAMA; </p>
-                                                  </div>
-                                              </div>
+                      <div class="tab1-features">
+                        <div class="icon"> <i class="fa fa-codepen"></i> </div>
+                        <div class="info">
+                          <h4>{{'hotsite.home.options.method.title2' | translate}}</h4>
+                          <p>{{'hotsite.home.options.method.text2' | translate}} </p>
+                        </div>
+                      </div>
 
-                                              <div class="tab1-features">
-                                                  <div class="icon"> <i class="fa fa-heart-o"></i></div>
-                                                  <div class="info">
-                                                     <!--  <h4>Design With Love</h4> -->
-                                                      <p>O IBAMA elabora e publica anualmente informações relacionadas à produção, importação,
-                                                          exportação e vendas de agrotóxicos, componentes e afins no Brasil. Os dados consistem num conjunto de planilhas
-                                                          tabulares digitais que sintetizam as informações presentes nos relatórios semestrais que as empresas detentoras de
-                                                          registro de comercialização de agrotóxicos no Brasil apresentam semestralmente ao Ibama, conforme exigido pelo artigo
-                                                          41 do Decreto Federal nº 4.074, de 4/1/2002 da Constituição Federal. Tal Artigo determina que as empresas com produtos agrotóxicos,
-                                                          componentes e afins registrados no Brasil apresentem semestralmente aos órgãos federais e estaduais, relatórios sobre as quantidades
-                                                          produzidas, importadas, exportadas e comercializadas. Os relatórios permitem o acompanhamento dessas atividades por Ingrediente Ativo,
-                                                          que consiste no agente químico, físico ou biológico utilizado como princípio ativo do produto final comercializado e a sua respectiva
-                                                          classe de uso (p.ex. herbicidas, inseticidas, fungicidas), entre outras informações, e são oferecidos nas escalas (unidades de análise)
-                                                          nacional, macrorregional e estadual (Unidades da Federação – UF).
-                                                    </p>
-                                                  </div>
-                                              </div>
+                      <div class="tab1-features">
+                        <div class="icon"> <i class="fa fa-tree"></i></div>
+                        <div class="info">
+                          <!--  <h4>Design With Love</h4> -->
+                          <p> {{'hotsite.home.options.method.text3' | translate}} </p>
+                        </div>
+                      </div>
 
-                                          </div>
-                                          <!--End features Icon-->
+                    </div>
+                    <!--End features Icon-->
 
 
-                                        <!--  Start Carousel-->
-                                      <!--  <div class="col-md-6">
+                    <!--  Start Carousel-->
+                    <!--  <div class="col-md-6">
                                             <div class="tab-carousel">
                                                   <div class="item"><img src="images/works/img4.jpg" alt=""></div>
                                                   <div class="item"><img src="images/works/img5.jpg" alt=""></div>
                                                   <div class="item"><img src="images/works/img6.jpg" alt=""></div>
                                             </div>
                                         </div>-->
-                                        <!-- End Carousel-->
+                    <!-- End Carousel-->
 
-                                      </div>
-                                     <!-- End Tab content 1-->
+                  </div>
+                  <!-- End Tab content 1-->
 
 
-                                     <!-- Start Tab content 2-->
-                                      <div class="tab-pane" id="tab-content-2">
+                  <!-- Start Tab content 2-->
+                  <div class="tab-pane" id="tab-content-2">
+                    <div class="col-md-12">
+                      <h4>{{'hotsite.home.options.data.title1' | translate}}</h4>
 
-                                          <div class="col-md-12">
-                                               <div class="tab2-services-box">
-                                                    <!-- <div class="media">
+                      <div class="tab2-services-box">
+                        <!-- <div class="media">
                                                        <img src="images/services1.jpg"  alt="services"/>
                                                    </div> -->
 
-                                                   <div class="services-info">
-                                                      <!--  <h4>Our History</h4> -->
-                                                       <p> • Os dados provenientes dos Censos Agropecuários, realizados pelo Instituto Brasileiro de Geografia e Estatística – IBGE e publicados no
-                                                           Sistema IBGE de Recuperação Automática de dados – SIDRA;- O Censo Agropecuário do IBGE consiste em uma base de dados proveniente do
-                                                           levantamento de informações qualitativas e quantitativas acerca de todos os estabelecimentos agropecuários presentes no território
-                                                            nacional e suas respectivas características. Os seus resultados são divulgados no formato de planilhas que contêm dados qualitativos
-                                                            e quantitativos agrupados em diferentes escalas ou unidades de análise, tais como: nacional (Brasil), macrorregional (Grandes Regiões),
-                                                             estadual (Unidades da Federação), mesorregional (Mesorregiões), microrregional (Microrregiões) e municipal (Municípios). </p>
-                                                   </div>
+                        <div class="services-info">
+                          <!--  <h4>Our History</h4> -->
+                          <p> {{'hotsite.home.options.data.text1' | translate}} </p>
+                        </div>
 
-                                               </div>
-                                          </div>
+                      </div>
+                    </div>
 
-                                         <div class="col-md-12">
-                                               <div class="tab2-services-box">
-                                                 <!--   <div class="media">
+                    <div class="col-md-12">
+                      <div class="tab2-services-box">
+                        <!--   <div class="media">
                                                        <img src="images/services2.jpg"  alt="services"/>
                                                    </div> -->
 
-                                                   <div class="services-info">
-                                                       <!-- <h4>What We Do</h4> -->
-                                                       <p> • Os dados de monitoramento anual de safras de grãos publicados pela Companhia Nacional de Abastecimento – CONAB;
-                                                        - Os dados de safras de grãos (produção e área plantada/área colhida) provenientes da CONAB são atualizados anualmente
-                                                        e publicados em planilhas apenas nas escalas nacional, macrorregional e estadual.</p>
-                                                   </div>
+                        <div class="services-info">
+                          <!-- <h4>What We Do</h4> -->
+                          <p> {{'hotsite.home.options.data.text2' | translate}}</p>
+                        </div>
 
-                                               </div>
-                                          </div>
+                      </div>
+                    </div>
 
-                                          <div class="col-md-12">
-                                               <div class="tab2-services-box">
+                    <div class="col-md-12">
+                      <h4>{{'hotsite.home.options.data.title2' | translate}}</h4>
 
-
-                                                   <div class="services-info">
-
-                                                       <p> • Os dados de monitoramento do desmatamento na Amazônia Legal brasileira, publicados pelo Sistema de Monitoramento do Desmatamento na Amazônia Legal – PRODES
-                                                           do Instituto Nacional de Pesquisas Espaciais – INPE;</p>
-                                                   </div>
-
-                                               </div>
-                                          </div>
-
-                                          <div class="col-md-12">
-                                            <div class="tab2-services-box">
+                      <div class="tab2-services-box">
 
 
-                                                <div class="services-info">
+                        <div class="services-info">
 
-                                                    <p>• Os dados provenientes do PRODES consistem nos principais dados oficiais de monitoramento do desmatamento da Amazônia Legal
-                                                         brasileira, ele é elaborado pelo Instituto Nacional de Pesquisas Espaciais – INPE e conta com a colaboração de outros Institutos,
-                                                         entre eles o IBAMA. O projeto se utiliza de técnicas de sensoriamento remoto sobre imagens captadas por sensores a bordo de diferentes
-                                                         satélites, principalmente os das séries Landsat e CBERS, com a finalidade de monitorar as ações de desmatamento por corte raso na Amazônia.
-                                                          Os dados são publicados anualmente no mês de dezembro, sendo os principais dados utilizados para o cálculo das taxas anuais
-                                                          de desmatamento na Amazônia brasileira e são oferecidos ao público em planilhas que podem ser obtidas nas escalas nacional,
-                                                          estadual e municipal.</p>
-                                                </div>
+                          <p> {{'hotsite.home.options.data.text3' | translate}} </p>
+                        </div>
 
-                                            </div>
-                                       </div>
+                      </div>
+                    </div>
 
-                                       <div class="col-md-12">
-                                        <div class="tab2-services-box">
-
-                                            <div class="services-info">
-
-                                                <p>• Dados de registro de atendimentos, internações e morbidades ocorrentes em unidades de saúde do país,
-                                                    para os casos de intoxicação por agrotóxicos de uso agrícola, publicados no banco de dados aberto “DATASUS”,
-                                                    desenvolvido e mantido pelo departamento de informática do Sistema Único de Saúde do Brasil - SUS.
-                                                    - O DATASUS consiste num sistema de registro, armazenamento e publicação de dados de saúde pública criado e mantido pelo
-                                                    departamento de informática do Sistema Único de Saúde do Brasil – SUS. Ele integra numa única base de dados todos os registros
-                                                     de atendimento, internações, e adoecimentos que ocorrem nos diferentes tipos de unidades de atendimento à saúde do território nacional,
-                                                     por isso consiste numa das maiores bases de dados públicos em saúde do mundo, sendo o acesso totalmente gratuito e aberto.
-                                                      Os dados consolidados são disponibilizados anualmente e possuem vínculo espacial em diferentes escalas ou unidades de análise,
-                                                       desde a nacional até a microrregional, municipal e local.</p>
-                                            </div>
-
-                                        </div>
-                                   </div>
-
-                                      </div>
+                    <div class="col-md-12">
+                      <div class="tab2-services-box">
 
 
-                                      <div class="tab-pane" id="tab-content-3">
+                        <div class="services-info">
 
-                                     <div class="features-tab3">
+                          <p> {{'hotsite.home.options.data.text4' | translate}}</p>
+                        </div>
 
-                                          <!--Start Features Left-->
-                                          <div class="col-md-4">
-                                              <div class="features-left m-bot-30">
-                                                      <!--Features Item #1-->
-                                                      <div class="features-item">
-                                                          <div class="features-icon"> <i class="fa fa-pagelines"></i> </div>
-                                                          <div class="features-info">
-                                                             <h4>Multipurpose & Responsive</h4>
-                                                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum.</p>
-                                                          </div>
-                                                      </div>
+                      </div>
+                    </div>
 
-                                                      <!--Features Item #2-->
-                                                      <div class="features-item">
-                                                          <div class="features-icon"> <i class="fa fa-trophy"></i> </div>
-                                                          <div class="features-info">
-                                                             <h4>Creative Design</h4>
-                                                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum.</p>
-                                                          </div>
-                                                      </div>
+                    <div class="col-md-12">
+                      <h4>{{'hotsite.home.options.data.title3' | translate}}</h4>
 
-                                                      <!--Features Item #3-->
-                                                      <div class="features-item">
-                                                          <div class="features-icon"> <i class="fa fa-tag"></i> </div>
-                                                          <div class="features-info">
-                                                             <h4>Awesome Theme</h4>
-                                                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum.</p>
-                                                          </div>
-                                                      </div>
+                      <div class="tab2-services-box">
 
-                                                  </div>
-                                               </div>
-                                         <!--End Features Left-->
+                        <div class="services-info">
 
-                                         <!--Start Features Image
+                          <p> {{'hotsite.home.options.data.text5' | translate}} </p>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                  <div class="tab-pane" id="tab-content-3">
+
+                    <div class="features-tab3">
+
+                      <!--Start Features Left-->
+                      <div class="col-md-4">
+                        <div class="features-left m-bot-30">
+                          <!--Features Item #1-->
+                          <div class="features-item">
+                            <div class="features-icon"> <i class="fa fa-pagelines"></i> </div>
+                            <div class="features-info">
+                              <h4>Multipurpose & Responsive</h4>
+                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum.
+                              </p>
+                            </div>
+                          </div>
+
+                          <!--Features Item #2-->
+                          <div class="features-item">
+                            <div class="features-icon"> <i class="fa fa-trophy"></i> </div>
+                            <div class="features-info">
+                              <h4>Creative Design</h4>
+                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum.
+                              </p>
+                            </div>
+                          </div>
+
+                          <!--Features Item #3-->
+                          <div class="features-item">
+                            <div class="features-icon"> <i class="fa fa-tag"></i> </div>
+                            <div class="features-info">
+                              <h4>Awesome Theme</h4>
+                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum.
+                              </p>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                      <!--End Features Left-->
+
+                      <!--Start Features Image
                                          <div class="col-md-4 hidden-xs m-bot-30">
                                               <img src="images/device.png" alt="Features Image" />
                                          </div>-->
-                                         <!--End Features Image-->
+                      <!--End Features Image-->
 
-                                         <!--Start Features Right-->
-                                         <div class="col-md-4">
-                                             <div class="features-right m-bot-30">
-                                               <!--Features Item #1-->
-                                              <div class="features-item">
-                                                  <div class="features-icon"> <i class="fa fa-eyedropper"></i> </div>
-                                                  <div class="features-info">
-                                                     <h4>Strategy Solutions</h4>
-                                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum.</p>
-                                                  </div>
-                                              </div>
+                      <!--Start Features Right-->
+                      <div class="col-md-4">
+                        <div class="features-right m-bot-30">
+                          <!--Features Item #1-->
+                          <div class="features-item">
+                            <div class="features-icon"> <i class="fa fa-eyedropper"></i> </div>
+                            <div class="features-info">
+                              <h4>Strategy Solutions</h4>
+                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum.
+                              </p>
+                            </div>
+                          </div>
 
-                                              <!--Features Item #2-->
-                                              <div class="features-item">
-                                                  <div class="features-icon"> <i class="fa fa-search-plus"></i> </div>
-                                                  <div class="features-info">
-                                                     <h4>App Development</h4>
-                                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum.</p>
-                                                  </div>
-                                              </div>
+                          <!--Features Item #2-->
+                          <div class="features-item">
+                            <div class="features-icon"> <i class="fa fa-search-plus"></i> </div>
+                            <div class="features-info">
+                              <h4>App Development</h4>
+                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum.
+                              </p>
+                            </div>
+                          </div>
 
-                                              <!--Features Item #3-->
-                                              <div class="features-item">
-                                                  <div class="features-icon"> <i class="fa fa-send-o"></i> </div>
-                                                  <div class="features-info">
-                                                     <h4>HTML5 & CSS3</h4>
-                                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum.</p>
-                                                  </div>
-                                              </div>
+                          <!--Features Item #3-->
+                          <div class="features-item">
+                            <div class="features-icon"> <i class="fa fa-send-o"></i> </div>
+                            <div class="features-info">
+                              <h4>HTML5 & CSS3</h4>
+                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum.
+                              </p>
+                            </div>
+                          </div>
 
-                                             </div>
-                                         </div>
-                                         <!--End Features Right -->
-                                      </div>
+                        </div>
+                      </div>
+                      <!--End Features Right -->
+                    </div>
 
-                                  </div>
+                  </div>
 
-                                      <div class="tab-pane" id="tab-content-4">
+                  <div class="tab-pane" id="tab-content-4">
 
-                                          <div class="tab-content-4">
+                    <div class="tab-content-4">
 
-                                              <div class="col-md-3">
-                                                  <div class="tab4-services-box">
-                                                    <div class="icon"><i class="fa fa-fire"></i> </div>
-                                                      <div class="info">
-                                                          <h4>Mapeamento do aumento uso de agrotóxicos no Brasil entre 2010 e 2019:</h4>
-                                                          <p> Com exceção do Rio de Janeiro, em todos os estados do Brasil houve aumento no volume de agrotóxicos consumidos.
-                                                              A região de destaque para este aumento foi a Amazônia, nos estados do Tocantins e do Pará esse aumento foi superior a 260%.</p>
-                                                      </div>
-                                                  </div>
-                                              </div>
-
-
-
-                                              <div class="col-md-3">
-                                                  <div class="tab4-services-box">
-                                                    <div class="icon"><i class="fa fa-fire"></i> </div>
-                                                      <div class="info">
-                                                          <h4>O desmatamento na Amazônia* (de acordo com IBGE e Prodes ) chegou, em alguns municípios, a um desmatamento superior a 45% da área do próprio município. </h4>
-                                                          <p>Os estados com destaque foram Amazonas e Pará.</p>
-                                                      </div>
-                                                  </div>
-                                              </div>
-
-                                              <div class="col-md-3">
-                                                  <div class="tab4-services-box">
-                                                    <div class="icon"><i class="fa fa-fire"></i> </div>
-                                                      <div class="info">
-                                                          <h4>O desmatamento e conversão no Cerrado* (de acordo com IBGE e Prodes) avançou em quase todos os estados que compõem este bioma, sendo que no Tocantins foram desmatados mais de 19 mil km² e na Bahia mais de 11 mil km².</h4>
-                                                          <p></p>
-                                                      </div>
-                                                  </div>
-                                              </div>
-
-                                              <div class="col-md-3">
-                                                  <div class="tab4-services-box">
-                                                    <div class="icon"><i class="fa fa-fire"></i> </div>
-                                                      <div class="info">
-                                                          <h4>Mapeamento do aumento das intoxicações por agrotóxicos no Brasil.</h4>
-                                                          <p>- Entre 2010 e 2019 o número de intoxicações por agrotóxicos registradas no Brasil mais do que duplicou. Saltou de 2300 casos para mais de 5100 casos.
-                                                            - A região de maior destaque foi a Amazônia, sendo que em todos os estados da região Norte houve aumento significativo no número de intoxicações.</p>
-                                                      </div>
-                                                  </div>
-                                              </div>
-
-                                              <div class="col-md-3">
-                                                <div class="tab4-services-box">
-
-                                                    <div class="info">
-                                                        <h4>Dentre os grupos mais vulneráveis, entre 2010 e 2019, o número registros de gestantes contaminadas por agrotóxicos foi de 293, e o número de bebês (0 a 12 meses) intoxicados por agrotóxicos foi de 543.   </h4>
-                                                        <p></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <div class="tab4-services-box">
-
-                                                    <div class="info">
-                                                        <h4>O ingrediente ativo Atrazina (proibido na UE em função da sua toxicidade) teve o uso aumentado significativamente no Brasil.</h4>
-                                                        <p>- A região onde esse crescimento foi mais expressivo foi na Amazônia Legal (no estado do Tocantins, por exemplo, o uso de Atrazina aumentou 1127% )</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <div class="tab4-services-box">
-
-                                                    <div class="info">
-                                                        <h4>A Amazônia Brasileira liderou o aumento do uso de Glifosato.</h4>
-                                                        <p>-Nos estados do Mato Grosso, Tocantins e Roraima esse aumento foi superior a 300%.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <div class="tab4-services-box">
-
-                                                    <div class="info">
-                                                        <h4>Os estados em que mais aumentou o número de propriedades rurais que fazem uso de agrotóxicos nos últimos dez anos são os estados que compõem o chamado “Arco do Desmatamento” da Amazônia Legal brasileira: Maranhão, Tocantins, Mato Grosso, Rondônia e Acre.</h4>
-                                                        <p></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                          </div>
-
-                                      </div>
+                      <div class="col-md-3">
+                        <div class="tab4-services-box">
+                          <div class="icon"><i class="fa fa-fire"></i> </div>
+                          <div class="info">
+                            <h4> {{'hotsite.home.options.analyse.title1' | translate}} </h4>
+                            <p> {{'hotsite.home.options.analyse.text1' | translate}} </p>
+                          </div>
+                        </div>
+                      </div>
 
 
-                                      <div class="tab-pane" id="tab-content-5">
 
-                                          <div class="tab-content-5">
+                      <div class="col-md-3">
+                        <div class="tab4-services-box">
+                          <div class="icon"><i class="fa fa-fire"></i> </div>
+                          <div class="info">
+                            <h4> {{'hotsite.home.options.analyse.title2' | translate}} </h4>
+                            <p> {{'hotsite.home.options.analyse.text2' | translate}} </p>
+                          </div>
+                        </div>
+                      </div>
 
-                                              <div class="col-md-6">
-                                                   <div class="core-features">
+                      <div class="col-md-3">
+                        <div class="tab4-services-box">
+                          <div class="icon"><i class="fa fa-fire"></i> </div>
+                          <div class="info">
+                            <h4> {{'hotsite.home.options.analyse.title3' | translate}} </h4>
+                            <p></p>
+                          </div>
+                        </div>
+                      </div>
 
-                                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod enim a metus adipiscing aliquam. Vestibulum in vestibulum lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod enim a metus adipiscing aliquam. Vestibulum in vestibulum lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod enim a metus adipiscing.</p>
+                      <div class="col-md-3">
+                        <div class="tab4-services-box">
+                          <div class="icon"><i class="fa fa-fire"></i> </div>
+                          <div class="info">
+                            <h4> {{'hotsite.home.options.analyse.title4' | translate}} </h4>
+                            <p> {{'hotsite.home.options.analyse.text3' | translate}} </p>
+                          </div>
+                        </div>
+                      </div>
 
-                                                 <ul class="list">
-                                                      <li>Font-Awesome Integration</li>
-                                                      <li>Multiple unique designs</li>
-                                                      <li>Clean coded, responsive and multipurpose</li>
-                                                      <li>Pages valid on w3c.</li>
-                                                      <li>Well documented.</li>
-                                                      <li>Easy to  customization.</li>
-                                                  </ul>
+                      <div class="col-md-3">
+                        <div class="tab4-services-box">
 
-                                             </div>
-                                              </div>
+                          <div class="info">
+                            <h4> {{'hotsite.home.options.analyse.title5' | translate}} </h4>
+                            <p></p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-3">
+                        <div class="tab4-services-box">
+
+                          <div class="info">
+                            <h4> {{'hotsite.home.options.analyse.title6' | translate}} </h4>
+                            <p> {{'hotsite.home.options.analyse.text4' | translate}} </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-3">
+                        <div class="tab4-services-box">
+
+                          <div class="info">
+                            <h4> {{'hotsite.home.options.analyse.title7' | translate}} </h4>
+                            <p> {{'hotsite.home.options.analyse.text5' | translate}} </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-3">
+                        <div class="tab4-services-box">
+
+                          <div class="info">
+                            <h4> {{'hotsite.home.options.analyse.title8' | translate}} </h4>
+                            <p></p>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
 
 
-                                           <!--   <div class="col-md-6">
+                  <div class="tab-pane" id="tab-content-5">
+
+                    <div class="tab-content-5">
+
+                      <div class="col-md-6">
+                        <div class="core-features">
+
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod enim a metus
+                            adipiscing aliquam. Vestibulum in vestibulum lorem. Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit. Curabitur euismod enim a metus adipiscing aliquam. Vestibulum in vestibulum
+                            lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod enim a
+                            metus adipiscing.</p>
+
+                          <ul class="list">
+                            <li>Font-Awesome Integration</li>
+                            <li>Multiple unique designs</li>
+                            <li>Clean coded, responsive and multipurpose</li>
+                            <li>Pages valid on w3c.</li>
+                            <li>Well documented.</li>
+                            <li>Easy to customization.</li>
+                          </ul>
+
+                        </div>
+                      </div>
+
+
+                      <!--   <div class="col-md-6">
                                                   <div class="devices-image">
                                                       <img src="images/device-desktop.png" alt=""/>
                                                   </div>
                                               </div> -->
 
-                                          </div>
-
-                                      </div>
-
-                                  </div>
-                              </div>
-                        </div>
-                      <!--/.tab-content-main-->
-                  </div>
-              </div>
-
-          </div> <!--/.row-->
-    </div> <!--/.container-->
-</section>
-<!--End Section-->
-
-
-
-
-
-
-   <!--Start Contact-->
-   <section id="contact" class="section parallax">
-      <div class="overlay"></div>
-       <div class="container">
-           <div class="row">
-
-                 <div class="title-box text-center white">
-                    <h2 class="title">Contato</h2>
-                 </div>
-             </div>
-
-               <!--Start contact form-->
-               <div class="col-md-8 col-md-offset-2 contact-form">
-
-                    <div class="contact-info text-center">
-                       <p>Entre em contato </p>
-                       <p>a definir email</p>
                     </div>
 
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <!--/.tab-content-main-->
+          </div>
+        </div>
+
+      </div>
+      <!--/.row-->
+    </div>
+    <!--/.container-->
+  </section>
+  <!--End Section-->
 
 
-               </div>
-              <!--End contact form-->
-
-       </div> <!-- /.container-->
-   </section>
-   <!--End Contact-->
 
 
-   <!--Start Footer-->
-   <footer>
-       <div class="container">
-           <div class="row">
-               <!--Start copyright-->
-               <div class="col-md-6 col-sm-6 col-xs-6">
-                   <!-- <div class="copyright"><p>Copyright © 2016 All Rights reserved by: <a href="http://templatestock.co">Template Stock</a> -->
 
-                    <div class="copyright"><p> © 2021 Plataforma de Agrotóxicos. Todos os direitos reservados.
 
-                 </p></div>
-               </div>
-               <!--End copyright-->
+  <!--Start Contact-->
+  <!-- <section id="contact" class="section parallax">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
 
-               <!--start social icons-->
-              <!--  <div class="col-md-6 col-sm-6 col-xs-6">
+        <div class="title-box text-center white">
+          <h2 class="title">Contato</h2>
+        </div>
+      </div> -->
+
+  <!--Start contact form-->
+  <!-- <div class="col-md-8 col-md-offset-2 contact-form">
+
+        <div class="contact-info text-center">
+          <p>Entre em contato </p>
+          <p>a definir email</p>
+        </div>
+
+
+
+      </div> -->
+  <!--End contact form
+
+    </div>  /.container-->
+  <!-- </section> -->
+  <!--End Contact-->
+
+
+  <!--Start Footer-->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <!--Start copyright-->
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <!-- <div class="copyright"><p>Copyright © 2016 All Rights reserved by: <a href="http://templatestock.co">Template Stock</a> -->
+
+          <div class="copyright">
+            <p> © 2022 {{'hotsite.home.options.footerData' | translate}}
+
+            </p>
+          </div>
+        </div>
+        <!--End copyright-->
+
+        <!--start social icons-->
+        <!--  <div class="col-md-6 col-sm-6 col-xs-6">
                    <div class="social-icons">
                        <ul>
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -672,15 +666,13 @@
                        </ul>
                     </div>
                </div> -->
-               <!--End social icons-->
-           </div> <!-- /.row-->
-       </div> <!-- /.container-->
-   </footer>
-   <!--End Footer-->
+        <!--End social icons-->
+      </div> <!-- /.row-->
+    </div> <!-- /.container-->
+  </footer>
+  <!--End Footer-->
 
-   <a href="#" class="scrollup"> <i class="fa fa-chevron-up"> </i> </a>
-
-
- </body>
+  <a href="#" class="scrollup"> <i class="fa fa-chevron-up"> </i> </a>
 
 
+</body>
