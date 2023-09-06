@@ -118,6 +118,10 @@ jobs:
             201) create_status_text="OK";;
             *) create_status_text="ERROR";;
           esac
+          
+          echo "del $delete_status"
+          echo "creat $create_status"
+          
           echo "CREATE_STATUS=$create_status_text" >> "$GITHUB_OUTPUT"
           echo "DELETE_STATUS=$delete_status_text" >> "$GITHUB_OUTPUT"
 
@@ -129,6 +133,8 @@ jobs:
             204) start_status_text="OK";;
             *) start_status_text="ERROR";;
           esac
+          echo $start_status
+          
           echo "START_STATUS=$start_status_text" >> "$GITHUB_OUTPUT"
   
 
@@ -165,12 +171,12 @@ jobs:
 
       - name: creat message to Discord
         run: |
-          if [[ "${{ needs.build-and-deploy.result }}" == "success" && "$START_STATUS" == "204" && "$DELETE_STATUS" == "204" && "$CREATE_STATUS" == "201"  ]]; then
+          if [[ "${{ needs.build-and-deploy.result }}" == "success" && "$START_STATUS" == "OK" && "$DELETE_STATUS" == "OK" && "$CREATE_STATUS" == "OK"  ]]; then
             echo "avatar_url=${{vars.LAPIG_SUCCESS}}" >> $GITHUB_ENV
           else
             echo "avatar_url=${{vars.LAPIG_ERROR}}" >> $GITHUB_ENV
           fi
-          echo "discordDesc=Result: ${{ needs.build-and-deploy.result }}\n Project: $LAPIG_PROJECT_NAME\n Commit: $LAST_COMMIT_HASH\n Author: $LAPIG_AUTHOR_NAME\n Author_Email: $LAPIG_AUTHOR_EMAIL\n Date: $LAPIG_COMMIT_DATE\n Delete Status: $delete_status\n Create Status: $create_status\n Start Status: $start_status\n Duration: $LAPIG_DURATION seconds" >> $GITHUB_ENV
+          echo "discordDesc=Result: ${{ needs.build-and-deploy.result }}\n Project: $LAPIG_PROJECT_NAME\n Commit: $LAST_COMMIT_HASH\n Author: $LAPIG_AUTHOR_NAME\n Author_Email: $LAPIG_AUTHOR_EMAIL\n Date: $LAPIG_COMMIT_DATE\n    Delete Status: $DELETE_STATUS\n    Create Status: $CREATE_STATUS\n    Start Status: $START_STATUS\nDuration: $LAPIG_DURATION seconds" >> $GITHUB_ENV
 
           echo "discordFooter=${{ github.workflow }} (#${{ github.run_number }})" >> $GITHUB_ENV
           echo "discordTitle=${{ github.workflow }} (build #${{ github.run_number }})" >> $GITHUB_ENV
