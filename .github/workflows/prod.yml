@@ -10,6 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REGISTRYSERVER: ${{secrets.REGISTRYPROD}}
+      SERVER_KNOWN: ${{secrets.SERVER_PROD_KNOWN}}
+      DOCKER_SERVER: ${{secrets.SERVER_PROD}}
+      SSH_SERVER: ${{secrets.SERVER_PROD_SSH}}
+      DOCKER_PATH: "prod"
+      
 
     outputs:
       START_TIME: ${{ steps.creat_env.outputs.START_TIME }}
@@ -74,7 +79,7 @@ jobs:
 
       - name: Build Docker
         run: |
-          docker build -t $REGISTRYSERVER/$application_name:${LAST_COMMIT_HASH} -t $REGISTRYSERVER/$application_name:latest  -f docker/prod/Dockerfile . --no-cache
+          docker build -t $REGISTRYSERVER/$application_name:${LAST_COMMIT_HASH} -t $REGISTRYSERVER/$application_name:latest  -f docker/$DOCKER_PATH/Dockerfile . --no-cache
 
 
       - name: Login to Docker Registry
@@ -94,21 +99,21 @@ jobs:
       - name: Add SSH key to known_hosts
         run: |
           mkdir -p ~/.ssh
-          ssh-keyscan -t rsa ${{secrets.SERVER_PROD_KNOWN}} >> ~/.ssh/known_hosts  2>/dev/null 
+          ssh-keyscan -t rsa SERVER_KNOWN >> ~/.ssh/known_hosts  2>/dev/null 
           chmod 644 ~/.ssh/known_hosts
           echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa 
           chmod 600 ~/.ssh/id_rsa
 
       - name: Pull Image on Server
         run: |
-          ssh ${{secrets.SERVER_PROD_SSH}} "docker pull $REGISTRYSERVER/$application_name:latest"
+          ssh $SSH_SERVER "docker pull $REGISTRYSERVER/$application_name:latest"
 
 
       - name: Deploy Container
         id: deploy_container
         run: |
-          delete_status=$(ssh ${{secrets.SERVER_PROD_SSH}} "curl -v -X DELETE -w "%{http_code}"  http://${{secrets.SERVER_PROD}}/containers/$application_name?force=true  2>/dev/null")  
-          create_status=$(ssh ${{secrets.SERVER_PROD_SSH}} "curl -v -X POST -H 'Content-Type: application/json' -d @${{secrets.CONFIG_FILES}}$application_name.json -s -o /dev/null -w "%{http_code}"  http://${{secrets.SERVER_PROD}}/containers/create?name=$application_name  2>/dev/null")  
+          delete_status=$(ssh $SSH_SERVER "curl -v -X DELETE -w "%{http_code}"  http://$DOCKER_SERVER/containers/$application_name?force=true  2>/dev/null")  
+          create_status=$(ssh $SSH_SERVER "curl -v -X POST -H 'Content-Type: application/json' -d @${{secrets.CONFIG_FILES}}$application_name.json -s -o /dev/null -w "%{http_code}"  http://$DOCKER_SERVER/containers/create?name=$application_name  2>/dev/null")  
           case $delete_status in
             204) delete_status_text="OK";;
             *) delete_status_text="ERROR";;
@@ -128,7 +133,7 @@ jobs:
       - name: Start Container
         id: start_container
         run: |
-          start_status=$(ssh ${{secrets.SERVER_PROD_SSH}} "curl -v -X POST -s -o /dev/null -w "%{http_code}"   http://${{secrets.SERVER_PROD}}/containers/$application_name/start  2>/dev/null") 
+          start_status=$(ssh $SSH_SERVER "curl -v -X POST -s -o /dev/null -w "%{http_code}"   http://$DOCKER_SERVER/containers/$application_name/start  2>/dev/null") 
           case $start_status in
             204) start_status_text="OK";;
             *) start_status_text="ERROR";;
@@ -173,16 +178,37 @@ jobs:
         run: |
           if [[ "${{ needs.build-and-deploy.result }}" == "success" && "$START_STATUS" == "OK" && "$DELETE_STATUS" == "OK" && "$CREATE_STATUS" == "OK"  ]]; then
             echo "avatar_url=${{vars.LAPIG_SUCCESS}}" >> $GITHUB_ENV
+            status_geral="Sucesso"
           else
             echo "avatar_url=${{vars.LAPIG_ERROR}}" >> $GITHUB_ENV
+            status_geral="Falhou"
           fi
-          echo "discordDesc=Result: ${{ needs.build-and-deploy.result }}\n Project: $LAPIG_PROJECT_NAME\n Commit: $LAST_COMMIT_HASH\n Author: $LAPIG_AUTHOR_NAME\n Author_Email: $LAPIG_AUTHOR_EMAIL\n Date: $LAPIG_COMMIT_DATE\n    Delete Status: $DELETE_STATUS\n    Create Status: $CREATE_STATUS\n    Start Status: $START_STATUS\nDuration: $LAPIG_DURATION seconds" >> $GITHUB_ENV
+          
+          case $START_STATUS in
+            "OK") START_STATUS_D="{ \"title\": \"DOCKER START OK!\",\"color\": 65280},";;
+            *) START_STATUS_D="{ \"title\": \"DOCKER START ERROR!\",\"color\": 16711680},";;
+          esac
+          
+          case $DELETE_STATUS in
+            "OK") DELETE_STATUS_D="{ \"title\": \"DOCKER DELETE OK!\",\"color\": 65280},";;
+            *) DELETE_STATUS_D="{ \"title\": \"DOCKER DELETE ERROR!\",\"color\": 16711680},";;
+          esac
+          
+          case $CREATE_STATUS in
+            "OK") CREATE_STATUS_D="{ \"title\": \"DOCKER CREATE OK!\",\"color\": 65280},";;
+            *) CREATE_STATUS_D="{ \"title\": \"DOCKER CREATE ERROR!\",\"color\": 16711680},";;
+          esac
+          
+          echo "EMBEDS_STATUS=$DELETE_STATUS_D $CREATE_STATUS_D $START_STATUS_D" >> $GITHUB_ENV
+          
+          
+          echo "discordDesc=Result: $status_geral\nProject: $LAPIG_PROJECT_NAME\nCommit: $LAST_COMMIT_HASH\nAuthor: $LAPIG_AUTHOR_NAME\nAuthor_Email: $LAPIG_AUTHOR_EMAIL\nDate: $LAPIG_COMMIT_DATE\nDuration: $LAPIG_DURATION seconds" >> $GITHUB_ENV
 
           echo "discordFooter=${{ github.workflow }} (#${{ github.run_number }})" >> $GITHUB_ENV
           echo "discordTitle=${{ github.workflow }} (build #${{ github.run_number }})" >> $GITHUB_ENV
 
       - name: Send menssage to Discord
         run: |
-          echo "{\"content\": \"$discordTitle\", \"embeds\": [ { \"title\": \"$discordTitle\", \"description\": \"$discordDesc\", \"footer\": { \"text\": \"$discordFooter\" } } ], \"username\": \"GitHub Actions\", \"avatar_url\": \"$avatar_url\" }"
-          curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$discordTitle\", \"embeds\": [ { \"title\": \"$discordTitle\", \"description\": \"$discordDesc\", \"footer\": { \"text\": \"$discordFooter\" } } ], \"username\": \"GitHub Actions\", \"avatar_url\": \"$avatar_url\" }" https://discord.com/api/webhooks/${{ secrets.DISCORD_KEY }}
+          echo "{\"content\": \"$discordTitle\", \"embeds\": [ { \"title\": \"$discordTitle\", \"description\": \"$discordDesc\", \"footer\": { \"text\": \"$discordFooter\" }  \"thumbnail\": { \"url\":\"$avatar_url\"} }, $EMBEDS_STATUS] ], \"username\": \"GitHub Actions\", \"avatar_url\": \"$avatar_url\" }
+          curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$discordTitle\", \"embeds\": [ { \"title\": \"$discordTitle\", \"description\": \"$discordDesc\", \"footer\": { \"text\": \"$discordFooter\" }  \"thumbnail\": { \"url\":\"$avatar_url\"} }, $EMBEDS_STATUS] ], \"username\": \"GitHub Actions\", \"avatar_url\": \"$avatar_url\" }" https://discord.com/api/webhooks/${{ secrets.DISCORD_KEY }}
             
