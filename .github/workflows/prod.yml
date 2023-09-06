@@ -99,7 +99,7 @@ jobs:
       - name: Add SSH key to known_hosts
         run: |
           mkdir -p ~/.ssh
-          ssh-keyscan -t rsa SERVER_KNOWN >> ~/.ssh/known_hosts  2>/dev/null 
+          ssh-keyscan -t rsa $SERVER_KNOWN >> ~/.ssh/known_hosts  2>/dev/null 
           chmod 644 ~/.ssh/known_hosts
           echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa 
           chmod 600 ~/.ssh/id_rsa
@@ -209,6 +209,6 @@ jobs:
 
       - name: Send menssage to Discord
         run: |
-          echo "{\"content\": \"$discordTitle\", \"embeds\": [ { \"title\": \"$discordTitle\", \"description\": \"$discordDesc\", \"footer\": { \"text\": \"$discordFooter\" }  \"thumbnail\": { \"url\":\"$avatar_url\"} }, $EMBEDS_STATUS] ], \"username\": \"GitHub Actions\", \"avatar_url\": \"$avatar_url\" }
-          curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$discordTitle\", \"embeds\": [ { \"title\": \"$discordTitle\", \"description\": \"$discordDesc\", \"footer\": { \"text\": \"$discordFooter\" }  \"thumbnail\": { \"url\":\"$avatar_url\"} }, $EMBEDS_STATUS] ], \"username\": \"GitHub Actions\", \"avatar_url\": \"$avatar_url\" }" https://discord.com/api/webhooks/${{ secrets.DISCORD_KEY }}
+          echo "{\"content\": \"$discordTitle\", \"embeds\": [ { \"title\": \"$discordTitle\", \"description\": \"$discordDesc\", \"footer\": { \"text\": \"$discordFooter\" },  \"thumbnail\": { \"url\":\"$avatar_url\"} }, $EMBEDS_STATUS] ], \"username\": \"GitHub Actions\", \"avatar_url\": \"$avatar_url\" }"
+          curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$discordTitle\", \"embeds\": [ { \"title\": \"$discordTitle\", \"description\": \"$discordDesc\", \"footer\": { \"text\": \"$discordFooter\" },  \"thumbnail\": { \"url\":\"$avatar_url\"} }, $EMBEDS_STATUS] ], \"username\": \"GitHub Actions\", \"avatar_url\": \"$avatar_url\" }" https://discord.com/api/webhooks/${{ secrets.DISCORD_KEY }}
             
