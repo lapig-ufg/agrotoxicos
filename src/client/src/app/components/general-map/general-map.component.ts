@@ -1212,21 +1212,37 @@ export class GeneralMapComponent implements OnInit, Ruler, AfterContentChecked {
         this.googleAnalyticsService.eventEmitter("DownloadLayer", "Layer", register_event, 1);
       }
     }
+    layer.download.loading = true;
 
-    switch (tipo) {
-      case 'csv':
-        this.downloadCSV(layer, tipo);
-        break;
-      case 'gpkg':
-        this.downloadGPKG(layer, tipo);
-        break;
-      case 'raster':
-        this.downloadRaster(layer, tipo);
-        break;
-      case 'shp':
-        this.downloadSHP(layer, tipo);
-        break;
-    }
+    let parameters = {
+      "layer": layer,
+      "region": this.selectRegion,
+      "filter": this.selectedFilterFromLayerType(layer.valueType),
+      "typeDownload": tipo
+    };
+
+    this.downloadService.downloadFromS3(parameters).subscribe((response) =>{
+      if (response){
+        window.open(response.url,'_blank')
+      }
+      layer.download.loading = false;
+    }, (error) => {
+      let name = ''
+      const pre_fix = 'left_sidebar.layer.'
+      if (error.includes(pre_fix)){
+        name = this.localizationService.translate(error)
+      }else{
+        name = this.localizationService.translate('left_sidebar.layer.down_error_msg', { name: error })
+      }
+
+      this.messageService.add({
+        life: 2000,
+        severity: 'error',
+        summary: this.localizationService.translate('left_sidebar.layer.down_error_title'),
+        detail:name
+      });
+      layer.download.loading = false;
+    });
   }
 
   drop(event: CdkDragDrop<string[]>) {
