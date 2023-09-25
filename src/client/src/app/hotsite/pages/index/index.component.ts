@@ -46,7 +46,7 @@ export class IndexComponent implements OnInit {
 
     setTimeout(function () {
       $('.home .flexslider').height($(window).height()).flexslider({
-        slideshowSpeed: 6000,
+        slideshowSpeed: 9000,
         after: function (slider) {
           $('.flexslider .big, .flexslider .middle, .flexslider .small').css('opacity', 0);
           var next = $('.flex-active-slide', slider);
