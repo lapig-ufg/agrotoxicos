@@ -9,12 +9,12 @@ export const environment = {
 
   OWS_API: 'https://ows.lapig.iesa.ufg.br/api',
   OWS: 'https://ows.lapig.iesa.ufg.br',
-  OWS_O1: "https://o6.lapig.iesa.ufg.br/ows",
-  OWS_O2: "https://o7.lapig.iesa.ufg.br/ows",
-  OWS_O3: "https://o8.lapig.iesa.ufg.br/ows",
-  OWS_O4: "https://o5.lapig.iesa.ufg.br/ows",
+  OWS_O1: "https://o1.lapig.iesa.ufg.br/ows",
+  OWS_O2: "https://o2.lapig.iesa.ufg.br/ows",
+  OWS_O3: "https://o3.lapig.iesa.ufg.br/ows",
+  OWS_O4: "https://o4.lapig.iesa.ufg.br/ows",
   LAPIG_DOWNLOAD_API: 'https://download.lapig.iesa.ufg.br',
-  APP_URL: 'https://agrotoxicosdev.lapig.iesa.ufg.br'
+  APP_URL: 'https://agrotoxicos.lapig.iesa.ufg.br'
 };
 
 /*

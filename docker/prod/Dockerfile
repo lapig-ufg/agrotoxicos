@@ -1,4 +1,4 @@
-FROM registry.lapig.iesa.ufg.br/lapig-images-prod/app_agrotoxico:base
+FROM lapig/app_agrotoxico:base
 
 # Clone app and npm install on server
 ENV URL_TO_APPLICATION_GITHUB="https://github.com/lapig-ufg/agrotoxicos.git"
