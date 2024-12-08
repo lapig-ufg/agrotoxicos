@@ -5,7 +5,6 @@
     "main": "app.js",
     "dependencies": {
         "adm-zip": "^0.5.9",
-        "always": "^2.2.0",
         "app-root-path": "^3.0.0",
         "archiver": "^5.3.0",
         "async": "~3.2.2",
@@ -69,5 +68,8 @@
     },
     "repository": "",
     "author": "",
-    "license": "BSD"
+    "license": "BSD",
+    "devDependencies": {
+        "always": "^2.2.0"
+    }
 }
