@@ -568,7 +568,8 @@
         "subtitle1": "Apoio: WWF",
         "subtitle2": "Concepção e Coordenação Geral: LARISSA BOMBARDI",
         "subtitle3": "Coordenação Cartográfica e Técnica: PABLO NEPOMUCENO",
-        "subtitle4": "Desenvolvimento Digital e Design: LAPIG"
+        "subtitle4": "Desenvolvimento Digital e Design: LAPIG/UFG",
+        "subtitle5": "Apoio: Fiocruz"
       },
       "abstract": {
         "title": "Sobre",
@@ -582,7 +583,7 @@
         "text6": "Com estas sobreposições, ficam ainda mais claras as interações entre diversos indicadores associados a problemas socioambientais como, por exemplo: o desmatamento, os conflitos no campo, o aumento dos casos de intoxicações por agrotóxicos de uso agrícola, as intoxicações por meio de pulverização aérea, a diminuição da área destinada à produção de gêneros voltados à alimentação da população brasileira, dentre outros elementos fundamentais para a compreensão do tema do uso de agrotóxicos de uma forma ampliada.",
         "readmore1":"O WebAtlas dos Agrotóxicos tem como horizonte subsidiar a população com informações gráficas, cartográficas e infográficas sobre a condição do uso e do impacto dos agrotóxicos na saúde humana e na saúde ambiental. Visa, ainda, fornecer informações seguras e oficiais para que setores da sociedade civil organizada e, também o poder público, tenham elementos para a elaboração de políticas públicas e projetos voltados à segurança e soberania alimentar, à melhoria da saúde humana e da saúde ambiental. Objetiva, também, fornecer elementos concretos para a oposição e desenvolvimento de marcos regulatórios municipais, estaduais, federais e internacionais, no que diz respeito ao uso de agrotóxicos, às suas formas de aplicação, aos seus resíduos, e, no limite, às formas de superação e de limitação de seu uso. No WebAtlas dos Agrotóxicos o usuário poderá escolher a base cartográfica em que verá representado o fenômeno escolhido, por exemplo: intoxicações por agrotóxicos nas regiões brasileiras ou em municípios específicos, ou ainda, por biomas ou por eco regiões. O histórico do WebAtlas remete ao Atlas",
         "readmore2HREF": "“Geografia do Uso de Agrotóxicos no Brasil e Conexões com a União Europeia”",
-        "readmore3": "de autoria da Profa Dra Larissa Bombardi e publicado pela Faculdade de Filosofia, Letras e Ciências Humanas. Esta obra, pela primeira vez, trouxe ao público de forma cartografada a realidade do uso e do impacto dos agrotóxicos no Brasil."
+        "readmore3": "de autoria da Profa Dra Larissa Bombardi e publicado pela Faculdade de Filosofia, Letras e Ciências Humanas. Esta obra, pela primeira vez, trouxe ao público de forma cartografada a realidade do uso e do impacto dos agrotóxicos no Brasil. Agora, o WebAtlas traz ao público a possibilidade de acessar o conjunto de cartogramas de forma interativa."
       },
       "options": {
         "method": {

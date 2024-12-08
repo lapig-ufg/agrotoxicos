@@ -827,23 +827,20 @@ section {
 }
 
 .slider-text-wrapper {
-	position: absolute;
-	display: inline-block;
-	width: 100%;
-	/* height: 250px; */
-	top: 50%;
-	left: 0;
-	margin-top: -250px;
-	text-align: center;
-	z-index:9999;
+  position: absolute;
+  top: 150px; /* Posiciona o container a 100px do topo da página */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 9999;
 }
 
 .slider-text-wrapper .btn {
-	display: inline-block;
-	margin-top: 60px;
-	border:2px solid #FFF;
-	background:transparent;
-	color:#FFF;
+  display: inline-block;
+  margin-top: 60px; /* Ajuste o espaçamento entre o botão e o texto */
+  border: 2px solid #FFF;
+  background: transparent;
+  color: #FFF;
 }
 
 .flex-control-nav {
@@ -919,22 +916,169 @@ section {
 	color: #fff;
 }
 
-.slider-overlay {
-	/* background:url("../images/pattern.png") repeat rgba(0, 0, 0, .4); */
-	background:rgba(0, 0, 0, .4);
-	position: absolute;
-	left: 0;
-	top: 0;
-	right: 0;
-	z-index: 100;
-	width: 100%;
-	height: 920px;
-}
+
 
 
 /*-----------------------------------------------------------------*/
 /*  Flexslider
 /*-----------------------------------------------------------------*/
+
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: -320px; /* Ajuste conforme necessário */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  text-align: center; /* Alinha o texto centralmente */
+}
+
+.logos-container {
+  position: absolute;
+  bottom: 10px; /* Ajuste a distância do fundo */
+  right: 20px;  /* Ajuste a distância da direita */
+  display: flex;
+  justify-content: space-between;
+  width: 150px; /* Ajuste a largura conforme necessário */
+  z-index: 10000;
+}
+
+.logo {
+  max-height: 40px; /* Tamanho fixo para as logos */
+  max-width: 100%;
+  margin-left: 10px; /* Espaçamento entre as logos */
+}
+
+.credits-container {
+
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+  color: #fff; /* Texto branco para mais destaque */
+  border-radius: 10px; /* Bordas arredondadas */
+  font-size: 14px; /* Ajuste o tamanho da fonte */
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra para dar destaque */
+  z-index: 11000000; /* Garantir que a div de créditos fique sobre as logos */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7); /* Efeito de brilho no texto */
+}
+
+
+
+.credits-container p {
+  margin: 5px 0;
+}
+
+.credits-container strong {
+  font-weight: bold;
+}
+
+.titlemain {
+  color:white !important;font-size:31px !important;
+    font-weight: bold !important;
+    margin-bottom: 10px !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6) !important; /* Sombra no texto */
+}
+.bannertextMain {
+  color:white !important;font-size:18px !important;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.custom-flexslider {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  background-color: rgba(39, 2, 37);
+  overflow: hidden;
+  height: 100vh;
+}
+
+.custom-flexslider .slides > li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+}
+
+.custom-flexslider .slides .slide-text {
+  font-size: 18px;
+  color: #fff;
+}
+
+.custom-flexslider a:active, .custom-flexslider a:focus {
+  outline: none;
+}
+
+@media (max-width: 768px) {
+
+  .credits-container {
+    bottom: 50px;
+    right: 10px;
+    width: 200px;
+    font-size: 12px; /* Tamanho da fonte no mobile */
+  }
+
+  .logo {
+
+  }
+
+  .titleMain {
+    color:white !important;font-size:15px !important;
+  }
+  .bannertextMain {
+    color:white !important;font-size:12px !important;
+  }
+
+
+  .custom-flexslider {
+    height: 115vh;
+  }
+
+  .custom-flexslider .slides > li {
+    font-size: 18px;
+  }
+
+  .custom-flexslider .slides .slide-text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 375px) {
+
+  .credits-container {
+    bottom: 40px;
+    right: 5px;
+    width: 180px;
+    font-size: 11px;
+  }
+
+  .logo {
+
+  }
+
+  .titleMain {
+    color:white !important;font-size:15px !important;
+  }
+  .bannertextMain {
+    color:white !important;font-size:12px !important;
+  }
+
+  .custom-flexslider {
+    height: 150vh;
+  }
+
+  .custom-flexslider .slides > li {
+    font-size: 16px;
+  }
+
+  .custom-flexslider .slides .slide-text {
+    font-size: 12px;
+  }
+}
 
 
 .flex-container a:active, .flexslider a:active, .flex-container a:focus, .flexslider a:focus {
@@ -2927,16 +3071,7 @@ footer {
  .thumnail-img {
 	width:50%;
 }
-.slider-overlay {
-	/* background:url("../images/pattern.png") repeat rgba(0, 0, 0, .4); */
-	background:rgba(0, 0, 0, .0);
-	position: absolute;
-	left: 0;
-	top: 0;
-	right: 0;
-	z-index: -100;
-	width: 100%;
-}
+
 
 }
 

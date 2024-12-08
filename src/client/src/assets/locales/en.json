@@ -567,7 +567,8 @@
         "subtitle1": "Support: WWF",
         "subtitle2": "Conception and Coordination: LARISSA BOMBARDI",
         "subtitle3": "Cartographic and Technical Coordination: PABLO NEPOMUCENO",
-        "subtitle4": "Digital Development and Design: LAPIG"
+        "subtitle4": "Digital Development and Design: LAPIG/UFG",
+        "subtitle5": "Support: Fiocruz"
       },
       "abstract": {
         "title": "About",
@@ -581,7 +582,7 @@
         "text6": "With these overlaps, the interactions between different indicators associated with socio-environmental problems, such as, for example: deforestation, conflicts in the countryside, the increase in cases of poisoning by agricultural pesticides, poisoning through aerial spraying, the reduction of the area destined to the production of products aimed at feeding the Brazilian population, among other fundamental elements for the understanding of the theme of the use of pesticides in a broader way.",
         "readmore1":"The Agrotoxic WebAtlas aims to provide the population with graphic, cartographic and infographic information on the condition of use and the impact of pesticides on human and environmental health. It also aims to provide safe and official information so that sectors of organized civil society and also the public power have elements for the elaboration of public policies and projects aimed at food safety and sovereignty, the improvement of human health and environmental health. It also aims to provide concrete elements for the opposition and development of municipal, state, federal and international regulatory frameworks, with regard to the use of pesticides, their forms of application, their residues, and, ultimately, the forms of overcoming and limiting its use. In the WebAtlas dos Agrotoxics, the user can choose the cartographic base in which the chosen phenomenon will be represented, for example: poisoning by pesticides in Brazilian regions or in specific municipalities, or even by biomes or eco regions. WebAtlas history goes back to Atlas",
         "readmore2HREF": "“Geography of Pesticides Use in Brazil and Connections with the European Union”",
-        "readmore3": "authored by Prof. Dra Larissa Bombardi and published by the Faculty of Philosophy, Letters and Human Sciences. This work, for the first time, brought to the public in a mapped way the reality of the use and impact of pesticides in Brazil."
+        "readmore3": "authored by Prof. Dra Larissa Bombardi and published by the Faculty of Philosophy, Letters and Human Sciences. This work, for the first time, brought to the public in a mapped way the reality of the use and impact of pesticides in Brazil. Now, WebAtlas offers the public the possibility of accessing the set of cartograms interactively."
       },
       "options": {
         "method": {
