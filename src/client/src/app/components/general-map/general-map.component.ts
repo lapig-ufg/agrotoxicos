@@ -56,7 +56,7 @@ import { environment } from "../../../environments/environment";
 import { GoogleAnalyticsService } from "../services/google-analytics.service";
 import { GalleryService } from '../services/gallery.service';
 
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+//pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-general-map',
