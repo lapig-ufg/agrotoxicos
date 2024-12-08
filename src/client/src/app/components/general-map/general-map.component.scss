@@ -492,8 +492,9 @@
       text-align: center;
       text-overflow: ellipsis;
       width: 195px;
-      white-space: nowrap;
-      overflow: hidden;
+      white-space: normal;
+      word-wrap: break-word;
+      overflow: visible;
     }
 
     i {

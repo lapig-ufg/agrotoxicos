@@ -55,6 +55,7 @@ import turfCentroid from "@turf/centroid";
 import { environment } from "../../../environments/environment";
 import { GoogleAnalyticsService } from "../services/google-analytics.service";
 import { GalleryService } from '../services/gallery.service';
+
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
@@ -740,9 +741,30 @@ export class GeneralMapComponent implements OnInit, Ruler, AfterContentChecked {
     });
   }
 
+  /*setMap(map) {
+    this.map = map;
+    this.map.on('singleclick', (evt) => {
+      this.onDisplayFeatureInfo(evt);
+      const coordinate = evt.coordinate;
+      this.map.getView().setCenter(coordinate);
+    });
+
+    this.onMapReadyLeftSideBar.emit(map);
+    this.onMapReadyRightSideBar.emit(map);
+  } */
+
   setMap(map) {
     this.map = map;
-    this.map.on('singleclick', (evt) => this.onDisplayFeatureInfo(evt));
+    this.map.on('singleclick', (evt) => {
+      this.onDisplayFeatureInfo(evt);
+      const coordinate = evt.coordinate;
+      const offsetX = 50; // Deslocamento horizontal (para a direita)
+      const offsetY = -150; // Deslocamento vertical (para baixo)
+      const pixel = this.map.getPixelFromCoordinate(coordinate);
+      const newPixel = [pixel[0] + offsetX, pixel[1] + offsetY];
+      const newCoordinate = this.map.getCoordinateFromPixel(newPixel);
+      this.map.getView().setCenter(newCoordinate);
+    });
     this.onMapReadyLeftSideBar.emit(map);
     this.onMapReadyRightSideBar.emit(map);
   }
@@ -1945,13 +1967,18 @@ export class GeneralMapComponent implements OnInit, Ruler, AfterContentChecked {
                 this.popupRegion.geojson = featureCollection;
                 this.popupRegion.properties = featureCollection.features[0].properties;
                 const url = `${environment.OWS_API}/map/layerfromname?lang=${this.localizationService.currentLang()}&layertype=municipios_info`;
-                this.httpService.getData(url).subscribe((descriptionLayer: DescriptorType) => {
-                  if (descriptionLayer) {
-                    this.popupRegion.attributes = descriptionLayer.wfsMapCard.attributes;
+
+                this.httpService.getData(url).subscribe(
+                  (descriptionLayer: DescriptorType) => {
+
+                    if (descriptionLayer) {
+                      this.popupRegion.attributes = descriptionLayer.wfsMapCard.attributes;
+                    }
+                  },
+                  (error) => {
+                    console.error('Erro na requisição: ', error);
                   }
-                })
-              }
-            } else {
+                )}}else {
               if (featureCollection && featureCollection.features.length > 0) {
                 featureCollection.features = this.getFeatureToDisplay(this.popupRegion.coordinate, featureCollection.features);
                 featureCollection['expanded'] = true;
@@ -2114,6 +2141,11 @@ export class GeneralMapComponent implements OnInit, Ruler, AfterContentChecked {
   getAttributeValue(type, value) {
     let formattedValue: string | number | null = "";
     const lang = this.localizationService.currentLang();
+
+    if (value == null) {
+      return ''; // Ou outro valor padrão adequado
+    }
+
     switch (type) {
       case 'integer':
         if (lang === 'pt') {
