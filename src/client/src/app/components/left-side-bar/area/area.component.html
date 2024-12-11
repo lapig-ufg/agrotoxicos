@@ -89,7 +89,7 @@
         </div>
       </div>
     </mat-tab>
-    <mat-tab *ngIf="validationMobile()">
+    <mat-tab *ngIf="validationMobile()" disabled>
       <ng-template mat-tab-label>
         <mat-icon>upload</mat-icon>
         {{'area.upload_submit' | translate}}
@@ -99,7 +99,7 @@
 
       <app-file-upload [tooltip]="'area.upload_tooltip' | translate"
         [maxSizeMsg]="'area.upload_max_size_msg'  | translate" [loading]="layerFromUpload.loading"
-        [app_origin]="'app-base'" [language]="lang" [ddarea]="layerFromUpload.dragArea"
+        [app_origin]="'app-agrotoxicos'" [language]="lang" [ddarea]="layerFromUpload.dragArea"
         (complete)="onFileComplete($event)">
       </app-file-upload>
 

@@ -23,7 +23,8 @@ module.exports = function (app) {
 
     /**
     Directory where the code will to put tmp files**/
-    Internal.dirUpload = config.uploadDataDir;
+
+    Internal.dirUpload = config.uploadDir;
 
     Internal.targetFilesName = null;
     Internal.dirTarget = null;
@@ -88,6 +89,7 @@ module.exports = function (app) {
     Internal.extractFiles = async function (zip, callback) {
         let countShps = 0;
         try {
+            
             for await (const entry of zip) {
                 const arrayName = entry.path.split(".");
                 const fileName = arrayName[0];
@@ -135,9 +137,9 @@ module.exports = function (app) {
                         time +
                         "." +
                         extension;
-
+                        
                     let file = fs.createWriteStream(target_path);
-
+                    
                     entry.pipe(file);
 
                     if (Internal.spatialFiles.includes(extension)) {
@@ -152,7 +154,7 @@ module.exports = function (app) {
             console.error("FILE: ", Internal.targetFilesName, " | ERROR: ", e.stack);
             fs.unlinkSync(Internal.tmpPath);
         }
-
+        
         if (!fs.existsSync(Internal.targetFilesName)) {
             Internal.response.status(400).send(languageJson['upload_messages']['no_spatial_file'][Internal.language]);
             fs.unlinkSync(Internal.tmpPath);
@@ -176,7 +178,7 @@ module.exports = function (app) {
                     return;
                 }
                 let geoJson = JSON.parse(data)
-
+                
                 let token = Internal.saveToPostGis(geoJson);
                 geoJson.token = token;
 
@@ -258,6 +260,7 @@ module.exports = function (app) {
     }
 
     Internal.saveToPostGis = function (geojson) {
+        
         let token = new Date().getTime()
         Internal.geojson = geojson;
         Internal.import_feature(token)
@@ -266,6 +269,7 @@ module.exports = function (app) {
     };
 
     Internal.doRequest = function (request, response) {
+        
         /** Reset Variables */
         Internal.targetFilesName = null;
         Internal.dirTarget = null;
