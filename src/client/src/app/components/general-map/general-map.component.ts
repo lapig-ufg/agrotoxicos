@@ -56,7 +56,7 @@ import { environment } from "../../../environments/environment";
 import { GoogleAnalyticsService } from "../services/google-analytics.service";
 import { GalleryService } from '../services/gallery.service';
 
-//pdfMake.vfs = pdfFonts.pdfMake.vfs;
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-general-map',
@@ -1593,6 +1593,7 @@ export class GeneralMapComponent implements OnInit, Ruler, AfterContentChecked {
   obtainSearchSuggestions(event) {
 
     let query = event.query;
+
     if (this.selectedSearchOption.toLowerCase() == 'region') {
 
       this.mapService.getRegions(query).subscribe(result => {

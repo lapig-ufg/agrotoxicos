@@ -275,6 +275,10 @@ module.exports = function (app) {
 
         Internal.app_origin = request.param("app");
 
+
+        //Internal.language = request.query.lang || request.body.lang || request.params.lang;
+        //Internal.app_origin = request.query.app || request.body.app || request.params.app;
+
         Internal.response = response;
 
         /** When using data come in "request.files" regardless of the attribute "shapefile". **/

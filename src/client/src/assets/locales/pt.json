@@ -546,7 +546,7 @@
   "hotsite": {
     "base": {
       "header": {
-        "title": "Web Atlas dos Agrotóxicos",
+        "title": "ATLAS BRASILEIRO DE AGROTÓXICOS",
         "menu": {
           "home": "Home",
           "about": "Sobre",
@@ -557,13 +557,14 @@
       },
       "footer": {
         "contact": "Entre em contato",
-        "copyright": "Atlas das Pastagens Brasileiras. Todos os direitos reservados."
+        "copyright": "Atlas das Pastagens Brasileiras. Todos os direitos reservados.",
+        "email": "Contato: plataformaagrotoxico.br@gmail.com"
       }
     },
     "home": {
       "banner": {
-        "text": "Este é um Atlas online, público e interativo com objetivo de divulgar informações oficiais sobre o impacto do uso dos agrotóxicos no brasil por meio da integração de mapas temáticos. Aqui estão disponíveis conjuntos cartográficos com a visão concreta e espacial do uso de agrotóxicos no brasil, seus impactos, suas raízes e seus temas correlatos.",
-        "text2": "Disponibilizamos, assim, neste ambiente online, conjuntos cartográficos com a representação espacial do uso de agrotóxicos no país, seus impactos e temas corretalos.",
+        "text": "A PLATAFORMA AGROTÓXICOS BRASIL E SEU  ATLAS DIGITAL ESTÃO EM FASE EXPERIMENTAL. O ACESSO PÚBLICO E INTERATIVO TÊM POR  OBJETIVO DIVULGAR INFORMAÇÕES OFICIAIS SOBRE O USO DE AGROTÓXICOS NO BRASIL, SEUS IMPACTOS NA SAÚDE HUMANA E TEMAS CORRELATOS. ",
+        "text2": "INCENTIVAMOS O AMPLO USO DESTA PLATAFORMA ONLINE, MAS NÃO NOS RESPONSABILIZAMOS PELO USO INDEVIDO DOS DADOS E SUAS DIVULGAÇÕES, A PARTIR DE ANÁLISES NÃO APRESENTADAS.",
         "btn": "Acesse o Atlas Online",
         "subtitle1": "Apoio: WWF",
         "subtitle2": "Coordenação Geral: LARISSA BOMBARDI",
@@ -622,7 +623,9 @@
         "methodology": "Geoprocessamento",
         "analysis": "Destaques 2010-2019",
         "dataSubtitle": "Dados",
-        "footerData": "WEB Atlas Agrotóxicos. Todos os direitos reservados"
+        "footerData": "ATLAS BRASILEIRO DE AGROTÓXICOS. Todos os direitos reservados",
+        "email": "Contato: plataformaagrotoxico.br@gmail.com"
+
       },
       "emphasis": {
         "title": "Dados em destaque",
