@@ -1,16 +1,30 @@
 FROM lapig/app_agrotoxico:base
 
-# Clone app and npm install on server
-ENV URL_TO_APPLICATION_GITHUB="https://github.com/lapig-ufg/agrotoxicos.git"
-ENV BRANCH="main"
+ARG GIT_COMMIT=unknown
+ARG BUILD_DATE=unknown
 
-LABEL maintainer="Renato Gomes <renatogomessilverio@gmail.com>"
+LABEL maintainer="Jairo Matos da Rocha <jairo@jairomr.com>" \
+      org.opencontainers.image.version="${GIT_COMMIT}" \
+      org.opencontainers.image.created="${BUILD_DATE}"
 
-RUN cd /APP && git clone -b ${BRANCH} ${URL_TO_APPLICATION_GITHUB}
+RUN apt-get -qq update --fix-missing && \
+    apt-get -qq --yes upgrade && \
+    groupadd -r -g 1000 appuser && \
+    useradd -r -g appuser -u 1000 -m -s /bin/bash appuser && \
+    mkdir -p /app  && \
+    chown -R appuser:appuser /app 
+WORKDIR /app
 
-ADD ./src/server/node_modules /APP/agrotoxicos/src/server/node_modules  
-ADD ./src/client/dist/client /APP/agrotoxicos/src/client/dist/client
+ENV APP_VERSION=${GIT_COMMIT} \
+    BUILD_DATE=${BUILD_DATE}
 
-CMD [ "/bin/bash", "-c", "/APP/src/server/prod-start.sh; tail -f /dev/null"]
+COPY --chown=appuser:appuser ./src/server /app/server/
+COPY --chown=appuser:appuser ./src/client/dist/client /app/client/
+COPY --chown=appuser:appuser ./src/client/assets client/assets/
 
-ENTRYPOINT [ "/APP/Monitora.sh"]
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+    CMD node -e "require('http').get('http://localhost:3000/health', \
+        (r) => process.exit(r.statusCode === 200 ? 0 : 1))" || exit 1
+
+CMD [ "/bin/bash", "-c", "/usr/local/bin/node /app/agrotoxicos/src/server/app-cluster.js"]
+
