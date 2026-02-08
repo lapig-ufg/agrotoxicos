@@ -9,10 +9,7 @@ LABEL maintainer="Jairo Matos da Rocha <jairo@jairomr.com>" \
 
 # Alpine usa 'apk', não 'apt-get'
 # Adiciona bash se não estiver na imagem base
-RUN apk update --no-cache && \
-    apk upgrade --no-cache && \
-    apk add --no-cache bash shadow && \
-    groupadd -r -g 1000 appuser && \
+RUN groupadd -r -g 1000 appuser && \
     useradd -r -g appuser -u 1000 -m -s /bin/bash appuser && \
     mkdir -p /app && \
     chown -R appuser:appuser /app && \
