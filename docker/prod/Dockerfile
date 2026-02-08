@@ -20,7 +20,7 @@ ENV APP_VERSION=${GIT_COMMIT} \
 
 COPY --chown=appuser:appuser ./src/server /app/server/
 COPY --chown=appuser:appuser ./src/client/dist/client /app/client/
-COPY --chown=appuser:appuser ./src/client/assets client/assets/
+COPY --chown=appuser:appuser ./src/client/assets /app/client/assets/
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
     CMD node -e "require('http').get('http://localhost:3000/health', \
