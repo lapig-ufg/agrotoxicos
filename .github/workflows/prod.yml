@@ -42,7 +42,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16.4.2'
+          node-version: '25.6.0'
 
       - name: Build Server and Client
         run: |
