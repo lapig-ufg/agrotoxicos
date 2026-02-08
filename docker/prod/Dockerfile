@@ -1,7 +1,7 @@
 ARG GIT_COMMIT=unknown
 ARG BUILD_DATE=unknown
 
-FROM node:25.6.0-alpine3.23
+FROM node:16.4.2-alpine3.14
 
 ENV APP_VERSION=${GIT_COMMIT} \
     BUILD_DATE=${BUILD_DATE} \
